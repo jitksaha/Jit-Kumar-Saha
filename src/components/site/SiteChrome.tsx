@@ -6,6 +6,9 @@ const links = [
   ["About", "/about"],
   ["Work", "/work"],
   ["Capabilities", "/expertise"],
+  ["Experience", "/experience"],
+  ["Venture", "/venture"],
+  ["Insights", "/insights"],
 ] as const;
 
 export function SiteHeader({
@@ -20,7 +23,7 @@ export function SiteHeader({
   return (
     <header className={`site-header site-header-${variant}`}>
       <Link className="site-brand" to="/" aria-label="Jit Kumar Saha home">
-        <span className="site-brand-mark">✳</span> JIT<span className="site-brand-dot">.</span>
+        <span className="site-brand-mark">✳</span> <span>Jit Kumar Saha</span>
       </Link>
       <span className="site-descriptor">TECHNOLOGY / PRODUCT / BUSINESS</span>
       <nav className={open ? "site-links is-open" : "site-links"} aria-label="Main navigation">
@@ -55,18 +58,39 @@ export function SiteFooter({ variant = "light" }: { variant?: "light" | "dark" }
       <div className="site-footer-inner">
         <div className="site-footer-top">
           <Link className="site-brand" to="/">
-            <span className="site-brand-mark">✳</span> JIT<span className="site-brand-dot">.</span>
+            <span className="site-brand-mark">✳</span> <span>Jit Kumar Saha</span>
           </Link>
           <span>Technology × Product × Business</span>
           <a href="#top">Back to top ↑</a>
         </div>
-        <div className="site-footer-word">JIT.</div>
+        <div className="site-footer-grid">
+          <p>
+            Independent product builder helping ambitious teams turn complex ideas into clear,
+            useful systems.
+          </p>
+          <div>
+            <span className="site-footer-label">Explore</span>
+            <nav className="site-footer-links">
+              <Link to="/about">About</Link>
+              <Link to="/work">Work</Link>
+              <Link to="/venture">Venture</Link>
+              <Link to="/insights">Insights</Link>
+            </nav>
+          </div>
+          <div>
+            <span className="site-footer-label">Start a conversation</span>
+            <a className="site-footer-email" href="mailto:mail.jitsaha@gmail.com">
+              mail.jitsaha@gmail.com
+            </a>
+          </div>
+        </div>
         <div className="site-footer-bottom">
           <span>© {new Date().getFullYear()} Jit Kumar Saha</span>
           <nav>
             <Link to="/about">About</Link>
             <Link to="/work">Work</Link>
             <Link to="/expertise">Capabilities</Link>
+            <Link to="/experience">Experience</Link>
             <Link to="/contact">Contact</Link>
           </nav>
         </div>
