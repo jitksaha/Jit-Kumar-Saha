@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { VerifiedBadge } from "@/components/ui/verified-badge";
 
 const links = [
   ["About", "/about"],
@@ -24,6 +25,7 @@ export function SiteHeader({
     <header className={`site-header site-header-${variant}`}>
       <Link className="site-brand" to="/" aria-label="Jit Kumar Saha home">
         <span className="site-brand-mark">✳</span> <span>Jit Kumar Saha</span>
+        <VerifiedBadge size="xs" title="Verified portfolio" className="site-brand-verified" />
       </Link>
       <span className="site-descriptor">TECHNOLOGY / PRODUCT / BUSINESS</span>
       <nav className={open ? "site-links is-open" : "site-links"} aria-label="Main navigation">

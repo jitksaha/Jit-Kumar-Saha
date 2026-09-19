@@ -1993,3 +1993,13 @@
   object-fit: cover;
   object-position: center;
 }
+.site-brand-verified {
+  margin-left: -4px;
+  opacity: 0.9;
+}
+.site-header-dark .site-brand-verified {
+  color: #c7ff37;
+}
+.site-header-light .site-brand-verified {
+  color: #4f46e5;
+}
