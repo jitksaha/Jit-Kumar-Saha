@@ -44,7 +44,6 @@ export function PageIntro({
   return (
     <section className="page-intro wrap">
       <div className="page-kicker">
-        <span>{number}</span>
         <span>{eyebrow}</span>
         <span>SCROLL TO EXPLORE ↓</span>
       </div>

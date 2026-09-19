@@ -27,7 +27,7 @@ function CaseStudy() {
             <ArrowLeft size={16} /> All work
           </Link>
           <div className="case-meta">
-            <span>{project.index} / CASE STUDY</span>
+            <span>CASE STUDY</span>
             <span>{project.category}</span>
             <span>{project.year}</span>
           </div>
@@ -44,7 +44,7 @@ function CaseStudy() {
         </header>
         <section className="case-content wrap">
           <RevealBlock className="case-section">
-            <span>01 / THE CHALLENGE</span>
+            <span>THE CHALLENGE</span>
             <h2>
               Finding the real
               <br />
@@ -53,7 +53,7 @@ function CaseStudy() {
             <p>{project.challenge}</p>
           </RevealBlock>
           <RevealBlock className="case-section">
-            <span>02 / THE APPROACH</span>
+            <span>THE APPROACH</span>
             <h2>
               Clarity, then
               <br />
@@ -62,7 +62,7 @@ function CaseStudy() {
             <p>{project.approach}</p>
           </RevealBlock>
           <RevealBlock className="case-section">
-            <span>03 / THE OUTCOME</span>
+            <span>THE OUTCOME</span>
             <h2>
               Progress people
               <br />

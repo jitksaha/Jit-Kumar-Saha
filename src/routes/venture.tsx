@@ -53,7 +53,7 @@ function VenturePage() {
         </section>
         <RevealBlock className="venture-section">
           <div className="venture-section-head">
-            <span>01 / The opportunity</span>
+            <span>The opportunity</span>
             <h2>
               AI workbench. <em>Infinite possibilities</em> for real businesses.
             </h2>
@@ -102,7 +102,7 @@ function VenturePage() {
         </RevealBlock>
         <RevealBlock className="venture-section">
           <div className="venture-section-head">
-            <span>02 / How it works</span>
+            <span>How it works</span>
             <h2>
               Automate complex operations <em>effortlessly.</em>
             </h2>
@@ -130,7 +130,7 @@ function VenturePage() {
         </RevealBlock>
         <RevealBlock className="venture-section">
           <div className="venture-section-head">
-            <span>03 / Integrations</span>
+            <span>Integrations</span>
             <h2>
               Connect the tools your team <em>already uses.</em>
             </h2>

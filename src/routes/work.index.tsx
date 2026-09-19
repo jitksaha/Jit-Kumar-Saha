@@ -24,7 +24,7 @@ function WorkPage() {
       <section className="work-hero-studio">
         <div className="work-hero-frame">
           <div className="work-hero-kicker">
-            <span>02 / WORK</span>
+            <span>WORK</span>
             <span>SELECTED CASE STUDIES</span>
             <span>SCROLL TO EXPLORE ↓</span>
           </div>

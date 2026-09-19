@@ -1858,3 +1858,57 @@
     flex-wrap: wrap;
   }
 }
+
+/* Editorial typography and calmer labels across the portfolio. */
+.portfolio-page h1,
+.portfolio-page h2,
+.portfolio-page h3,
+.studio-page h1,
+.studio-page h2,
+.studio-page h3 {
+  font-family: "Manrope", "DM Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.065em;
+}
+.page-kicker > span:first-child {
+  display: none;
+}
+.principle-card > span,
+.service-number,
+.capability-grid small,
+.feature-card > span,
+.studio-experience .experience-line > span,
+.studio-testimonials .testimonial-card > span,
+.project-meta > span:first-child {
+  display: none !important;
+}
+.service-card {
+  overflow: hidden;
+}
+.service-card:after {
+  content: "";
+  width: 155px;
+  height: 155px;
+  position: absolute;
+  right: 28px;
+  top: 25px;
+  border-radius: 28px;
+  opacity: 0.18;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+.service-card:nth-child(1):after {
+  background-image: url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=500&q=80");
+}
+.service-card:nth-child(2):after {
+  background-image: url("https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=500&q=80");
+}
+.service-card:nth-child(3):after {
+  background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80");
+}
+.case-art > span,
+.experience-index,
+.venture-process > article > b {
+  display: none !important;
+}

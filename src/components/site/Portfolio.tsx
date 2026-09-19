@@ -120,7 +120,7 @@ export function Portfolio() {
           </motion.div>
         </div>
         <div className="studio-hero-footer">
-          <span>01 / INTRODUCTION</span>
+          <span>INTRODUCTION</span>
           <span>
             SCROLL TO EXPLORE <ArrowDown size={15} />
           </span>
@@ -137,7 +137,7 @@ export function Portfolio() {
       <main>
         <section className="studio-manifesto studio-wrap">
           <Reveal className="studio-section-label">
-            <span>02 / THE APPROACH</span>
+            <span>THE APPROACH</span>
             <span>About the studio →</span>
           </Reveal>
           <Reveal className="manifesto-grid">
@@ -159,16 +159,14 @@ export function Portfolio() {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <img src={src} alt="Creative work reference" />
-                <span>
-                  0{index + 1} / {["Strategy", "Product", "Systems", "Growth"][index]}
-                </span>
+                <span>{["Strategy", "Product", "Systems", "Growth"][index]}</span>
               </motion.div>
             ))}
           </div>
         </section>
         <section className="studio-metrics studio-wrap">
           <Reveal className="studio-section-label">
-            <span>03 / BY THE NUMBERS</span>
+            <span>BY THE NUMBERS</span>
             <span>Proof over promises</span>
           </Reveal>
           <div className="metric-grid">
@@ -189,7 +187,7 @@ export function Portfolio() {
         <section className="studio-capabilities" id="process">
           <div className="studio-wrap">
             <Reveal className="studio-section-label light">
-              <span>04 / CAPABILITIES</span>
+              <span>CAPABILITIES</span>
               <span>What I bring to the room</span>
             </Reveal>
             <Reveal className="capabilities-heading">
@@ -248,7 +246,7 @@ export function Portfolio() {
         </section>
         <section className="studio-work studio-wrap">
           <Reveal className="studio-section-label">
-            <span>05 / SELECTED WORK</span>
+            <span>SELECTED WORK</span>
             <Link to="/work">
               View all work <ArrowUpRight size={15} />
             </Link>
@@ -291,7 +289,7 @@ export function Portfolio() {
         </section>
         <section className="studio-features studio-wrap">
           <Reveal className="studio-section-label">
-            <span>06 / THE WORKING MODEL</span>
+            <span>THE WORKING MODEL</span>
             <span>Small details, compounding value</span>
           </Reveal>
           <div className="feature-heading">
@@ -326,7 +324,7 @@ export function Portfolio() {
         <section className="studio-experience">
           <div className="studio-wrap">
             <Reveal className="studio-section-label">
-              <span>07 / EXPERIENCE</span>
+              <span>EXPERIENCE</span>
               <Link to="/about">
                 Full career story <ArrowUpRight size={15} />
               </Link>
@@ -359,7 +357,7 @@ export function Portfolio() {
         </section>
         <section className="studio-testimonials studio-wrap">
           <Reveal className="studio-section-label">
-            <span>08 / SIGNALS</span>
+            <span>SIGNALS</span>
             <span>What the work should feel like</span>
           </Reveal>
           <div className="testimonial-grid">
@@ -381,7 +379,7 @@ export function Portfolio() {
         <section className="studio-cta">
           <div className="studio-wrap">
             <Reveal>
-              <span className="studio-section-label light">09 / NEXT STEP</span>
+              <span className="studio-section-label light">NEXT STEP</span>
               <h2>
                 Let’s make the
                 <br />
