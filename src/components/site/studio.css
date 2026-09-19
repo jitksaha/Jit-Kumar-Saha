@@ -1970,3 +1970,26 @@
     border-radius: 20px;
   }
 }
+.venture-scroll-showcase {
+  background: #111;
+  padding: 20px 5vw;
+  color: #fff;
+  overflow: hidden;
+}
+.venture-scroll-showcase h2 {
+  margin: 18px auto 0;
+  max-width: 760px;
+  text-align: center;
+  font-size: clamp(40px, 6vw, 82px);
+  letter-spacing: -0.07em;
+}
+.venture-scroll-showcase h2 em {
+  color: #c7ff37;
+  font-style: normal;
+}
+.venture-scroll-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}

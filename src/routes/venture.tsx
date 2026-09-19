@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Bot, Boxes, LockKeyhole, Sparkles, Workflow } from "lucide-react";
 import { PortfolioShell, RevealBlock } from "@/components/site/PortfolioShell";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 export const Route = createFileRoute("/venture")({ component: VenturePage });
 
