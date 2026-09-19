@@ -22,47 +22,50 @@ function WorkPage() {
   return (
     <PortfolioShell page="work">
       <section className="work-hero-studio">
-        <div className="work-hero-kicker">
-          <span>02 / WORK</span>
-          <span>SELECTED CASE STUDIES</span>
-          <span>SCROLL TO EXPLORE ↓</span>
-        </div>
-        <div className="work-hero-copy">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-            Build better
-            <br />
-            <em>next moves.</em>
-          </motion.h1>
-          <p>
-            A selection of product, AI, operations, and growth systems shaped through hands-on work.
-          </p>
-        </div>
-        <div className="work-card-fan" aria-label="Selected work collection">
-          {[
-            ["AI operations", "#b4e86d", "AI"],
-            ["Product growth", "#ec7d64", "0→1"],
-            ["Business systems", "#638ce5", "↗"],
-            ["Digital products", "#ebc0df", "J."],
-            ["Automation", "#f1d763", "✦"],
-          ].map(([label, color, mark], index) => (
-            <motion.div
-              className={`work-fan-card work-fan-${index + 1}`}
-              style={{ background: color }}
-              key={label}
-              initial={{ opacity: 0, y: 80, rotate: (index - 2) * 5 }}
-              animate={{ opacity: 1, y: 0, rotate: (index - 2) * 5 }}
-              transition={{ delay: index * 0.08, duration: 0.7 }}
-            >
-              <span>{label}</span>
-              <b>{mark}</b>
-            </motion.div>
-          ))}
-        </div>
-        <div className="work-hero-bottom">
-          <span>Strategy</span>
-          <span>Product</span>
-          <span>Systems</span>
-          <span>Outcome</span>
+        <div className="work-hero-frame">
+          <div className="work-hero-kicker">
+            <span>02 / WORK</span>
+            <span>SELECTED CASE STUDIES</span>
+            <span>SCROLL TO EXPLORE ↓</span>
+          </div>
+          <div className="work-hero-copy">
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+              Build better
+              <br />
+              <em>next moves.</em>
+            </motion.h1>
+            <p>
+              A selection of product, AI, operations, and growth systems shaped through hands-on
+              work.
+            </p>
+          </div>
+          <div className="work-card-fan" aria-label="Selected work collection">
+            {[
+              ["AI operations", "#b4e86d", "AI"],
+              ["Product growth", "#ec7d64", "0→1"],
+              ["Business systems", "#638ce5", "↗"],
+              ["Digital products", "#ebc0df", "J."],
+              ["Automation", "#f1d763", "✦"],
+            ].map(([label, color, mark], index) => (
+              <motion.div
+                className={`work-fan-card work-fan-${index + 1}`}
+                style={{ background: color }}
+                key={label}
+                initial={{ opacity: 0, y: 80, rotate: (index - 2) * 5 }}
+                animate={{ opacity: 1, y: 0, rotate: (index - 2) * 5 }}
+                transition={{ delay: index * 0.08, duration: 0.7 }}
+              >
+                <span>{label}</span>
+                <b>{mark}</b>
+              </motion.div>
+            ))}
+          </div>
+          <div className="work-hero-bottom">
+            <span>Strategy</span>
+            <span>Product</span>
+            <span>Systems</span>
+            <span>Outcome</span>
+          </div>
         </div>
       </section>
       <section className="work-index wrap">

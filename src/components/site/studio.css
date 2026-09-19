@@ -1030,23 +1030,38 @@
 }
 
 .work-hero-studio {
-  min-height: 760px;
-  padding: 42px clamp(24px, 5.6vw, 90px) 26px;
-  background: #e4e4e0;
+  min-height: 820px;
+  padding: 54px clamp(24px, 5.6vw, 90px);
+  background: #dededb;
   position: relative;
   overflow: hidden;
 }
 .work-hero-studio:before {
+  display: none;
+}
+.work-hero-frame {
+  max-width: 1280px;
+  min-height: 710px;
+  margin: auto;
+  padding: 30px 44px 26px;
+  background: #f9f9f6;
+  border: 1px solid #fff;
+  border-radius: 28px;
+  box-shadow: 0 30px 75px #17171717;
+  position: relative;
+  overflow: hidden;
+}
+.work-hero-frame:before {
   content: "";
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: 610px;
+  height: 610px;
   left: 50%;
-  top: 190px;
+  top: 220px;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle, #fff 0 28%, #b7d2ff 54%, transparent 70%);
-  opacity: 0.72;
+  background: radial-gradient(circle, #fff 0 23%, #b7d2ffb8 48%, transparent 72%);
+  opacity: 0.64;
 }
 .work-hero-kicker,
 .work-hero-bottom {
@@ -1062,18 +1077,16 @@
   text-transform: uppercase;
 }
 .work-hero-copy {
-  max-width: 1320px;
-  margin: 74px auto 0;
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 60px;
-  align-items: end;
+  max-width: 830px;
+  margin: 48px auto 0;
+  text-align: center;
+  display: block;
   position: relative;
   z-index: 1;
 }
 .work-hero-copy h1 {
   font:
-    400 clamp(60px, 9vw, 140px)/0.84 "DM Sans",
+    400 clamp(58px, 7.8vw, 112px)/0.86 "DM Sans",
     sans-serif;
   letter-spacing: -0.1em;
 }
@@ -1083,23 +1096,24 @@
   font-weight: 400;
 }
 .work-hero-copy p {
-  max-width: 240px;
+  max-width: 500px;
+  margin: 22px auto 0;
   color: #686861;
   font-size: 13px;
   line-height: 1.7;
 }
 .work-card-fan {
-  height: 340px;
-  max-width: 980px;
-  margin: 45px auto 34px;
+  height: 300px;
+  max-width: 900px;
+  margin: 26px auto 20px;
   position: relative;
   z-index: 1;
 }
 .work-fan-card {
-  width: 235px;
-  height: 290px;
-  border-radius: 21px;
-  padding: 17px;
+  width: 190px;
+  height: 245px;
+  border-radius: 18px;
+  padding: 15px;
   position: absolute;
   left: 50%;
   top: 18px;
@@ -1124,7 +1138,7 @@
 }
 .work-fan-card b {
   font:
-    400 110px "Instrument Serif",
+    400 86px "Instrument Serif",
     Georgia,
     serif;
   align-self: center;
@@ -1132,25 +1146,25 @@
   text-shadow: 0 5px 14px #17171722;
 }
 .work-fan-1 {
-  margin-left: -370px;
-  transform: rotate(-17deg);
+  margin-left: -390px;
+  transform: rotate(-8deg);
 }
 .work-fan-2 {
-  margin-left: -210px;
-  transform: rotate(-9deg);
+  margin-left: -225px;
+  transform: rotate(-4deg);
 }
 .work-fan-3 {
-  margin-left: -117px;
+  margin-left: -95px;
   z-index: 3;
   transform: rotate(0deg);
 }
 .work-fan-4 {
-  margin-left: -25px;
-  transform: rotate(9deg);
+  margin-left: 35px;
+  transform: rotate(4deg);
 }
 .work-fan-5 {
-  margin-left: 140px;
-  transform: rotate(17deg);
+  margin-left: 200px;
+  transform: rotate(8deg);
 }
 .work-hero-bottom {
   max-width: 980px;
@@ -1160,15 +1174,20 @@
 }
 @media (max-width: 800px) {
   .work-hero-studio {
-    min-height: 700px;
-    padding: 27px 22px 22px;
+    min-height: 710px;
+    padding: 20px 14px;
+  }
+  .work-hero-frame {
+    min-height: 670px;
+    padding: 24px 18px 20px;
+    border-radius: 22px;
   }
   .work-hero-kicker span:nth-child(2) {
     display: none;
   }
   .work-hero-copy {
     display: block;
-    margin-top: 70px;
+    margin-top: 55px;
   }
   .work-hero-copy h1 {
     font-size: 64px;
@@ -1177,9 +1196,9 @@
     margin-top: 24px;
   }
   .work-card-fan {
-    height: 280px;
-    margin-top: 25px;
-    transform: scale(0.65);
+    height: 255px;
+    margin-top: 20px;
+    transform: scale(0.7);
     transform-origin: 50% 0;
     width: 150%;
     margin-left: -25%;
