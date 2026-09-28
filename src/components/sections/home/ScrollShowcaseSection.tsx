@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Sparkles,
-  ArrowRight,
   Zap,
   Bot,
   Layers,
@@ -13,7 +12,6 @@ import {
   ChevronRight,
   Share2,
   X,
-  CheckCircle2,
   Shield,
   ArrowUpRight,
 } from "lucide-react";
@@ -50,7 +48,7 @@ export function ScrollShowcaseSection() {
     <section className="relative overflow-hidden bg-[#FAFAF8] py-20 md:py-32 border-t border-[#163300]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 md:mb-20">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 md:mb-18">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,72 +77,100 @@ export function ScrollShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.2, ease: easeCustom }}
-            className="text-base sm:text-lg text-[#163300]/75 max-w-2xl font-medium leading-relaxed"
+            className="text-base sm:text-lg text-[#163300]/80 max-w-2xl font-medium leading-relaxed"
           >
             Translating high-level commercial vision into robust SaaS architectures,
             autonomous AI agent swarms, and mission-critical software systems.
           </motion.p>
         </div>
 
-        {/* Authentic Apple macOS Browser Showcase Window */}
+        {/* Authentic macOS Safari Browser Window Frame */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, delay: 0.25, ease: easeCustom }}
-          className="w-full max-w-5xl mx-auto rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#0a100c] text-white shadow-[0_30px_90px_-20px_rgba(22,51,0,0.35),0_0_0_1px_rgba(22,51,0,0.2)] border border-[#1c2e1e]"
+          className="w-full max-w-5xl mx-auto rounded-[22px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(22,51,0,0.4),0_0_0_1px_rgba(22,51,0,0.25)] border border-[#1d3020]"
+          style={{ background: "#0B1307", color: "#FFFFFF" }}
         >
-          {/* macOS Window Title Bar */}
-          <div className="bg-[#121c14] border-b border-[#223524] px-4 sm:px-6 pt-3.5 pb-2.5">
-            {/* Top Row: Window Controls & Active Tab */}
+          {/* macOS Browser Header (Chrome / Title Bar) */}
+          <div
+            className="border-b border-[#233825] px-4 sm:px-6 pt-3.5 pb-2.5 select-none"
+            style={{ background: "#132115" }}
+          >
+            {/* Row 1: Traffic Lights + Tabs + Live Status */}
             <div className="flex items-center justify-between gap-4">
-              {/* Traffic Lights */}
+              {/* macOS Window Controls */}
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] shadow-xs inline-block" />
-                <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123] shadow-xs inline-block" />
-                <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29] shadow-xs inline-block" />
+                <span className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] border border-[#E0443E] shadow-sm inline-block" />
+                <span className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] border border-[#DEA123] shadow-sm inline-block" />
+                <span className="w-3.5 h-3.5 rounded-full bg-[#27C93F] border border-[#1AAB29] shadow-sm inline-block" />
               </div>
 
-              {/* Browser Tabs */}
-              <div className="flex items-center gap-1.5 max-w-[60%] sm:max-w-md mx-auto">
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-t-lg bg-[#0a100c] border-t border-x border-[#223524] text-xs font-semibold text-white shadow-md">
+              {/* Active Tab */}
+              <div className="flex items-center gap-1.5 max-w-[65%] sm:max-w-md mx-auto">
+                <div
+                  className="flex items-center gap-2 px-4 py-1.5 rounded-t-lg border-t border-x border-[#2b422e] text-xs font-semibold text-white shadow-md"
+                  style={{ background: "#0B1307" }}
+                >
                   <span className="w-2 h-2 rounded-full bg-[#DCFF85] animate-pulse shrink-0" />
                   <span className="truncate max-w-[130px] sm:max-w-[210px] font-sans">
                     Jit Kumar Saha — Systems
                   </span>
-                  <X size={12} className="text-white/50 hover:text-white cursor-pointer ml-1" />
+                  <X size={12} className="text-white/60 hover:text-white cursor-pointer ml-1" />
                 </div>
-                <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-t-lg bg-white/[0.04] text-xs text-white/50">
+                <div
+                  className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-t-lg text-xs text-white/50"
+                  style={{ background: "rgba(255, 255, 255, 0.04)" }}
+                >
                   <span className="truncate max-w-[100px] font-sans">Dynime Core</span>
                 </div>
               </div>
 
-              {/* Production Live Badge */}
+              {/* Live Status */}
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#DCFF85]/15 text-[#DCFF85] font-mono text-[11px] font-bold border border-[#DCFF85]/30">
+                <span
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[#DCFF85] font-mono text-[11px] font-bold border border-[#DCFF85]/35 shadow-sm"
+                  style={{ background: "rgba(220, 255, 133, 0.15)" }}
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#DCFF85] animate-pulse" />
                   Production Live
                 </span>
               </div>
             </div>
 
-            {/* Bottom Row: Navigation Toolbar & Omnibox */}
-            <div className="flex items-center justify-between gap-3 pt-2.5 mt-2 border-t border-white/[0.06]">
-              {/* Nav Icons */}
-              <div className="flex items-center gap-1.5 text-white/60">
-                <button type="button" className="p-1 rounded hover:bg-white/10 hover:text-white transition-colors" aria-label="Back">
+            {/* Row 2: Safari Navigation Toolbar & Omnibox */}
+            <div className="flex items-center justify-between gap-3 pt-2.5 mt-2 border-t border-white/[0.08]">
+              {/* Navigation Arrows */}
+              <div className="flex items-center gap-1 text-white/70">
+                <button
+                  type="button"
+                  className="p-1 rounded hover:bg-white/10 hover:text-white transition-colors"
+                  aria-label="Back"
+                >
                   <ChevronLeft size={16} />
                 </button>
-                <button type="button" className="p-1 rounded hover:bg-white/10 hover:text-white transition-colors" aria-label="Forward">
+                <button
+                  type="button"
+                  className="p-1 rounded hover:bg-white/10 hover:text-white transition-colors"
+                  aria-label="Forward"
+                >
                   <ChevronRight size={16} />
                 </button>
-                <button type="button" className="p-1 rounded hover:bg-white/10 hover:text-white transition-colors ml-1" aria-label="Reload">
+                <button
+                  type="button"
+                  className="p-1 rounded hover:bg-white/10 hover:text-white transition-colors ml-1"
+                  aria-label="Reload"
+                >
                   <RotateCw size={13} />
                 </button>
               </div>
 
-              {/* URL Omnibox */}
-              <div className="flex-1 max-w-md mx-auto flex items-center justify-between px-3.5 py-1 rounded-lg bg-[#0a100c] border border-[#223524] text-xs font-mono shadow-inner">
+              {/* Omnibox Address Bar */}
+              <div
+                className="flex-1 max-w-md mx-auto flex items-center justify-between px-3.5 py-1.5 rounded-lg border border-[#2b422e] text-xs font-mono shadow-inner"
+                style={{ background: "#0B1307" }}
+              >
                 <div className="flex items-center gap-2 truncate">
                   <Lock size={12} className="text-[#DCFF85] shrink-0" />
                   <span className="text-white/40">https://</span>
@@ -155,28 +181,40 @@ export function ScrollShowcaseSection() {
               </div>
 
               {/* SLA Tag */}
-              <div className="hidden sm:flex items-center text-[10px] font-mono text-zinc-400 font-semibold uppercase tracking-wider">
-                <Shield size={11} className="text-[#DCFF85] mr-1.5" />
+              <div className="hidden sm:flex items-center text-[10px] font-mono text-zinc-300 font-semibold uppercase tracking-wider">
+                <Shield size={12} className="text-[#DCFF85] mr-1.5" />
                 99.99% Uptime
               </div>
             </div>
           </div>
 
-          {/* Window Canvas Body */}
-          <div className="p-6 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-b from-[#0a100c] to-[#070c08]">
-            {/* Left: Executive Portrait in High-End Glass Framing */}
+          {/* Browser Window Body Canvas */}
+          <div
+            className="p-6 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center select-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(22, 51, 0, 0.4), transparent 70%), #0B1307",
+            }}
+          >
+            {/* Left: Jit's Portrait with High-Contrast Framing */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[4/4.9] rounded-2xl overflow-hidden border-2 border-[#223524] bg-[#111c12] shadow-2xl group ring-1 ring-white/10">
+              <div
+                className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[4/4.9] rounded-2xl overflow-hidden border-2 border-[#243826] shadow-2xl group ring-1 ring-white/10"
+                style={{ background: "#111c12" }}
+              >
                 <img
                   src={assets.hero}
                   alt="Jit Kumar Saha — Head of Product & Systems Architect"
                   className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-104"
                   draggable={false}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080d09] via-transparent to-transparent opacity-90 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1307] via-transparent to-transparent opacity-90 pointer-events-none" />
 
                 {/* Portrait Overlay Info */}
-                <div className="absolute bottom-3 inset-x-3 bg-[#0e1710]/95 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-xl">
+                <div
+                  className="absolute bottom-3 inset-x-3 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-xl"
+                  style={{ background: "rgba(14, 23, 16, 0.95)" }}
+                >
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="text-sm font-bold text-white tracking-tight leading-tight">
@@ -186,7 +224,10 @@ export function ScrollShowcaseSection() {
                         Head of Product · Systems Architect
                       </p>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#DCFF85] text-[#163300] font-bold shadow-xs">
+                    <span
+                      className="text-[10px] font-mono px-2 py-0.5 rounded-md text-[#163300] font-bold shadow-xs"
+                      style={{ background: "#DCFF85" }}
+                    >
                       0 → 1
                     </span>
                   </div>
@@ -201,9 +242,13 @@ export function ScrollShowcaseSection() {
                 return (
                   <div
                     key={item.num}
-                    className="bg-[#121c13] hover:bg-[#162418] rounded-2xl p-4 sm:p-5 border border-[#223524] hover:border-[#DCFF85]/50 transition-all duration-200 group/item flex items-start gap-4 shadow-sm hover:shadow-xl"
+                    className="rounded-2xl p-4 sm:p-5 border border-[#233525] hover:border-[#DCFF85]/55 transition-all duration-200 group/item flex items-start gap-4 shadow-md hover:shadow-xl cursor-default"
+                    style={{ background: "#132115" }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[#DCFF85] text-[#163300] flex items-center justify-center font-bold shrink-0 shadow-md group-hover/item:scale-105 transition-transform">
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center font-bold shrink-0 shadow-md group-hover/item:scale-105 transition-transform"
+                      style={{ background: "#DCFF85", color: "#163300" }}
+                    >
                       <Icon size={20} />
                     </div>
                     <div className="flex-1">
@@ -211,7 +256,10 @@ export function ScrollShowcaseSection() {
                         <h4 className="text-sm sm:text-base font-bold text-white tracking-tight">
                           {item.title}
                         </h4>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-[#DCFF85] font-semibold border border-white/10">
+                        <span
+                          className="text-[10px] font-mono px-2.5 py-0.5 rounded text-[#DCFF85] font-semibold border border-white/10"
+                          style={{ background: "rgba(255, 255, 255, 0.08)" }}
+                        >
                           {item.badge}
                         </span>
                       </div>
@@ -244,10 +292,13 @@ export function ScrollShowcaseSection() {
           </div>
 
           {/* Bottom Browser Status Bar */}
-          <div className="flex items-center justify-between px-6 py-2.5 bg-[#070c08] border-t border-[#1c2e1e] text-[11px] font-mono text-zinc-400">
+          <div
+            className="flex items-center justify-between px-6 py-2.5 border-t border-[#1c2e1e] text-[11px] font-mono text-zinc-400"
+            style={{ background: "#070c08" }}
+          >
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#DCFF85]" />
-              <span className="text-zinc-300 font-semibold">macOS Sequoia · V8 Engine</span>
+              <span className="text-zinc-300 font-semibold">macOS Sequoia · Metal 3 Engine</span>
             </div>
             <div className="flex items-center gap-4 text-zinc-400">
               <span className="hidden sm:inline">GLOBAL MULTI-REGION ACTIVE</span>
