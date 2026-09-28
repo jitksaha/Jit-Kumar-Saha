@@ -21,6 +21,7 @@ import { EnterpriseForm } from "../components/forms/EnterpriseForm";
 import { ReviewsMarquee } from "../components/sections/shared/ReviewsMarquee";
 import { BrandSlider } from "../components/sections/home/BrandSlider";
 import { EnterpriseApproachSlider } from "../components/sections/enterprise/EnterpriseApproachSlider";
+import { EnterpriseGlyphHero } from "../components/sections/enterprise/EnterpriseGlyphHero";
 import { ActionLink } from "../components/ui/Button";
 
 function EnterprisePage() {
@@ -124,65 +125,8 @@ function EnterprisePage() {
 
   return (
     <SubrouteLayout page="enterprise">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 bg-[#0B1307] text-white">
-        <div className="absolute inset-0 z-0 opacity-35 pointer-events-none">
-          <ThreeBackground variant="particles" accentColor={0xdcff85} />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFF85]/15 text-[#DCFF85] text-xs font-mono uppercase tracking-widest mb-6 border border-[#DCFF85]/30 backdrop-blur-md">
-              <Shield size={13} className="text-[#DCFF85]" /> ENTERPRISE
-              CAPABILITY PROFILE
-            </div>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-bold tracking-tight text-white leading-[1.08] mb-6">
-              Executive Product Leadership, Digital Systems &{" "}
-              <span className="font-serif italic font-normal text-[#DCFF85]">
-                Enterprise Transformation.
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mb-8 font-medium">
-              Operating at the highest level as Head of Product, Fractional CTO,
-              and Principal Systems Architect — delivering 0→1 SaaS products, AI
-              swarm automation, business ERP/CRM systems, and enterprise legacy
-              modernizations.
-            </p>
-            <div className="flex flex-wrap items-center gap-6 mb-12">
-              <ActionLink
-                href="#book-demo"
-                variant="lime"
-                text="Discuss an Enterprise Project"
-                icon={<ArrowUpRight size={16} />}
-                className="px-7 py-3.5 text-sm font-semibold"
-              />
-              <Link
-                to="/work"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors duration-200 group py-2"
-              >
-                <span className="border-b border-white/30 group-hover:border-[#DCFF85] transition-colors pb-0.5">
-                  View Selected Work
-                </span>
-                <ArrowRight
-                  size={16}
-                  className="text-[#DCFF85] transition-transform duration-200 group-hover:translate-x-1"
-                />
-              </Link>
-            </div>
-            <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-wider text-white/70">
-              <span className="text-[#DCFF85] font-bold">TRUSTED SCOPE:</span>
-              <span>Strategy</span>
-              <span>·</span>
-              <span>Product</span>
-              <span>·</span>
-              <span>Technology</span>
-              <span>·</span>
-              <span>AI</span>
-              <span>·</span>
-              <span>Digital Transformation</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Immersive Scroll-Driven Enterprise Glyph Hero */}
+      <EnterpriseGlyphHero />
 
       {/* Brand & Ecosystem Slider */}
       <section className="py-12 bg-[#FAFAF8] border-b border-[#163300]/10 overflow-hidden">
