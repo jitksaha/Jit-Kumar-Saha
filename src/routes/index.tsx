@@ -8,6 +8,7 @@ import { HomeHero } from "../components/sections/home/HomeHero";
 import { FocusSection } from "../components/sections/home/FocusSection";
 import { BentoGrid } from "../components/sections/home/BentoGrid";
 import { FeaturedProjects } from "../components/sections/home/FeaturedProjects";
+import { ScrollShowcaseSection } from "../components/sections/home/ScrollShowcaseSection";
 import { ExperienceSection } from "../components/sections/shared/ExperienceSection";
 import { AIFluencySection } from "../components/sections/home/AIFluencySection";
 import { ReviewsMarquee } from "../components/sections/shared/ReviewsMarquee";
@@ -123,6 +124,7 @@ function HomePage() {
         <FocusSection />
         <BentoGrid />
         <FeaturedProjects />
+        <ScrollShowcaseSection />
         <ExperienceSection />
         <AIFluencySection />
         <ReviewsMarquee />
