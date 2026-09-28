@@ -45,9 +45,9 @@ export function ScrollShowcaseSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF8] py-20 md:py-32 border-t border-[#163300]/10">
+    <section className="relative overflow-hidden bg-[#FAFAF8] pt-24 pb-24 md:pt-32 md:pb-36 border-t border-[#163300]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Section Header */}
+        {/* Section Header with Ample Top Clearance */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 md:mb-18">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ export function ScrollShowcaseSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, delay: 0.25, ease: easeCustom }}
-          className="w-full max-w-5xl mx-auto rounded-[22px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(22,51,0,0.4),0_0_0_1px_rgba(22,51,0,0.25)] border border-[#1d3020]"
+          className="w-full max-w-5xl mx-auto rounded-[24px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(22,51,0,0.45),0_0_0_1px_rgba(22,51,0,0.25)] border border-[#1d3020]"
           style={{ background: "#0B1307", color: "#FFFFFF" }}
         >
           {/* macOS Browser Header (Chrome / Title Bar) */}
@@ -285,7 +285,7 @@ export function ScrollShowcaseSection() {
                   variant="outline"
                   text="View Selected Work"
                   icon={<ExternalLink size={14} />}
-                  className="px-5 py-3 text-xs sm:text-sm font-semibold text-white border-white/25 hover:bg-white/15 hover:text-white"
+                  className="px-5 py-3 text-xs sm:text-sm font-semibold text-white border-white/30 hover:bg-white/20 hover:text-white"
                 />
               </div>
             </div>
