@@ -144,15 +144,22 @@ export const CalendarTimePicker: React.FC<CalendarTimePickerProps> = ({
                   type="button"
                   disabled={isPast}
                   onClick={() => onSelectDate(dateStr)}
+                  style={{
+                    backgroundColor: isSelected ? '#163300' : undefined,
+                    color: isSelected ? '#FFFFFF' : isPast ? 'rgba(22, 51, 0, 0.25)' : '#163300',
+                  }}
                   className={`h-9 w-full rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
                     isSelected
-                      ? '!bg-[#163300] !text-[#DCFF85] font-bold shadow-md hover:!bg-[#163300] hover:!text-[#DCFF85]'
+                      ? 'shadow-md hover:brightness-110'
                       : isPast
-                      ? 'text-[#163300]/25 cursor-not-allowed bg-transparent'
-                      : 'text-[#163300] bg-white border border-[#163300]/10 hover:border-[#163300] hover:bg-[#DCFF85]/20'
+                      ? 'cursor-not-allowed bg-transparent'
+                      : 'bg-white border border-[#163300]/10 hover:border-[#163300] hover:bg-[#DCFF85]/25'
                   }`}
                 >
-                  <span className={isSelected ? '!text-[#DCFF85] font-bold' : isPast ? 'text-[#163300]/25' : 'text-[#163300]'}>
+                  <span
+                    style={{ color: isSelected ? '#FFFFFF' : isPast ? 'rgba(22, 51, 0, 0.25)' : '#163300' }}
+                    className="font-bold"
+                  >
                     {dayNum}
                   </span>
                 </button>
@@ -188,14 +195,21 @@ export const CalendarTimePicker: React.FC<CalendarTimePickerProps> = ({
                   key={slot}
                   type="button"
                   onClick={() => onSelectTime(`${slot} BST (Dhaka UTC+6)`)}
-                  className={`py-2 px-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                  style={{
+                    backgroundColor: active ? '#163300' : undefined,
+                    color: active ? '#FFFFFF' : '#163300',
+                  }}
+                  className={`py-2 px-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 border ${
                     active
-                      ? '!bg-[#163300] !text-[#DCFF85] border border-[#163300] shadow-md hover:!bg-[#163300] hover:!text-[#DCFF85]'
-                      : 'bg-white text-[#163300] border border-[#163300]/15 hover:border-[#163300] hover:bg-[#DCFF85]/20 hover:text-[#163300]'
+                      ? 'border-[#163300] shadow-md hover:brightness-110'
+                      : 'bg-white border-[#163300]/15 hover:border-[#163300] hover:bg-[#DCFF85]/25'
                   }`}
                 >
-                  {active && <Check size={12} className="shrink-0 !text-[#DCFF85]" />}
-                  <span className={active ? '!text-[#DCFF85] font-bold' : '!text-[#163300]'}>
+                  {active && <Check size={12} className="shrink-0 text-[#9FE870]" />}
+                  <span
+                    style={{ color: active ? '#FFFFFF' : '#163300' }}
+                    className="font-bold"
+                  >
                     {slot}
                   </span>
                 </button>

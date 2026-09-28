@@ -662,14 +662,21 @@ export function EnterpriseForm() {
                               cap
                             )
                           }
-                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                          style={{
+                            backgroundColor: selected ? '#163300' : undefined,
+                            color: selected ? '#FFFFFF' : '#163300',
+                          }}
+                          className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 border ${
                             selected
-                              ? '!bg-[#163300] !text-[#DCFF85] border border-[#163300] shadow-sm hover:!bg-[#163300] hover:!text-[#DCFF85]'
-                              : 'bg-[#FAFAF8] text-[#163300]/80 border border-[#163300]/15 hover:border-[#163300]/50 hover:text-[#163300]'
+                              ? 'border-[#163300] shadow-sm hover:brightness-110'
+                              : 'bg-[#FAFAF8] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/25'
                           }`}
                         >
-                          {selected && <Check size={12} className="shrink-0 !text-[#DCFF85]" />}
-                          <span className={selected ? '!text-[#DCFF85] font-bold' : '!text-[#163300]'}>
+                          {selected && <Check size={13} className="shrink-0 text-[#9FE870]" />}
+                          <span
+                            style={{ color: selected ? '#FFFFFF' : '#163300' }}
+                            className="font-semibold"
+                          >
                             {cap}
                           </span>
                         </button>
@@ -696,14 +703,21 @@ export function EnterpriseForm() {
                               tech
                             )
                           }
-                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                          style={{
+                            backgroundColor: selected ? '#163300' : undefined,
+                            color: selected ? '#FFFFFF' : '#163300',
+                          }}
+                          className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 border ${
                             selected
-                              ? '!bg-[#163300] !text-[#DCFF85] border border-[#163300] shadow-sm hover:!bg-[#163300] hover:!text-[#DCFF85]'
-                              : 'bg-[#FAFAF8] text-[#163300]/80 border border-[#163300]/15 hover:border-[#163300]/50 hover:text-[#163300]'
+                              ? 'border-[#163300] shadow-sm hover:brightness-110'
+                              : 'bg-[#FAFAF8] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/25'
                           }`}
                         >
-                          {selected && <Check size={12} className="shrink-0 !text-[#DCFF85]" />}
-                          <span className={selected ? '!text-[#DCFF85] font-bold' : '!text-[#163300]'}>
+                          {selected && <Check size={13} className="shrink-0 text-[#9FE870]" />}
+                          <span
+                            style={{ color: selected ? '#FFFFFF' : '#163300' }}
+                            className="font-semibold"
+                          >
                             {tech}
                           </span>
                         </button>
