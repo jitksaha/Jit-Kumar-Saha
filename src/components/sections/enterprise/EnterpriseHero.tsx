@@ -30,11 +30,32 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
+const cardContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.35,
+    },
+  },
+};
+
+const cardItemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -71,19 +92,33 @@ export function EnterpriseHero() {
   ];
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-32 md:pt-40 md:pb-44 bg-[#0d160c] text-white">
-      {/* Soft Animated Particles Matrix */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+    <section className="relative overflow-hidden pt-32 pb-28 md:pt-40 md:pb-36 bg-[#081006] text-white">
+      {/* Dynamic Interactive Three.js Particle Mesh */}
+      <div className="absolute inset-0 z-0 opacity-35 pointer-events-none">
         <ThreeBackground variant="particles" accentColor={0xdcff85} />
       </div>
 
-      {/* Softer Elegant Ambient Lighting */}
+      {/* Soft Multi-Layered Ambient Atmosphere */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% -5%, rgba(220, 255, 133, 0.08), transparent 65%), radial-gradient(ellipse 60% 50% at 85% 85%, rgba(22, 51, 0, 0.35), transparent 70%), linear-gradient(180deg, #0d160c 0%, #0f1c0e 50%, #0b140a 100%)",
+            "radial-gradient(ellipse 70% 45% at 50% -5%, rgba(220, 255, 133, 0.12), transparent 70%), radial-gradient(circle at 85% 85%, rgba(32, 72, 0, 0.4), transparent 60%), radial-gradient(circle at 15% 45%, rgba(22, 51, 0, 0.35), transparent 50%), linear-gradient(180deg, #091307 0%, #0c1809 45%, #070e05 100%)",
         }}
+      />
+
+      {/* Subtle Animated Ambient Glow Orb */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.28, 0.15],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#DCFF85]/20 rounded-full blur-[120px] pointer-events-none z-0"
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -91,12 +126,12 @@ export function EnterpriseHero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl mb-16"
+          className="max-w-4xl mb-14"
         >
           {/* Eyebrow Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFF85]/12 text-[#DCFF85] text-xs font-mono uppercase tracking-widest mb-6 border border-[#DCFF85]/25 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFF85]/15 text-[#DCFF85] text-xs font-mono uppercase tracking-widest mb-6 border border-[#DCFF85]/30 backdrop-blur-md shadow-sm"
           >
             <Shield size={13} className="text-[#DCFF85]" />
             ENTERPRISE CAPABILITY PROFILE
@@ -116,7 +151,7 @@ export function EnterpriseHero() {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl mb-8 font-medium"
+            className="text-lg sm:text-xl text-white/85 leading-relaxed max-w-3xl mb-8 font-medium"
           >
             Operating at the highest level as Head of Product, Fractional CTO,
             and Principal Systems Architect — delivering 0→1 SaaS products, AI
@@ -134,7 +169,7 @@ export function EnterpriseHero() {
               variant="lime"
               text="Discuss an Enterprise Project"
               icon={<ArrowUpRight size={16} />}
-              className="px-7 py-3.5 text-sm font-semibold shadow-md"
+              className="px-7 py-3.5 text-sm font-semibold shadow-lg shadow-[#DCFF85]/10 hover:shadow-[#DCFF85]/25 transition-all"
             />
             <Link
               to="/work"
@@ -168,26 +203,32 @@ export function EnterpriseHero() {
           </motion.div>
         </motion.div>
 
-        {/* 4 Interactive Enterprise Architecture Bento Cards */}
+        {/* 4 Interactive Enterprise Architecture Bento Cards with Original Rich Emerald Glass Background */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          variants={cardContainerVariants}
+          initial="hidden"
+          animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {pillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
-              <div
+              <motion.div
                 key={pillar.num}
-                className="bg-[#12210e]/50 hover:bg-[#12210e]/80 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#DCFF85]/35 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl"
+                variants={cardItemVariants}
+                whileHover={{
+                  y: -8,
+                  scale: 1.02,
+                  transition: { type: "spring", stiffness: 350, damping: 22 },
+                }}
+                className="bg-[#163300]/75 hover:bg-[#163300]/95 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-[#DCFF85]/20 hover:border-[#DCFF85]/55 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:shadow-[0_20px_45px_-10px_rgba(22,51,0,0.6)] cursor-default"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-2xl bg-[#DCFF85] text-[#163300] flex items-center justify-center font-bold shadow-sm">
+                    <div className="w-10 h-10 rounded-2xl bg-[#DCFF85] text-[#163300] flex items-center justify-center font-bold shadow-md group-hover:scale-105 transition-transform duration-300">
                       <Icon size={20} />
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#DCFF85] tracking-wider uppercase bg-[#DCFF85]/10 px-2.5 py-1 rounded-full border border-[#DCFF85]/20">
+                    <span className="font-mono text-xs font-bold text-[#DCFF85] tracking-wider uppercase bg-[#DCFF85]/15 px-2.5 py-1 rounded-full border border-[#DCFF85]/30">
                       {pillar.num}
                     </span>
                   </div>
@@ -196,12 +237,12 @@ export function EnterpriseHero() {
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-4 font-normal">
+                  <p className="text-xs sm:text-sm text-white/75 leading-relaxed mb-4 font-normal">
                     {pillar.desc}
                   </p>
                 </div>
 
-                <div className="space-y-1.5 pt-3 border-t border-white/[0.08] text-xs font-mono text-white/60">
+                <div className="space-y-1.5 pt-3 border-t border-white/15 text-xs font-mono text-white/70">
                   {pillar.tags.map((tag) => (
                     <div key={tag} className="flex items-center gap-2">
                       <CheckCircle2 size={12} className="text-[#DCFF85] shrink-0" />
@@ -209,7 +250,7 @@ export function EnterpriseHero() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </motion.div>
