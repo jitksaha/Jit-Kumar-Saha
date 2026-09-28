@@ -563,12 +563,14 @@ export function InquiryWizard() {
                             onClick={() => toggleService(service)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
                               selected
-                                ? 'bg-[#163300] text-[#DCFF85] border border-[#163300] shadow-sm'
-                                : 'bg-[#FAFAF8] text-[#163300]/75 border border-[#163300]/15 hover:border-[#163300]/40'
+                                ? '!bg-[#163300] !text-[#DCFF85] border border-[#163300] shadow-sm hover:!bg-[#163300] hover:!text-[#DCFF85]'
+                                : 'bg-[#FAFAF8] text-[#163300]/80 border border-[#163300]/15 hover:border-[#163300]/50 hover:text-[#163300]'
                             }`}
                           >
-                            {selected && <Check size={12} />}
-                            {service}
+                            {selected && <Check size={12} className="shrink-0 !text-[#DCFF85]" />}
+                            <span className={selected ? '!text-[#DCFF85] font-bold' : '!text-[#163300]'}>
+                              {service}
+                            </span>
                           </button>
                         );
                       })}

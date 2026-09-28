@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { SearchableSelect } from '../ui/SearchableSelect';
 import { Button } from '../ui/Button';
+import { CalendarTimePicker } from './CalendarTimePicker';
 import { generateEnterprisePdf } from '../../utils/pdf';
 import { createCalendarUrl } from '../../utils/calendar';
 
@@ -663,12 +664,14 @@ export function EnterpriseForm() {
                           }
                           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
                             selected
-                              ? 'bg-[#163300] text-[#DCFF85] border border-[#163300] shadow-sm'
-                              : 'bg-[#FAFAF8] text-[#163300]/75 border border-[#163300]/15 hover:border-[#163300]/40'
+                              ? '!bg-[#163300] !text-[#DCFF85] border border-[#163300] shadow-sm hover:!bg-[#163300] hover:!text-[#DCFF85]'
+                              : 'bg-[#FAFAF8] text-[#163300]/80 border border-[#163300]/15 hover:border-[#163300]/50 hover:text-[#163300]'
                           }`}
                         >
-                          {selected && <Check size={12} />}
-                          {cap}
+                          {selected && <Check size={12} className="shrink-0 !text-[#DCFF85]" />}
+                          <span className={selected ? '!text-[#DCFF85] font-bold' : '!text-[#163300]'}>
+                            {cap}
+                          </span>
                         </button>
                       );
                     })}
@@ -695,12 +698,14 @@ export function EnterpriseForm() {
                           }
                           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
                             selected
-                              ? 'bg-[#163300] text-[#DCFF85] border border-[#163300] shadow-sm'
-                              : 'bg-[#FAFAF8] text-[#163300]/75 border border-[#163300]/15 hover:border-[#163300]/40'
+                              ? '!bg-[#163300] !text-[#DCFF85] border border-[#163300] shadow-sm hover:!bg-[#163300] hover:!text-[#DCFF85]'
+                              : 'bg-[#FAFAF8] text-[#163300]/80 border border-[#163300]/15 hover:border-[#163300]/50 hover:text-[#163300]'
                           }`}
                         >
-                          {selected && <Check size={12} />}
-                          {tech}
+                          {selected && <Check size={12} className="shrink-0 !text-[#DCFF85]" />}
+                          <span className={selected ? '!text-[#DCFF85] font-bold' : '!text-[#163300]'}>
+                            {tech}
+                          </span>
                         </button>
                       );
                     })}
@@ -830,44 +835,12 @@ export function EnterpriseForm() {
                     />
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-[#FAFAF8] border border-[#163300]/15 space-y-4">
-                    <div className="flex items-center gap-2">
-                      <Calendar size={18} className="text-[#163300]" />
-                      <span className="text-xs font-mono font-bold text-[#163300] uppercase">
-                        Schedule Executive Consultation (Bangladesh Standard Time BST, UTC+6)
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-mono text-[#163300]/70 font-semibold uppercase mb-1">
-                          Preferred Date
-                        </label>
-                        <input
-                          type="date"
-                          value={govData.meetingDate}
-                          onChange={(e) => setGovData({ ...govData, meetingDate: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-[#163300]/20 bg-white text-xs font-mono text-[#163300] focus:outline-none focus:border-[#163300]"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-mono text-[#163300]/70 font-semibold uppercase mb-1">
-                          Preferred Time Slot (BST UTC+6)
-                        </label>
-                        <select
-                          value={govData.meetingSlot}
-                          onChange={(e) => setGovData({ ...govData, meetingSlot: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-[#163300]/20 bg-white text-xs font-mono text-[#163300] focus:outline-none focus:border-[#163300]"
-                        >
-                          <option value="11:00 AM BST (Dhaka UTC+6)">11:00 AM BST (Dhaka UTC+6)</option>
-                          <option value="03:00 PM BST (Dhaka UTC+6)">03:00 PM BST (Dhaka UTC+6)</option>
-                          <option value="07:00 PM BST (Dhaka UTC+6)">07:00 PM BST (Dhaka UTC+6)</option>
-                          <option value="10:00 PM BST (Dhaka UTC+6)">10:00 PM BST (Dhaka UTC+6)</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
+                  <CalendarTimePicker
+                    selectedDate={govData.meetingDate}
+                    selectedTime={govData.meetingSlot}
+                    onSelectDate={(date) => setGovData({ ...govData, meetingDate: date })}
+                    onSelectTime={(slot) => setGovData({ ...govData, meetingSlot: slot })}
+                  />
 
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#163300] uppercase mb-1">
