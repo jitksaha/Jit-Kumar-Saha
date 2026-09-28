@@ -127,13 +127,14 @@ export function EnterpriseApproachSlider() {
         </div>
       </div>
 
-      {/* Swiper Container */}
-      <div className="relative overflow-visible pb-10">
+      {/* Swiper Container with top padding to prevent hover elevation clipping */}
+      <div className="relative overflow-visible pt-4 pb-10 -mt-4">
         <Swiper
           modules={[Autoplay, Pagination]}
           onSwiper={setSwiperInstance}
+          speed={900}
           autoplay={{
-            delay: 3800,
+            delay: 3500,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
@@ -161,14 +162,14 @@ export function EnterpriseApproachSlider() {
               spaceBetween: 24,
             },
           }}
-          className="!overflow-visible"
+          className="approach-swiper !overflow-visible"
         >
           {methodologySteps.map((step) => {
             const Icon = step.icon;
             return (
-              <SwiperSlide key={step.num} className="h-auto">
-                <div className="h-full bg-[#FAFAF8] rounded-3xl p-7 border border-[#163300]/10 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:border-[#163300]/25 hover:shadow-xl hover:-translate-y-1 select-none group min-h-[290px] sm:min-h-[310px]">
-                  <div>
+              <SwiperSlide key={step.num} className="!h-auto flex">
+                <div className="w-full h-full bg-[#FAFAF8] rounded-3xl p-7 border border-[#163300]/10 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:border-[#163300]/25 hover:shadow-[0_16px_36px_rgba(22,51,0,0.09)] hover:-translate-y-1 select-none group min-h-[300px]">
+                  <div className="flex-1 flex flex-col">
                     {/* Top row: Number badge & Icon */}
                     <div className="flex items-center justify-between gap-3 mb-6">
                       <span className="font-mono text-xs font-bold text-[#163300] bg-[#DCFF85] px-3 py-1 rounded-full border border-[#9FE870] inline-flex items-center gap-1.5 shadow-sm">

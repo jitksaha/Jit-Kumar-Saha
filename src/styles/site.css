@@ -89,3 +89,14 @@
   background-color: #163300 !important;
   border-radius: 9999px !important;
 }
+
+/* Equal height for all Swiper slides */
+.approach-swiper .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.approach-swiper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
