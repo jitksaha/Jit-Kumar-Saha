@@ -151,7 +151,7 @@ export function ExperienceSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] grid place-items-center bg-black/75 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[100] grid place-items-center bg-black/60 p-4 backdrop-blur-sm"
             onClick={() => setSelectedItem(null)}
           >
             <motion.div
@@ -160,63 +160,63 @@ export function ExperienceSection() {
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-[#163300] text-white p-8 md:p-10 border border-[#DCFF85]/30 shadow-2xl"
+              className="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white text-[#163300] p-8 md:p-10 border border-[#163300]/20 shadow-2xl"
             >
               <motion.button
                 onClick={() => setSelectedItem(null)}
-                className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-[#163300]/5 hover:bg-[#163300]/10 text-[#163300] transition-colors"
                 aria-label="Close modal"
                 whileTap={{ scale: 0.9 }}
               >
                 <X className="h-4 w-4" />
               </motion.button>
 
-              <span className="font-mono text-xs uppercase tracking-widest text-[#DCFF85] font-bold bg-[#DCFF85]/15 px-3 py-1 rounded-full border border-[#DCFF85]/30 inline-block mb-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#163300] font-bold bg-[#DCFF85] px-3 py-1 rounded-full border border-[#9FE870] inline-block mb-3">
                 {selectedItem.period}
               </span>
-              <h3 className="text-3xl font-bold tracking-tight text-white">
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#163300]">
                 {selectedItem.role}
               </h3>
-              <p className="text-base text-white/80 font-medium mt-1">
+              <p className="text-base text-[#163300]/80 font-medium mt-1">
                 {selectedItem.company}
               </p>
-              <p className="mt-6 text-sm md:text-base leading-relaxed text-white/85">
+              <p className="mt-6 text-sm md:text-base leading-relaxed text-[#163300]/85 font-normal">
                 {selectedItem.summary}
               </p>
 
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="font-mono text-xs uppercase tracking-widest text-[#9FE870] font-semibold mb-3">
+              <div className="mt-8 pt-6 border-t border-[#163300]/10">
+                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/60 font-bold mb-3">
                   Core Responsibilities
                 </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-white/80">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-[#163300]/80 font-medium">
                   {selectedItem.responsibilities.map((resp) => (
-                    <li key={resp} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#DCFF85] shrink-0" />
+                    <li key={resp} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#163300] shrink-0" />
                       <span>{resp}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="font-mono text-xs uppercase tracking-widest text-[#9FE870] font-semibold mb-3">
+              <div className="mt-6 pt-6 border-t border-[#163300]/10">
+                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/60 font-bold mb-3">
                   Key Achievements
                 </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-white/80">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-[#163300]/80 font-medium">
                   {selectedItem.achievements.map((ach) => (
-                    <li key={ach} className="flex items-start gap-2">
-                      <Sparkles size={14} className="text-[#DCFF85] mt-0.5 shrink-0" />
+                    <li key={ach} className="flex items-start gap-2.5">
+                      <Sparkles size={14} className="text-[#163300] mt-0.5 shrink-0" />
                       <span>{ach}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-8 rounded-2xl bg-white/5 border border-white/10 p-5">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#9FE870] block font-bold mb-1">
-                  COMMERCIAL & PRODUCT IMPACT
+              <div className="mt-8 rounded-2xl bg-[#FAFAF8] border border-[#163300]/10 p-5">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#163300]/60 block font-bold mb-1">
+                  COMMERCIAL &amp; PRODUCT IMPACT
                 </span>
-                <p className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#163300] font-semibold leading-relaxed">
                   {selectedItem.impact}
                 </p>
               </div>
