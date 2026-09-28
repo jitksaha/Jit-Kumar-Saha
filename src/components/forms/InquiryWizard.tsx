@@ -567,14 +567,14 @@ export function InquiryWizard() {
                             }}
                             className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 border ${
                               selected
-                                ? 'border-[#163300] shadow-sm hover:brightness-110'
-                                : 'bg-[#FAFAF8] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/25'
+                                ? 'border-[#163300] shadow-sm !bg-[#163300] !text-white'
+                                : 'bg-[#FAFAF8] text-[#163300] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/20'
                             }`}
                           >
                             {selected && <Check size={13} className="shrink-0 text-[#9FE870]" />}
                             <span
                               style={{ color: selected ? '#FFFFFF' : '#163300' }}
-                              className="font-semibold"
+                              className="font-semibold select-none"
                             >
                               {service}
                             </span>

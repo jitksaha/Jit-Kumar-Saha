@@ -272,7 +272,7 @@ export function EnterpriseForm() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column Info */}
-        <div className="lg:col-span-5 space-y-6 lg:border-r lg:border-[#163300]/10 lg:pr-8">
+        <div className="lg:col-span-5 space-y-6 lg:border-r lg:border-[#163300]/10 lg:pr-8 xl:pr-10">
           <div className="bg-[#DCFF85]/20 rounded-2xl p-4 border border-[#9FE870] flex items-start gap-3 text-xs shadow-sm">
             <div className="p-2 rounded-lg bg-[#163300] text-[#DCFF85] shrink-0 mt-0.5">
               <ShieldCheck size={16} />
@@ -356,7 +356,7 @@ export function EnterpriseForm() {
         </div>
 
         {/* Right Column Wizard Form */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 lg:pl-6 xl:pl-8">
           <AnimatePresence mode="wait">
             {step === 4 || isSubmitted ? (
               <motion.div
@@ -512,33 +512,6 @@ export function EnterpriseForm() {
 
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#163300] uppercase mb-1.5">
-                      Job Title / Executive Role *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={orgData.jobTitle}
-                      onChange={(e) => setOrgData({ ...orgData, jobTitle: e.target.value })}
-                      placeholder="CTO / VP of Product / Founder"
-                      className="w-full p-3.5 rounded-xl border border-[#163300]/20 bg-[#FAFAF8] text-sm font-semibold text-[#163300] focus:outline-none focus:border-[#163300] focus:bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-bold text-[#163300] uppercase mb-1.5">
-                      Phone / WhatsApp (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      value={orgData.phone}
-                      onChange={(e) => setOrgData({ ...orgData, phone: e.target.value })}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full p-3.5 rounded-xl border border-[#163300]/20 bg-[#FAFAF8] text-sm font-semibold text-[#163300] focus:outline-none focus:border-[#163300] focus:bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-mono font-bold text-[#163300] uppercase mb-1.5">
                       Company / Organization *
                     </label>
                     <input
@@ -563,34 +536,26 @@ export function EnterpriseForm() {
 
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#163300] uppercase mb-1.5">
-                      Company Website
+                      Job Title / Executive Role *
                     </label>
                     <input
                       type="text"
-                      value={orgData.website}
-                      onChange={(e) => setOrgData({ ...orgData, website: e.target.value })}
-                      placeholder="https://enterprise.com"
+                      required
+                      value={orgData.jobTitle}
+                      onChange={(e) => setOrgData({ ...orgData, jobTitle: e.target.value })}
+                      placeholder="CTO / VP of Product / Founder"
                       className="w-full p-3.5 rounded-xl border border-[#163300]/20 bg-[#FAFAF8] text-sm font-semibold text-[#163300] focus:outline-none focus:border-[#163300] focus:bg-white"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <SearchableSelect
                     isDark={false}
-                    label="Company Type"
-                    options={companyTypeOptions}
-                    value={orgData.companyType}
-                    onChange={(val) => setOrgData({ ...orgData, companyType: val })}
-                    searchable={false}
-                  />
-
-                  <SearchableSelect
-                    isDark={false}
-                    label="Industry Sector"
-                    options={industryOptions}
-                    value={orgData.industry}
-                    onChange={(val) => setOrgData({ ...orgData, industry: val })}
+                    label="Country / Region"
+                    options={countryOptions}
+                    value={orgData.country}
+                    onChange={(val) => setOrgData({ ...orgData, country: val })}
                     searchable={true}
                   />
 
@@ -601,17 +566,6 @@ export function EnterpriseForm() {
                     value={orgData.companySize}
                     onChange={(val) => setOrgData({ ...orgData, companySize: val })}
                     searchable={false}
-                  />
-                </div>
-
-                <div>
-                  <SearchableSelect
-                    isDark={false}
-                    label="Country / Primary Headquarters"
-                    options={countryOptions}
-                    value={orgData.country}
-                    onChange={(val) => setOrgData({ ...orgData, country: val })}
-                    searchable={true}
                   />
                 </div>
 
@@ -668,14 +622,14 @@ export function EnterpriseForm() {
                           }}
                           className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 border ${
                             selected
-                              ? 'border-[#163300] shadow-sm hover:brightness-110'
-                              : 'bg-[#FAFAF8] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/25'
+                              ? 'border-[#163300] shadow-sm !bg-[#163300] !text-white'
+                              : 'bg-[#FAFAF8] text-[#163300] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/20'
                           }`}
                         >
                           {selected && <Check size={13} className="shrink-0 text-[#9FE870]" />}
                           <span
                             style={{ color: selected ? '#FFFFFF' : '#163300' }}
-                            className="font-semibold"
+                            className="font-semibold select-none"
                           >
                             {cap}
                           </span>
@@ -709,14 +663,14 @@ export function EnterpriseForm() {
                           }}
                           className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 border ${
                             selected
-                              ? 'border-[#163300] shadow-sm hover:brightness-110'
-                              : 'bg-[#FAFAF8] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/25'
+                              ? 'border-[#163300] shadow-sm !bg-[#163300] !text-white'
+                              : 'bg-[#FAFAF8] text-[#163300] border-[#163300]/15 hover:border-[#163300]/40 hover:bg-[#DCFF85]/20'
                           }`}
                         >
                           {selected && <Check size={13} className="shrink-0 text-[#9FE870]" />}
                           <span
                             style={{ color: selected ? '#FFFFFF' : '#163300' }}
-                            className="font-semibold"
+                            className="font-semibold select-none"
                           >
                             {tech}
                           </span>
@@ -801,52 +755,9 @@ export function EnterpriseForm() {
                 >
                   <div className="pb-3 border-b border-[#163300]/10 flex items-center justify-between">
                     <h3 className="text-xs font-mono font-bold text-[#163300] uppercase tracking-wider">
-                      03. Governance & Consultation Schedule
+                      03. Schedule Executive Consultation
                     </h3>
                     <span className="text-xs font-mono font-semibold text-[#163300]/60">Step 3 of 3</span>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <SearchableSelect
-                      isDark={false}
-                      label="Preferred Engagement Model"
-                      options={engagementModelOptions}
-                      value={govData.engagementPreference}
-                      onChange={(val) => setGovData({ ...govData, engagementPreference: val })}
-                      searchable={false}
-                    />
-
-                    <SearchableSelect
-                      isDark={false}
-                      label="Your Decision Role"
-                      options={decisionRoleOptions}
-                      value={govData.userRole}
-                      onChange={(val) => setGovData({ ...govData, userRole: val })}
-                      searchable={false}
-                    />
-
-                    <SearchableSelect
-                      isDark={false}
-                      label="Procurement Process"
-                      options={[
-                        'Direct Engagement',
-                        'RFP / Tender Process',
-                        'Vendor Onboarding Required',
-                        'Third-party Partner',
-                      ]}
-                      value={govData.procurementProcess}
-                      onChange={(val) => setGovData({ ...govData, procurementProcess: val })}
-                      searchable={false}
-                    />
-
-                    <SearchableSelect
-                      isDark={false}
-                      label="NDA Required Prior to Technical Call?"
-                      options={['Yes', 'No', 'Already Signed']}
-                      value={govData.ndaRequired}
-                      onChange={(val) => setGovData({ ...govData, ndaRequired: val })}
-                      searchable={false}
-                    />
                   </div>
 
                   <CalendarTimePicker

@@ -150,15 +150,15 @@ export const CalendarTimePicker: React.FC<CalendarTimePickerProps> = ({
                   }}
                   className={`h-9 w-full rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
                     isSelected
-                      ? 'shadow-md hover:brightness-110'
+                      ? '!bg-[#163300] !text-white shadow-md'
                       : isPast
                       ? 'cursor-not-allowed bg-transparent'
-                      : 'bg-white border border-[#163300]/10 hover:border-[#163300] hover:bg-[#DCFF85]/25'
+                      : 'bg-white border border-[#163300]/10 hover:border-[#163300] hover:bg-[#DCFF85]/20'
                   }`}
                 >
                   <span
                     style={{ color: isSelected ? '#FFFFFF' : isPast ? 'rgba(22, 51, 0, 0.25)' : '#163300' }}
-                    className="font-bold"
+                    className="font-bold select-none"
                   >
                     {dayNum}
                   </span>
@@ -201,14 +201,14 @@ export const CalendarTimePicker: React.FC<CalendarTimePickerProps> = ({
                   }}
                   className={`py-2 px-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5 border ${
                     active
-                      ? 'border-[#163300] shadow-md hover:brightness-110'
-                      : 'bg-white border-[#163300]/15 hover:border-[#163300] hover:bg-[#DCFF85]/25'
+                      ? 'border-[#163300] shadow-md !bg-[#163300] !text-white'
+                      : 'bg-white border-[#163300]/15 hover:border-[#163300] hover:bg-[#DCFF85]/20'
                   }`}
                 >
                   {active && <Check size={12} className="shrink-0 text-[#9FE870]" />}
                   <span
                     style={{ color: active ? '#FFFFFF' : '#163300' }}
-                    className="font-bold"
+                    className="font-bold select-none"
                   >
                     {slot}
                   </span>
