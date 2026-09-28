@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
 import {
   Compass,
   Target,
@@ -17,7 +18,6 @@ import {
 // Swiper core & module styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 export interface MethodologyStep {
   num: string;
@@ -80,8 +80,7 @@ export const methodologySteps: MethodologyStep[] = [
 ];
 
 export function EnterpriseApproachSlider() {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
   return (
     <div className="relative w-full">
@@ -99,21 +98,31 @@ export function EnterpriseApproachSlider() {
           </p>
         </div>
 
-        {/* Custom Nav Arrows & Progress */}
-        <div className="flex items-center gap-3 self-start md:self-end shrink-0">
+        {/* Custom Nav Arrows */}
+        <div className="flex items-center gap-3 self-start md:self-end shrink-0 z-10">
           <button
-            ref={prevRef}
+            type="button"
+            onClick={() => swiperInstance?.slidePrev()}
             aria-label="Previous step"
-            className="approach-prev w-11 h-11 rounded-full border border-[#163300]/15 bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed group"
+            className="w-12 h-12 rounded-full border-2 border-[#163300]/20 bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] flex items-center justify-center transition-all duration-200 shadow-sm hover:shadow-lg hover:shadow-[#163300]/20 active:scale-95 cursor-pointer group"
           >
-            <ChevronLeft size={18} className="transition-transform group-hover:-translate-x-0.5" />
+            <ChevronLeft
+              size={22}
+              strokeWidth={2.5}
+              className="text-[#163300] group-hover:text-[#DCFF85] transition-all duration-200 group-hover:-translate-x-0.5"
+            />
           </button>
           <button
-            ref={nextRef}
+            type="button"
+            onClick={() => swiperInstance?.slideNext()}
             aria-label="Next step"
-            className="approach-next w-11 h-11 rounded-full border border-[#163300]/15 bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed group"
+            className="w-12 h-12 rounded-full border-2 border-[#163300]/20 bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] flex items-center justify-center transition-all duration-200 shadow-sm hover:shadow-lg hover:shadow-[#163300]/20 active:scale-95 cursor-pointer group"
           >
-            <ChevronRight size={18} className="transition-transform group-hover:translate-x-0.5" />
+            <ChevronRight
+              size={22}
+              strokeWidth={2.5}
+              className="text-[#163300] group-hover:text-[#DCFF85] transition-all duration-200 group-hover:translate-x-0.5"
+            />
           </button>
         </div>
       </div>
@@ -121,7 +130,8 @@ export function EnterpriseApproachSlider() {
       {/* Swiper Container */}
       <div className="relative overflow-visible pb-10">
         <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[Autoplay, Pagination]}
+          onSwiper={setSwiperInstance}
           autoplay={{
             delay: 3800,
             disableOnInteraction: false,
@@ -132,16 +142,6 @@ export function EnterpriseApproachSlider() {
             el: '.approach-pagination',
             bulletClass: 'approach-bullet',
             bulletActiveClass: 'approach-bullet-active',
-          }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }
           }}
           spaceBetween={18}
           slidesPerView={1.15}

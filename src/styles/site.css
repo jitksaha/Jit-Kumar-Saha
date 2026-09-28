@@ -70,21 +70,22 @@
 
 /* Swiper Enterprise Approach Pagination */
 .approach-bullet {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   display: inline-block;
   border-radius: 9999px;
-  background-color: rgba(22, 51, 0, 0.2);
+  background-color: rgba(22, 51, 0, 0.22);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .approach-bullet:hover {
-  background-color: rgba(22, 51, 0, 0.5);
+  background-color: rgba(22, 51, 0, 0.6);
+  transform: scale(1.15);
 }
 
 .approach-bullet-active {
-  width: 28px;
+  width: 32px !important;
   background-color: #163300 !important;
-  border-radius: 9999px;
+  border-radius: 9999px !important;
 }
