@@ -21,7 +21,7 @@ import { EnterpriseForm } from "../components/forms/EnterpriseForm";
 import { ReviewsMarquee } from "../components/sections/shared/ReviewsMarquee";
 import { BrandSlider } from "../components/sections/home/BrandSlider";
 import { EnterpriseApproachSlider } from "../components/sections/enterprise/EnterpriseApproachSlider";
-import { EnterpriseGlyphHero } from "../components/sections/enterprise/EnterpriseGlyphHero";
+import { EnterpriseHero } from "../components/sections/enterprise/EnterpriseHero";
 import { ActionLink } from "../components/ui/Button";
 
 function EnterprisePage() {
@@ -125,8 +125,8 @@ function EnterprisePage() {
 
   return (
     <SubrouteLayout page="enterprise">
-      {/* Immersive Scroll-Driven Enterprise Glyph Hero */}
-      <EnterpriseGlyphHero />
+      {/* Enterprise Executive Hero Section */}
+      <EnterpriseHero />
 
       {/* Brand & Ecosystem Slider */}
       <section className="py-12 bg-[#FAFAF8] border-b border-[#163300]/10 overflow-hidden">
