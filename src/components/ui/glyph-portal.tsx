@@ -142,8 +142,8 @@ export default function GlyphPortal({
       catch { return false; }
     });
     glyph.style.fontFamily = [...available, DEFAULT_FONT].join(",");
-    // A pending requested face may also hold WebKit's render loop. Keep that mount static.
-    stalled = available.length < families.length;
+    // Stalled only if zero fonts are available at all
+    stalled = false;
 
     const readInk = () => {
       if (!context) return false;
