@@ -100,3 +100,21 @@
   height: auto !important;
   display: flex !important;
 }
+
+/* Disciplines Carousel Marquee */
+@keyframes portraitMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333333%);
+  }
+}
+
+.animate-portrait-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: portraitMarquee 35s linear infinite;
+}
+
