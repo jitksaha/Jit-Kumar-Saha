@@ -37,7 +37,7 @@ export function ExecutivePortraitCard({
   ctaText,
   ctaTo = "/contact",
   className = "",
-  aspectRatio = "aspect-[16/10]",
+  aspectRatio = "aspect-[4/3.5] sm:aspect-[4/3.8]",
 }: ExecutivePortraitCardProps) {
   return (
     <motion.div
@@ -48,14 +48,14 @@ export function ExecutivePortraitCard({
     >
       <div className="absolute -top-16 -right-16 w-48 h-48 bg-[#DCFF85]/40 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
 
-      <div className={`relative w-full ${aspectRatio} max-h-[250px] sm:max-h-[275px] overflow-hidden bg-[#163300]/5`}>
+      <div className={`relative w-full ${aspectRatio} min-h-[280px] sm:min-h-[320px] overflow-hidden bg-[#163300]/5`}>
         <img
           src={image}
           alt="Jit Kumar Saha — Founder, Product Leader and AI Strategist"
-          className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#163300]/90 via-[#163300]/25 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#163300]/90 via-[#163300]/20 to-transparent pointer-events-none" />
 
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[#163300] text-[10px] sm:text-[11px] font-mono font-bold shadow-sm border border-white/50">

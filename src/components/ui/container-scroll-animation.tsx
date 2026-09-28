@@ -29,17 +29,17 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.82, 0.96] : [1.06, 1];
+    return isMobile ? [0.82, 0.98] : [1.08, 1];
   };
 
   // Smooth rotation curve while scrolling through the viewport
-  const rotate = useTransform(scrollYProgress, [0.05, 0.6], [22, 0]);
-  const scale = useTransform(scrollYProgress, [0.05, 0.6], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0.05, 0.6], [0, -60]);
+  const rotate = useTransform(scrollYProgress, [0.08, 0.55], [20, 0]);
+  const scale = useTransform(scrollYProgress, [0.08, 0.55], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0.08, 0.55], [0, -50]);
 
   return (
     <div
-      className={`h-[52rem] sm:h-[60rem] md:h-[68rem] flex items-center justify-center relative px-3 py-8 sm:px-6 md:px-12 overflow-hidden ${className}`}
+      className={`min-h-[50rem] sm:min-h-[58rem] md:min-h-[66rem] flex items-center justify-center relative px-3 py-10 sm:px-6 md:px-12 overflow-hidden ${className}`}
       ref={containerRef}
     >
       <div
@@ -95,22 +95,22 @@ export const Card = ({
       }}
       className="relative w-full max-w-5xl mx-auto will-change-transform"
     >
-      {/* MacBook Screen Top Lid & Bezel */}
-      <div className="relative w-full bg-[#161618] border-[8px] sm:border-[12px] md:border-[14px] border-[#1e1e22] rounded-[22px] sm:rounded-[26px] md:rounded-[30px] shadow-[0_25px_70px_-15px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)] overflow-hidden">
+      {/* MacBook Screen Top Lid & Bezel (Space Black Aluminum) */}
+      <div className="relative w-full bg-[#121316] border-[10px] sm:border-[14px] md:border-[16px] border-[#1c1d22] rounded-[24px] sm:rounded-[28px] md:rounded-[32px] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden">
         {/* Top Center Camera Lens */}
-        <div className="absolute top-1.5 sm:top-2 inset-x-0 mx-auto w-2.5 h-2.5 rounded-full bg-[#0a0a0c] ring-1 ring-white/10 z-30 flex items-center justify-center pointer-events-none">
-          <span className="w-1 h-1 rounded-full bg-[#1b3147]/80" />
+        <div className="absolute top-1.5 sm:top-2 inset-x-0 mx-auto w-2.5 h-2.5 rounded-full bg-[#08080a] ring-1 ring-white/15 z-30 flex items-center justify-center pointer-events-none">
+          <span className="w-1 h-1 rounded-full bg-[#1e3a5f]" />
         </div>
 
         {/* Screen Display Glass */}
-        <div className="w-full h-[26rem] sm:h-[32rem] md:h-[36rem] bg-[#0c0d10] text-white overflow-hidden rounded-[14px] sm:rounded-[18px]">
+        <div className="w-full h-[28rem] sm:h-[34rem] md:h-[38rem] bg-[#090b0e] text-white overflow-hidden rounded-[14px] sm:rounded-[18px]">
           {children}
         </div>
       </div>
 
-      {/* MacBook Bottom Chassis & Thumb Notch */}
-      <div className="relative -mt-1.5 sm:-mt-2 mx-auto w-[103%] sm:w-[104%] h-3 sm:h-4 bg-gradient-to-r from-[#27272a] via-[#3f3f46] to-[#27272a] rounded-b-xl shadow-2xl border-t border-white/10 flex items-start justify-center">
-        <div className="w-20 sm:w-28 h-1.5 bg-[#18181b] rounded-b-md" />
+      {/* MacBook Bottom Base & Thumb Opening Notch */}
+      <div className="relative -mt-2 sm:-mt-2.5 mx-auto w-[103%] sm:w-[104%] h-3.5 sm:h-4.5 bg-gradient-to-r from-[#222328] via-[#3a3a42] to-[#222328] rounded-b-2xl shadow-2xl border-t border-white/15 flex items-start justify-center">
+        <div className="w-24 sm:w-32 h-1.5 bg-[#121316] rounded-b-md" />
       </div>
     </motion.div>
   );
