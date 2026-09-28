@@ -45,10 +45,10 @@ export function ScrollShowcaseSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#FAFAF8] pt-24 pb-24 md:pt-32 md:pb-36 border-t border-[#163300]/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Section Header with Ample Top Clearance */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 md:mb-18">
+    <section className="relative overflow-hidden bg-[#ECEEE6] pt-28 pb-24 md:pt-36 md:pb-36 border-y border-[#163300]/15">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+        {/* Section Header with Ample Top Clearance to Avoid Header Overlap */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,13 +84,13 @@ export function ScrollShowcaseSection() {
           </motion.p>
         </div>
 
-        {/* Authentic macOS Safari Browser Window Frame */}
+        {/* Authentic macOS Safari Browser Window Frame - Expansive Full Width & 16px Rounded Corners */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, delay: 0.25, ease: easeCustom }}
-          className="w-full max-w-5xl mx-auto rounded-[24px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(22,51,0,0.45),0_0_0_1px_rgba(22,51,0,0.25)] border border-[#1d3020]"
+          className="w-full max-w-6xl xl:max-w-7xl mx-auto rounded-[16px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(22,51,0,0.45),0_0_0_1px_rgba(22,51,0,0.25)] border border-[#1d3020]"
           style={{ background: "#0B1307", color: "#FFFFFF" }}
         >
           {/* macOS Browser Header (Chrome / Title Bar) */}
@@ -166,16 +166,14 @@ export function ScrollShowcaseSection() {
                 </button>
               </div>
 
-              {/* Omnibox Address Bar */}
+              {/* Omnibox Address Bar with https://www.jitksaha.com */}
               <div
                 className="flex-1 max-w-md mx-auto flex items-center justify-between px-3.5 py-1.5 rounded-lg border border-[#2b422e] text-xs font-mono shadow-inner"
                 style={{ background: "#0B1307" }}
               >
                 <div className="flex items-center gap-2 truncate">
                   <Lock size={12} className="text-[#DCFF85] shrink-0" />
-                  <span className="text-white/40">https://</span>
-                  <span className="text-white font-bold">jitksaha.com</span>
-                  <span className="text-[#DCFF85] font-bold">/systems</span>
+                  <span className="text-white font-bold">https://www.jitksaha.com</span>
                 </div>
                 <Share2 size={12} className="text-white/40 hover:text-white cursor-pointer ml-2 shrink-0 hidden sm:block" />
               </div>
@@ -190,16 +188,16 @@ export function ScrollShowcaseSection() {
 
           {/* Browser Window Body Canvas */}
           <div
-            className="p-6 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center select-none"
+            className="p-6 sm:p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center select-none"
             style={{
               background:
                 "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(22, 51, 0, 0.4), transparent 70%), #0B1307",
             }}
           >
-            {/* Left: Jit's Portrait with High-Contrast Framing */}
+            {/* Left: Jit's Portrait Card with 16px Rounded Corners */}
             <div className="lg:col-span-5 flex justify-center items-center">
               <div
-                className="relative w-full max-w-[280px] sm:max-w-[320px] aspect-[4/4.9] rounded-2xl overflow-hidden border-2 border-[#243826] shadow-2xl group ring-1 ring-white/10"
+                className="relative w-full max-w-[300px] sm:max-w-[340px] aspect-[4/4.9] rounded-[16px] overflow-hidden border-2 border-[#243826] shadow-2xl group ring-1 ring-white/10"
                 style={{ background: "#111c12" }}
               >
                 <img
@@ -212,7 +210,7 @@ export function ScrollShowcaseSection() {
 
                 {/* Portrait Overlay Info */}
                 <div
-                  className="absolute bottom-3 inset-x-3 backdrop-blur-md p-3.5 rounded-xl border border-white/15 shadow-xl"
+                  className="absolute bottom-3 inset-x-3 backdrop-blur-md p-3.5 rounded-[12px] border border-white/15 shadow-xl"
                   style={{ background: "rgba(14, 23, 16, 0.95)" }}
                 >
                   <div className="flex items-center justify-between">
@@ -235,18 +233,18 @@ export function ScrollShowcaseSection() {
               </div>
             </div>
 
-            {/* Right: 3 High-Contrast System Architecture Bento Cards */}
-            <div className="lg:col-span-7 flex flex-col justify-center gap-3.5">
+            {/* Right: 3 High-Contrast Bento Cards with 16px Rounded Corners */}
+            <div className="lg:col-span-7 flex flex-col justify-center gap-4">
               {capabilities.map((item) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={item.num}
-                    className="rounded-2xl p-4 sm:p-5 border border-[#233525] hover:border-[#DCFF85]/55 transition-all duration-200 group/item flex items-start gap-4 shadow-md hover:shadow-xl cursor-default"
+                    className="rounded-[16px] p-4 sm:p-5 border border-[#233525] hover:border-[#DCFF85]/55 transition-all duration-200 group/item flex items-start gap-4 shadow-md hover:shadow-xl cursor-default"
                     style={{ background: "#132115" }}
                   >
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center font-bold shrink-0 shadow-md group-hover/item:scale-105 transition-transform"
+                      className="w-10 h-10 rounded-[12px] flex items-center justify-center font-bold shrink-0 shadow-md group-hover/item:scale-105 transition-transform"
                       style={{ background: "#DCFF85", color: "#163300" }}
                     >
                       <Icon size={20} />
@@ -271,21 +269,21 @@ export function ScrollShowcaseSection() {
                 );
               })}
 
-              {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap items-center gap-4">
+              {/* Action Buttons with High-Contrast Crystal-Clear Colors */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <ActionLink
                   to="/enterprise"
                   variant="lime"
                   text="Explore Enterprise Solutions"
                   icon={<ArrowUpRight size={15} />}
-                  className="px-6 py-3 text-xs sm:text-sm font-bold shadow-lg shadow-[#DCFF85]/15"
+                  className="px-6 py-3 text-xs sm:text-sm font-bold shadow-lg shadow-[#DCFF85]/20 hover:brightness-105"
                 />
                 <ActionLink
                   to="/work"
-                  variant="outline"
+                  variant="glass-dark"
                   text="View Selected Work"
                   icon={<ExternalLink size={14} />}
-                  className="px-5 py-3 text-xs sm:text-sm font-semibold text-white border-white/30 hover:bg-white/20 hover:text-white"
+                  className="px-5 py-3 text-xs sm:text-sm font-semibold !text-white bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/60 shadow-sm"
                 />
               </div>
             </div>
@@ -310,3 +308,4 @@ export function ScrollShowcaseSection() {
     </section>
   );
 }
+
