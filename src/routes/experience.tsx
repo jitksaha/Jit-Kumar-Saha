@@ -486,17 +486,17 @@ export function ExperienceRoute() {
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.25, ease: easeCustom }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white text-[#163300] p-8 md:p-10 border border-[#163300]/20 shadow-2xl"
+              className="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-[#F3FCED] text-[#163300] p-8 md:p-10 border border-[#163300]/20 shadow-2xl"
             >
               <motion.button
                 onClick={() => setSelectedRole(null)}
-                className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-[#163300]/5 hover:bg-[#163300]/10 text-[#163300] transition-colors"
+                className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-[#9FE870] hover:bg-[#8ed660] text-[#163300] shadow-sm transition-all"
                 aria-label="Close modal"
                 whileTap={{ scale: 0.9 }}
               >
-                <X className="h-4 w-4" />
+                <X className="h-4 w-4 text-[#163300] stroke-[2.5]" />
               </motion.button>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#163300] font-bold bg-[#DCFF85] px-3 py-1 rounded-full border border-[#9FE870] inline-block mb-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#163300] font-bold bg-[#DCFF85] px-3 py-1 rounded-full border border-[#9FE870] inline-block mb-3 shadow-xs">
                 {selectedRole.period}
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#163300]">
@@ -509,8 +509,8 @@ export function ExperienceRoute() {
                 {selectedRole.summary}
               </p>
 
-              <div className="mt-8 pt-6 border-t border-[#163300]/10">
-                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/60 font-bold mb-3">
+              <div className="mt-8 pt-6 border-t border-[#163300]/15">
+                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/70 font-bold mb-3">
                   CORE RESPONSIBILITIES
                 </p>
                 <ul className="space-y-2.5">
@@ -523,8 +523,8 @@ export function ExperienceRoute() {
                 </ul>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-[#163300]/10">
-                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/60 font-bold mb-3">
+              <div className="mt-6 pt-6 border-t border-[#163300]/15">
+                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/70 font-bold mb-3">
                   KEY ACHIEVEMENTS
                 </p>
                 <ul className="space-y-2.5">
@@ -537,8 +537,8 @@ export function ExperienceRoute() {
                 </ul>
               </div>
 
-              <div className="mt-8 rounded-2xl border border-[#163300]/10 bg-[#FAFAF8] p-5">
-                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/60 font-bold mb-1">
+              <div className="mt-8 rounded-2xl border border-[#163300]/15 bg-white/70 backdrop-blur-sm p-5 shadow-xs">
+                <p className="font-mono text-xs uppercase tracking-widest text-[#163300]/70 font-bold mb-1">
                   BUSINESS IMPACT
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-[#163300] font-semibold">
