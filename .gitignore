@@ -15,11 +15,13 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+*.tsbuildinfo
+recovered-build/
+hostinger-build/
 
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
-hostinger-build/
 
 # Editor directories and files
 .vscode/*

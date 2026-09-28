@@ -1,0 +1,90 @@
+/* Base styles and custom overrides */
+
+@keyframes brandMarqueeForward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes brandMarqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-brand-forward {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: brandMarqueeForward 52s linear infinite;
+}
+
+.animate-brand-reverse {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: brandMarqueeReverse 52s linear infinite;
+}
+
+.brand-slider-track {
+  transition: filter 0.35s ease, -webkit-filter 0.35s ease, opacity 0.35s ease;
+  will-change: filter, opacity;
+}
+
+.brand-slider-viewport:hover .brand-slider-track,
+.brand-slider-track.is-blurred {
+  filter: blur(3px) !important;
+  -webkit-filter: blur(3px) !important;
+  opacity: 0.35 !important;
+}
+
+.brand-slider-viewport:hover .animate-brand-forward,
+.brand-slider-viewport:hover .animate-brand-reverse {
+  animation-play-state: paused !important;
+}
+
+/* 100% Uniform Brand Logo Styling */
+.brand-item-logo {
+  color: #163300;
+  opacity: 0.65;
+  transition: opacity 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.brand-item-logo:hover {
+  opacity: 1;
+  color: #000000;
+  transform: scale(1.04);
+}
+
+.brand-item-logo img {
+  filter: brightness(0) !important;
+  -webkit-filter: brightness(0) !important;
+  display: block;
+}
+
+/* Swiper Enterprise Approach Pagination */
+.approach-bullet {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: rgba(22, 51, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approach-bullet:hover {
+  background-color: rgba(22, 51, 0, 0.5);
+}
+
+.approach-bullet-active {
+  width: 28px;
+  background-color: #163300 !important;
+  border-radius: 9999px;
+}

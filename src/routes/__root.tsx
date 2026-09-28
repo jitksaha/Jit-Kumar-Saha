@@ -1,19 +1,22 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from 'react';
 import {
-  Outlet,
-  Link,
   createRootRouteWithContext,
-  useRouter,
   HeadContent,
+  Outlet,
   Scripts,
-} from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+  Link,
+  useRouter,
+} from '@tanstack/react-router';
+import type { QueryClient } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { SmoothScroll } from '../components/SmoothScroll';
+import { CustomCursor } from '../components/CustomCursor';
 
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
-import { CustomCursor } from "../components/site/CustomCursor";
+export interface RouterContext {
+  queryClient: QueryClient;
+}
 
-function NotFoundComponent() {
+export function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -35,11 +38,17 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
-  console.error(error);
+export function ErrorComponent({
+  error,
+  reset,
+}: {
+  error: any;
+  reset: () => void;
+}) {
   const router = useRouter();
+
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error(error);
   }, [error]);
 
   return (
@@ -73,67 +82,192 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Jit Kumar Saha — Business Consultant, Head of Product, AI Strategist" },
-      {
-        name: "description",
-        content:
-          "Jit Kumar Saha helps organizations scale through business strategy, product innovation, AI implementation, and operational excellence.",
-      },
-      { name: "author", content: "Jit Kumar Saha" },
-      {
-        property: "og:title",
-        content: "Jit Kumar Saha — Business Leader, Product Executive, AI Strategist",
-      },
-      {
-        property: "og:description",
-        content:
-          "Building businesses through strategy, products & AI. Business consulting, product leadership, and AI transformation.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
-  component: RootComponent,
-  notFoundComponent: NotFoundComponent,
-  errorComponent: ErrorComponent,
-});
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SmoothScroll />
       <CustomCursor />
       <Outlet />
     </QueryClientProvider>
   );
 }
+
+export const Route = createRootRouteWithContext<RouterContext>()({
+  head: () => ({
+    meta: [
+      {
+        title: 'Jit Kumar Saha — Entrepreneur, Product Builder & Technology Founder',
+      },
+      {
+        name: 'description',
+        content:
+          'Jit Kumar Saha is an entrepreneur and technology founder building SaaS, software and digital products that connect business, product development and technology. Founder & CEO of Dynime.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'Jit Kumar Saha, Entrepreneur, Product Builder, Technology Founder, SaaS, Software Products, Digital Products, Product Development, Product Strategy, Business Technology, Technology Ventures, Dynime',
+      },
+      {
+        property: 'og:title',
+        content: 'Jit Kumar Saha — Entrepreneur, Product Builder & Technology Founder',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Jit Kumar Saha is an entrepreneur and technology founder building SaaS, software and digital products that connect business, product development and technology. Founder & CEO of Dynime.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://jitksaha.com',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:site_name',
+        content: 'Jit Kumar Saha',
+      },
+      {
+        property: 'og:image',
+        content: 'https://jitksaha.com/og-image.jpg',
+      },
+      {
+        property: 'og:image:secure_url',
+        content: 'https://jitksaha.com/og-image.jpg',
+      },
+      {
+        property: 'og:image:type',
+        content: 'image/jpeg',
+      },
+      {
+        property: 'og:image:width',
+        content: '1200',
+      },
+      {
+        property: 'og:image:height',
+        content: '675',
+      },
+      {
+        property: 'og:image:alt',
+        content: 'Jit Kumar Saha — Entrepreneur, Product Builder & Technology Founder',
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:site',
+        content: '@jitksaha',
+      },
+      {
+        name: 'twitter:creator',
+        content: '@jitksaha',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Jit Kumar Saha — Entrepreneur, Product Builder & Technology Founder',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Jit Kumar Saha is an entrepreneur and technology founder building SaaS, software and digital products that connect business, product development and technology. Founder & CEO of Dynime.',
+      },
+      {
+        name: 'twitter:image',
+        content: 'https://jitksaha.com/og-image.jpg',
+      },
+      {
+        name: 'twitter:image:alt',
+        content: 'Jit Kumar Saha — Entrepreneur, Product Builder & Technology Founder',
+      },
+    ],
+    links: [
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      { rel: 'shortcut icon', href: '/favicon.ico' },
+      { rel: 'canonical', href: 'https://jitksaha.com' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap',
+      },
+    ],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Person',
+              '@id': 'https://jitksaha.com/#person',
+              name: 'Jit Kumar Saha',
+              alternateName: ['Jit Saha', 'Jit K. Saha'],
+              jobTitle: 'Entrepreneur & Technology Founder',
+              description:
+                'Jit Kumar Saha is an entrepreneur, technology founder and product builder focused on building businesses, digital products, SaaS platforms and software solutions.',
+              url: 'https://jitksaha.com',
+              image: 'https://jitksaha.com/assets/portraits/jitksaha_hero.png',
+              sameAs: [
+                'https://www.linkedin.com/in/jitksaha',
+                'https://github.com/jitksaha',
+                'https://twitter.com/jitksaha',
+              ],
+              worksFor: {
+                '@type': 'Organization',
+                '@id': 'https://jitksaha.com/#dynime',
+                name: 'Dynime',
+                url: 'https://dynime.com',
+              },
+              knowsAbout: [
+                'Entrepreneurship',
+                'Product Development',
+                'Product Strategy',
+                'Digital Product Development',
+                'SaaS Product Development',
+                'Software Products',
+                'Business Technology',
+                'Technology Ventures',
+                'Digital Transformation',
+                'Business Automation',
+                'Artificial Intelligence',
+              ],
+            },
+            {
+              '@type': 'Organization',
+              '@id': 'https://jitksaha.com/#dynime',
+              name: 'Dynime',
+              url: 'https://dynime.com',
+              founder: {
+                '@id': 'https://jitksaha.com/#person',
+              },
+              description:
+                'Dynime is a technology company focused on SaaS, business software, AI, automation and digital transformation.',
+            },
+            {
+              '@type': 'WebSite',
+              '@id': 'https://jitksaha.com/#website',
+              url: 'https://jitksaha.com',
+              name: 'Jit Kumar Saha',
+              description:
+                'Official personal website and portfolio of Jit Kumar Saha — Entrepreneur, Product Builder & Technology Founder.',
+              publisher: {
+                '@id': 'https://jitksaha.com/#person',
+              },
+            },
+          ],
+        }),
+      },
+    ],
+  }),
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});

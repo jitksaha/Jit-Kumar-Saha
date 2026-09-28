@@ -11,14 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiRouteImport } from './routes/ai'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as VentureRouteImport } from './routes/venture'
-import { Route as WorkRouteImport } from './routes/work'
-import { Route as WorkIndexRouteImport } from './routes/work.index'
-import { Route as WorkSlugRouteImport } from './routes/work.$slug'
+import { Route as WorkRouteRouteImport } from './routes/work/route'
+import { Route as WorkIndexRouteImport } from './routes/work/index'
+import { Route as WorkSlugRouteImport } from './routes/work/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,9 +32,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnterpriseRoute = EnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceRoute = ExperienceRouteImport.update({
@@ -55,7 +67,7 @@ const VentureRoute = VentureRouteImport.update({
   path: '/venture',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WorkRoute = WorkRouteImport.update({
+const WorkRouteRoute = WorkRouteRouteImport.update({
   id: '/work',
   path: '/work',
   getParentRoute: () => rootRouteImport,
@@ -63,30 +75,34 @@ const WorkRoute = WorkRouteImport.update({
 const WorkIndexRoute = WorkIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => WorkRoute,
+  getParentRoute: () => WorkRouteRoute,
 } as any)
 const WorkSlugRoute = WorkSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => WorkRoute,
+  getParentRoute: () => WorkRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/work': typeof WorkRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
   '/contact': typeof ContactRoute
+  '/enterprise': typeof EnterpriseRoute
   '/experience': typeof ExperienceRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRoute
   '/venture': typeof VentureRoute
-  '/work': typeof WorkRouteWithChildren
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
   '/contact': typeof ContactRoute
+  '/enterprise': typeof EnterpriseRoute
   '/experience': typeof ExperienceRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRoute
@@ -97,13 +113,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/work': typeof WorkRouteRouteWithChildren
   '/about': typeof AboutRoute
+  '/ai': typeof AiRoute
   '/contact': typeof ContactRoute
+  '/enterprise': typeof EnterpriseRoute
   '/experience': typeof ExperienceRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRoute
   '/venture': typeof VentureRoute
-  '/work': typeof WorkRouteWithChildren
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
 }
@@ -111,20 +129,24 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/work'
     | '/about'
+    | '/ai'
     | '/contact'
+    | '/enterprise'
     | '/experience'
     | '/expertise'
     | '/insights'
     | '/venture'
-    | '/work'
     | '/work/$slug'
     | '/work/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/ai'
     | '/contact'
+    | '/enterprise'
     | '/experience'
     | '/expertise'
     | '/insights'
@@ -134,26 +156,30 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/work'
     | '/about'
+    | '/ai'
     | '/contact'
+    | '/enterprise'
     | '/experience'
     | '/expertise'
     | '/insights'
     | '/venture'
-    | '/work'
     | '/work/$slug'
     | '/work/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WorkRouteRoute: typeof WorkRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AiRoute: typeof AiRoute
   ContactRoute: typeof ContactRoute
+  EnterpriseRoute: typeof EnterpriseRoute
   ExperienceRoute: typeof ExperienceRoute
   ExpertiseRoute: typeof ExpertiseRoute
   InsightsRoute: typeof InsightsRoute
   VentureRoute: typeof VentureRoute
-  WorkRoute: typeof WorkRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -172,11 +198,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise': {
+      id: '/enterprise'
+      path: '/enterprise'
+      fullPath: '/enterprise'
+      preLoaderRoute: typeof EnterpriseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience': {
@@ -211,7 +251,7 @@ declare module '@tanstack/react-router' {
       id: '/work'
       path: '/work'
       fullPath: '/work'
-      preLoaderRoute: typeof WorkRouteImport
+      preLoaderRoute: typeof WorkRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work/': {
@@ -219,50 +259,44 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/work/'
       preLoaderRoute: typeof WorkIndexRouteImport
-      parentRoute: typeof WorkRoute
+      parentRoute: typeof WorkRouteRoute
     }
     '/work/$slug': {
       id: '/work/$slug'
       path: '/$slug'
       fullPath: '/work/$slug'
       preLoaderRoute: typeof WorkSlugRouteImport
-      parentRoute: typeof WorkRoute
+      parentRoute: typeof WorkRouteRoute
     }
   }
 }
 
-interface WorkRouteChildren {
+interface WorkRouteRouteChildren {
   WorkSlugRoute: typeof WorkSlugRoute
   WorkIndexRoute: typeof WorkIndexRoute
 }
 
-const WorkRouteChildren: WorkRouteChildren = {
+const WorkRouteRouteChildren: WorkRouteRouteChildren = {
   WorkSlugRoute: WorkSlugRoute,
   WorkIndexRoute: WorkIndexRoute,
 }
 
-const WorkRouteWithChildren = WorkRoute._addFileChildren(WorkRouteChildren)
+const WorkRouteRouteWithChildren = WorkRouteRoute._addFileChildren(
+  WorkRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WorkRouteRoute: WorkRouteRouteWithChildren,
   AboutRoute: AboutRoute,
+  AiRoute: AiRoute,
   ContactRoute: ContactRoute,
+  EnterpriseRoute: EnterpriseRoute,
   ExperienceRoute: ExperienceRoute,
   ExpertiseRoute: ExpertiseRoute,
   InsightsRoute: InsightsRoute,
   VentureRoute: VentureRoute,
-  WorkRoute: WorkRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
