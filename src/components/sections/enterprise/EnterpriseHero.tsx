@@ -71,17 +71,18 @@ export function EnterpriseHero() {
   ];
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0B1307] text-white">
-      {/* Background Matrix & Lighting */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+    <section className="relative overflow-hidden pt-32 pb-32 md:pt-40 md:pb-44 bg-[#0d160c] text-white">
+      {/* Soft Animated Particles Matrix */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <ThreeBackground variant="particles" accentColor={0xdcff85} />
       </div>
 
+      {/* Softer Elegant Ambient Lighting */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(220, 255, 133, 0.12), transparent 70%), radial-gradient(ellipse 60% 60% at 90% 80%, rgba(22, 51, 0, 0.5), transparent)",
+            "radial-gradient(ellipse 80% 50% at 50% -5%, rgba(220, 255, 133, 0.08), transparent 65%), radial-gradient(ellipse 60% 50% at 85% 85%, rgba(22, 51, 0, 0.35), transparent 70%), linear-gradient(180deg, #0d160c 0%, #0f1c0e 50%, #0b140a 100%)",
         }}
       />
 
@@ -93,7 +94,10 @@ export function EnterpriseHero() {
           className="max-w-4xl mb-16"
         >
           {/* Eyebrow Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFF85]/15 text-[#DCFF85] text-xs font-mono uppercase tracking-widest mb-6 border border-[#DCFF85]/30 backdrop-blur-md">
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFF85]/12 text-[#DCFF85] text-xs font-mono uppercase tracking-widest mb-6 border border-[#DCFF85]/25 backdrop-blur-md"
+          >
             <Shield size={13} className="text-[#DCFF85]" />
             ENTERPRISE CAPABILITY PROFILE
           </motion.div>
@@ -121,13 +125,16 @@ export function EnterpriseHero() {
           </motion.p>
 
           {/* Action CTAs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 mb-12">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-6 mb-12"
+          >
             <ActionLink
               href="#book-demo"
               variant="lime"
               text="Discuss an Enterprise Project"
               icon={<ArrowUpRight size={16} />}
-              className="px-7 py-3.5 text-sm font-semibold"
+              className="px-7 py-3.5 text-sm font-semibold shadow-md"
             />
             <Link
               to="/work"
@@ -168,16 +175,16 @@ export function EnterpriseHero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {pillars.map((pillar, idx) => {
+          {pillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.num}
-                className="bg-[#163300]/40 hover:bg-[#163300]/70 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-white/10 hover:border-[#DCFF85]/40 transition-all duration-300 flex flex-col justify-between group shadow-lg"
+                className="bg-[#12210e]/50 hover:bg-[#12210e]/80 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-white/[0.08] hover:border-[#DCFF85]/35 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-2xl bg-[#DCFF85] text-[#163300] flex items-center justify-center font-bold shadow-md">
+                    <div className="w-10 h-10 rounded-2xl bg-[#DCFF85] text-[#163300] flex items-center justify-center font-bold shadow-sm">
                       <Icon size={20} />
                     </div>
                     <span className="font-mono text-xs font-bold text-[#DCFF85] tracking-wider uppercase bg-[#DCFF85]/10 px-2.5 py-1 rounded-full border border-[#DCFF85]/20">
@@ -189,12 +196,12 @@ export function EnterpriseHero() {
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-4 font-normal">
                     {pillar.desc}
                   </p>
                 </div>
 
-                <div className="space-y-1.5 pt-3 border-t border-white/10 text-xs font-mono text-white/60">
+                <div className="space-y-1.5 pt-3 border-t border-white/[0.08] text-xs font-mono text-white/60">
                   {pillar.tags.map((tag) => (
                     <div key={tag} className="flex items-center gap-2">
                       <CheckCircle2 size={12} className="text-[#DCFF85] shrink-0" />
