@@ -272,7 +272,7 @@ export function EnterpriseForm() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column Info */}
-        <div className="lg:col-span-5 space-y-6 lg:border-r lg:border-[#163300]/10 lg:pr-8 xl:pr-10">
+        <div className="lg:col-span-5 space-y-6">
           <div className="bg-[#DCFF85]/20 rounded-2xl p-4 border border-[#9FE870] flex items-start gap-3 text-xs shadow-sm">
             <div className="p-2 rounded-lg bg-[#163300] text-[#DCFF85] shrink-0 mt-0.5">
               <ShieldCheck size={16} />
@@ -356,7 +356,7 @@ export function EnterpriseForm() {
         </div>
 
         {/* Right Column Wizard Form */}
-        <div className="lg:col-span-7 lg:pl-6 xl:pl-8">
+        <div className="lg:col-span-7">
           <AnimatePresence mode="wait">
             {step === 4 || isSubmitted ? (
               <motion.div
