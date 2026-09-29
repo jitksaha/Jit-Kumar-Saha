@@ -169,13 +169,13 @@ $attachments[] = [
     'content' => base64_encode($icsContent)
 ];
 
-// Clean SVG Icons
+// Clean SVG Icons - uses stroke="currentColor" for perfect hover color flip
 $iconCal = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#163300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>';
-$iconCalWhite = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DCFF85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>';
+$iconCalWhite = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px; display: inline-block;"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>';
 $iconClock = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2d4f18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
 $iconClip = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4b633d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>';
 $iconBell = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5a754e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 5px;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>';
-$iconArrow = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#DCFF85" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-left: 5px;"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>';
+$iconArrow = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-left: 5px; display: inline-block;"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>';
 
 // Schema.org EventReservation JSON-LD
 $jsonLdMarkup = <<<JSONLD
@@ -222,10 +222,10 @@ $calCardHtml = !empty($meetingDate) ? <<<CAL
   <div style="font-size: 14px; font-weight: 700; color: #163300; margin-bottom: 6px;">{$iconCal}Consultation Session Overview</div>
   <div style="font-size: 13px; color: #2d4f18; font-weight: 600; margin-bottom: 12px;">{$iconClock}{$meetingDate} @ {$meetingSlot} (BST UTC+6)</div>
   <div>
-    <a href="{$googleCalUrl}" target="_blank" class="cal-btn" style="display: inline-block; background-color: #163300; color: #DCFF85 !important; text-decoration: none !important; font-size: 13px; font-weight: 700; padding: 10px 22px; border-radius: 9999px; border: 1px solid rgba(220, 255, 133, 0.4); box-shadow: 0 4px 14px rgba(22, 51, 0, 0.16); transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1); text-align: center;">
-      <span style="color: #DCFF85 !important; text-decoration: none !important; display: inline-flex; align-items: center; vertical-align: middle;">
+    <a href="{$googleCalUrl}" target="_blank" class="cal-btn" style="display: inline-block; background-color: #163300; color: #DCFF85; text-decoration: none; font-size: 13px; font-weight: 700; padding: 10px 22px; border-radius: 9999px; border: 1px solid rgba(220, 255, 133, 0.4); box-shadow: 0 4px 14px rgba(22, 51, 0, 0.16); transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1); text-align: center;">
+      <span style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; vertical-align: middle;">
         {$iconCalWhite}
-        <span class="cal-text" style="color: #DCFF85 !important; text-decoration: none !important; font-weight: 700 !important; margin-left: 6px; margin-right: 6px;">Open in Google Calendar</span>
+        <span style="color: inherit; text-decoration: none; font-weight: 700; margin-left: 6px; margin-right: 6px;">Open in Google Calendar</span>
         {$iconArrow}
       </span>
     </a>
@@ -246,7 +246,7 @@ $adminHtml = <<<HTML
     .header h1 { margin: 0 0 6px 0; font-size: 20px; font-weight: 700; color: #DCFF85; }
     .header p { margin: 0; font-size: 13px; opacity: 0.85; }
     .content { padding: 32px; }
-    .badge { display: inline-block; background: #E8F7C8; color: #163300; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 20px; }
+    .badge { display: inline-block; background: #E8F7C8; color: #163300; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 20px; }
     
     .cal-btn {
       display: inline-block !important;
@@ -268,11 +268,8 @@ $adminHtml = <<<HTML
       box-shadow: 0 6px 20px rgba(22, 51, 0, 0.28) !important;
       transform: translateY(-2px) scale(1.02) !important;
     }
-    .cal-btn:hover span, .cal-btn:hover .cal-text {
-      color: #163300 !important;
-    }
-    .cal-btn:hover svg, .cal-btn:hover svg line, .cal-btn:hover svg rect, .cal-btn:hover svg path {
-      stroke: #163300 !important;
+    .cal-btn * {
+      color: inherit !important;
     }
 
     .table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
@@ -360,10 +357,10 @@ $clientCalCardHtml = !empty($meetingDate) ? <<<CCAL
   <div style="font-size: 15px; font-weight: 700; color: #163300; margin-bottom: 6px;">{$iconCal}Scheduled Consultation &amp; Calendar Link</div>
   <div style="font-size: 13.5px; color: #2d4f18; font-weight: 600; margin-bottom: 14px;">{$iconClock}{$meetingDate} @ {$meetingSlot} (BST UTC+6) · 45 Mins</div>
   <div style="margin-bottom: 12px;">
-    <a href="{$googleCalUrl}" target="_blank" class="cal-btn" style="display: inline-block; background-color: #163300; color: #DCFF85 !important; text-decoration: none !important; font-size: 13px; font-weight: 700; padding: 11px 24px; border-radius: 9999px; border: 1px solid rgba(220, 255, 133, 0.4); box-shadow: 0 4px 14px rgba(22, 51, 0, 0.16); transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1); text-align: center;">
-      <span style="color: #DCFF85 !important; text-decoration: none !important; display: inline-flex; align-items: center; vertical-align: middle;">
+    <a href="{$googleCalUrl}" target="_blank" class="cal-btn" style="display: inline-block; background-color: #163300; color: #DCFF85; text-decoration: none; font-size: 13px; font-weight: 700; padding: 11px 24px; border-radius: 9999px; border: 1px solid rgba(220, 255, 133, 0.4); box-shadow: 0 4px 14px rgba(22, 51, 0, 0.16); transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1); text-align: center;">
+      <span style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; vertical-align: middle;">
         {$iconCalWhite}
-        <span class="cal-text" style="color: #DCFF85 !important; text-decoration: none !important; font-weight: 700 !important; margin-left: 6px; margin-right: 6px;">Add to Google Calendar</span>
+        <span style="color: inherit; text-decoration: none; font-weight: 700; margin-left: 6px; margin-right: 6px;">Add to Google Calendar</span>
         {$iconArrow}
       </span>
     </a>
@@ -408,15 +405,12 @@ $clientHtml = <<<HTML
       box-shadow: 0 6px 20px rgba(22, 51, 0, 0.28) !important;
       transform: translateY(-2px) scale(1.02) !important;
     }
-    .cal-btn:hover span, .cal-btn:hover .cal-text {
-      color: #163300 !important;
-    }
-    .cal-btn:hover svg, .cal-btn:hover svg line, .cal-btn:hover svg rect, .cal-btn:hover svg path {
-      stroke: #163300 !important;
+    .cal-btn * {
+      color: inherit !important;
     }
 
     .box { background: #f5f8f3; border-radius: 12px; padding: 18px 20px; margin: 20px 0; border: 1px solid #e1ebdc; }
-    .badge { display: inline-block; background: #DCFF85; color: #163300; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; margin-bottom: 12px; }
+    .badge { display: inline-block; background: #DCFF85; color: #163300; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; margin-bottom: 12px; }
     .reply-box { background: #163300; color: #DCFF85; padding: 14px 18px; border-radius: 8px; font-size: 13px; line-height: 1.5; margin: 20px 0; }
     .reply-box a { color: #ffffff; font-weight: bold; text-decoration: underline; }
     .footer { background: #f3f6f1; padding: 24px 32px; font-size: 12px; color: #6d8063; border-top: 1px solid #e2e8de; }
