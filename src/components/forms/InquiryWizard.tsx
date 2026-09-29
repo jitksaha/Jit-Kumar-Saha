@@ -12,9 +12,9 @@ import {
   Sparkles,
   Lock,
 } from 'lucide-react';
-import jsPDF from 'jspdf';
 import { SearchableSelect } from '../ui/SearchableSelect';
 import { Button } from '../ui/Button';
+import { generateInquiryPdf, getInquiryPdfBase64 } from '../../utils/pdf';
 
 export interface InquiryFormData {
   name: string;
@@ -155,95 +155,21 @@ export function InquiryWizard() {
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&dates=${date}T150000/${date}T154500&ctz=Asia/Dhaka`;
   };
 
-  const generateInquiryPdf = (reference: string) => {
-    const doc = new jsPDF();
-    doc.setFillColor(22, 51, 0);
-    doc.rect(0, 0, 210, 36, 'F');
-    doc.setTextColor(220, 255, 133);
-    doc.setFontSize(18);
-    doc.setFont('helvetica', 'bold');
-    doc.text('JIT KUMAR SAHA — CONTACT INQUIRY', 16, 22);
-    doc.setFontSize(9);
-    doc.setTextColor(255, 255, 255);
-    doc.text(`REF: ${reference}`, 155, 22);
-    doc.text('Timezone: BST (UTC+6)', 155, 28);
-
-    doc.setTextColor(22, 51, 0);
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('1. BASIC INFORMATION', 16, 50);
-    doc.line(16, 53, 194, 53);
-
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Full Name:', 16, 64);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.name, 55, 64);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Email:', 16, 72);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.email, 55, 72);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Company / Role:', 16, 80);
-    doc.setFont('helvetica', 'normal');
-    doc.text(`${formData.company || 'N/A'} (${formData.role || 'N/A'})`, 55, 80);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Country / Region:', 16, 88);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.country || 'N/A', 55, 88);
-
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('2. PROJECT & SCOPE DETAILS', 16, 104);
-    doc.line(16, 107, 194, 107);
-
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Contact Purpose:', 16, 118);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.purpose, 55, 118);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Budget Range:', 16, 126);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.budget, 55, 126);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Target Timeline:', 16, 134);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.timeline, 55, 134);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Preferred Contact:', 16, 142);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.preferredContact, 55, 142);
-
-    doc.setFont('helvetica', 'bold');
-    doc.text('Services Needed:', 16, 150);
-    doc.setFont('helvetica', 'normal');
-    doc.text(formData.services.join(', '), 55, 150);
-
-    if (formData.message) {
-      doc.setFontSize(12);
-      doc.setFont('helvetica', 'bold');
-      doc.text('3. MESSAGE & NOTES', 16, 166);
-      doc.line(16, 169, 194, 169);
-      doc.setFontSize(9);
-      doc.setFont('helvetica', 'normal');
-      const lines = doc.splitTextToSize(formData.message, 175);
-      doc.text(lines, 16, 178);
-    }
-
-    doc.setFillColor(245, 247, 245);
-    doc.rect(0, 272, 210, 25, 'F');
-    doc.setFontSize(8);
-    doc.setTextColor(100, 100, 100);
-    doc.text('JitKumarSaha.com — Confidential Inquiry Copy', 16, 282);
-    doc.text(`Dispatched to mail@jitksaha.com & ${formData.email}`, 16, 288);
-    doc.save(`Jit_Kumar_Saha_Inquiry_${reference}.pdf`);
+  const handleDownloadPdf = () => {
+    generateInquiryPdf({
+      refId: refId || 'INQ-SAMPLE',
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      role: formData.role,
+      country: formData.country,
+      purpose: formData.purpose,
+      services: formData.services,
+      budget: formData.budget,
+      timeline: formData.timeline,
+      preferredContact: formData.preferredContact,
+      message: formData.message,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -253,35 +179,75 @@ export function InquiryWizard() {
     const newRefId = `INQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     setRefId(newRefId);
 
-    try {
-      generateInquiryPdf(newRefId);
-      const payload = {
-        to: 'mail@jitksaha.com',
-        clientEmail: formData.email,
-        name: formData.name,
-        company: formData.company,
-        role: formData.role,
-        country: formData.country,
-        purpose: formData.purpose,
-        services: formData.services,
-        budget: formData.budget,
-        timeline: formData.timeline,
-        preferredContact: formData.preferredContact,
-        message: formData.message,
-        refId: newRefId,
-        timezone: 'Bangladesh Standard Time (BST, UTC+6)',
-      };
+    const inquiryPdfData = {
+      refId: newRefId,
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      role: formData.role,
+      country: formData.country,
+      purpose: formData.purpose,
+      services: formData.services,
+      budget: formData.budget,
+      timeline: formData.timeline,
+      preferredContact: formData.preferredContact,
+      message: formData.message,
+    };
 
-      await fetch('https://formspree.io/f/mqaeodvw', {
+    let pdfBase64 = '';
+    try {
+      pdfBase64 = getInquiryPdfBase64(inquiryPdfData);
+    } catch (e) {
+      console.warn('Inquiry PDF generation notice:', e);
+    }
+
+    const payload = {
+      type: 'inquiry',
+      refId: newRefId,
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      role: formData.role,
+      country: formData.country,
+      purpose: formData.purpose,
+      services: formData.services,
+      budget: formData.budget,
+      timeline: formData.timeline,
+      preferredContact: formData.preferredContact,
+      message: formData.message,
+      pdfBase64,
+      pdfFilename: `Jit_Kumar_Saha_Inquiry_${newRefId}.pdf`,
+    };
+
+    try {
+      let res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      }).catch(() => {});
+      });
+
+      if (res.status === 404) {
+        res = await fetch('/api/send-email.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      }
+
+      // Also trigger PDF download for immediate copy
+      try {
+        generateInquiryPdf(inquiryPdfData);
+      } catch (pdfErr) {
+        console.warn('PDF download notice:', pdfErr);
+      }
 
       setIsSubmitted(true);
       setStep(3);
     } catch (err) {
-      console.log(err);
+      console.error('Email dispatch error:', err);
+      // Still proceed to step 3 so user is confirmed
+      setIsSubmitted(true);
+      setStep(3);
     } finally {
       setIsSubmitting(false);
     }
@@ -702,7 +668,7 @@ export function InquiryWizard() {
 
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <Button
-                    onClick={() => generateInquiryPdf(refId)}
+                    onClick={handleDownloadPdf}
                     variant="primary"
                     text="Download Inquiry PDF Copy"
                     icon={Download}

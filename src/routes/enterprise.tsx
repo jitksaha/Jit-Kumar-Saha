@@ -579,7 +579,7 @@ function EnterprisePage() {
 
       {/* Enterprise Qualification & PDF Generator Form */}
       <section
-        className="py-24 bg-[#EFEFEA] border-t border-[#163300]/10 text-[#163300] relative overflow-hidden"
+        className="pt-28 pb-36 md:pt-36 md:pb-40 bg-[#EFEFEA] border-t border-[#163300]/10 text-[#163300] relative overflow-hidden scroll-mt-24"
         id="book-demo"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">

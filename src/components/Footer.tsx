@@ -38,19 +38,18 @@ export function Footer() {
 
   return (
     <footer
-      className="relative bg-[#0c1407] text-white mt-24 sm:mt-28 md:mt-32 pt-0 pb-12 border-t border-[#163300]/40"
+      className="relative bg-[#0c1407] text-white mt-24 sm:mt-28 md:mt-32 pt-0 pb-16"
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Call to Action Floating Card */}
+        {/* Call to Action Floating Card (Clean 50% floating overlap with solid crisp contrast) */}
         <motion.div
-          className="relative -mt-16 sm:-mt-20 md:-mt-22 mb-12 sm:mb-16 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#163300] via-[#1a3d02] to-[#163300] border border-[#9FE870]/35 p-6 sm:p-8 md:py-7 md:px-10 overflow-hidden shadow-2xl z-20 backdrop-blur-md"
-          initial={{ opacity: 0, y: 20 }}
+          className="relative -translate-y-1/2 -mb-8 sm:-mb-12 md:-mb-14 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#163300] via-[#1c3e03] to-[#163300] border border-[#DCFF85]/25 p-6 sm:p-8 md:py-9 md:px-10 overflow-hidden shadow-2xl z-20"
+          initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#DCFF85]/15 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-[#DCFF85]/15 text-[#DCFF85] border border-[#DCFF85]/30 mb-2.5">

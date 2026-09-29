@@ -14,22 +14,18 @@ dist-ssr
 .vinxi
 .tanstack/**
 .nitro
+# Environment and secrets
+.env
+.env.*
+.env.local
+*.env
 *.local
 *.tsbuildinfo
-recovered-build/
-hostinger-build/
-
-# Wrangler / Cloudflare
-.wrangler/
-.dev.vars
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
+recovered-build/
