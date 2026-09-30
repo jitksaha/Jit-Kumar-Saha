@@ -116,7 +116,7 @@ export function HomeHero() {
         variants={containerVariants}
       >
         <motion.span
-          className="intro-identity flex items-center gap-2 pl-1.5 pr-4 py-1"
+          className="inline-flex items-center gap-2 pl-1.5 pr-3.5 py-1 rounded-full bg-[#163300]/[0.05] border border-[#163300]/10 text-xs font-mono font-medium text-[#163300]/80 shadow-2xs mb-5 select-none"
           variants={itemVariants}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
@@ -124,13 +124,16 @@ export function HomeHero() {
           <img
             src={assetUrls.hero}
             alt="Jit Kumar Saha"
-            className="w-6 h-6 rounded-full object-cover object-top border border-[#DCFF85]/60 shadow-sm"
+            className="w-5 h-5 rounded-full object-cover object-top border border-[#DCFF85]/60 shadow-xs"
           />
           <motion.i
-            animate={{ scale: [1, 1.25, 1] }}
+            className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block shrink-0"
+            animate={{ scale: [1, 1.35, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />{" "}
-          Entrepreneur · Product Builder · Technology Founder
+          />
+          <span className="text-[11px] sm:text-xs tracking-tight font-medium text-[#163300]">
+            Entrepreneur · Product Builder · Technology Founder
+          </span>
         </motion.span>
 
         <motion.h1
@@ -169,15 +172,15 @@ export function HomeHero() {
             text="Discuss a Project"
             to="/contact"
             variant="primary"
-            icon={<ArrowUpRight size={17} />}
+            icon={<ArrowUpRight size={16} />}
             className="px-7 py-3.5 text-sm font-semibold tracking-tight shadow-md hover:shadow-xl shadow-[#163300]/15"
           />
           <Button
             text="Explore Enterprise"
             to="/enterprise"
             variant="secondary"
-            icon={<Briefcase size={17} />}
-            className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-sm hover:shadow-md"
+            icon={<Briefcase size={16} />}
+            className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs transition-colors duration-200 !bg-[#F0F2ED] !border-[#E2E5DC] !text-[#163300] hover:!bg-[#163300] hover:!border-[#163300] hover:!text-[#DCFF85]"
           />
         </motion.div>
 
