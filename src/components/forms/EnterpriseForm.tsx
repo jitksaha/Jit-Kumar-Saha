@@ -26,7 +26,18 @@ import { CalendarTimePicker } from './CalendarTimePicker';
 import { generateEnterprisePdf, getEnterprisePdfBase64 } from '../../utils/pdf';
 import { createCalendarUrl } from '../../utils/calendar';
 
-export function EnterpriseForm() {
+export interface EnterpriseFormProps {
+  selectedPackage?: {
+    title: string;
+    category?: string;
+    price?: string;
+    delivery?: string;
+    description?: string;
+    type?: string;
+  } | null;
+}
+
+export function EnterpriseForm({ selectedPackage }: EnterpriseFormProps = {}) {
   const [step, setStep] = useState<number>(1);
 
   // Step 1: About You & Core Initiative
@@ -384,15 +395,27 @@ Context: Company is ${company}, Role is ${role}, Needs are ${needs}.`;
       {/* Top Header with Connected Icon Progress Bar */}
       <div className="mb-5 sm:mb-7 pb-4 sm:pb-5 border-b border-[#163300]/10 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
         <div className="max-w-2xl space-y-1">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase bg-[#163300] text-[#DCFF85] border border-[#163300] shadow-2xs">
-            <Sparkles size={11} /> ENTERPRISE QUALIFICATION & INTAKE
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold uppercase bg-[#163300] text-[#DCFF85] border border-[#163300] shadow-2xs">
+              <Sparkles size={11} /> {selectedPackage?.category || 'ENTERPRISE QUALIFICATION & INTAKE'}
+            </div>
+            {selectedPackage?.price && (
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold text-[#163300] bg-[#DCFF85] border border-[#163300]/20">
+                {selectedPackage.price}
+              </span>
+            )}
+            {selectedPackage?.delivery && (
+              <span className="text-[11px] font-mono text-[#163300]/70">
+                ⏱ {selectedPackage.delivery}
+              </span>
+            )}
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#163300] leading-tight">
-            Build, Scale or Modernize Your Platform
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#163300] leading-tight mt-1">
+            {selectedPackage?.title || 'Build, Scale or Modernize Your Platform'}
           </h2>
           <p className="text-xs text-[#163300]/70 leading-relaxed font-medium">
-            Confidential intake for venture-backed startups, mid-market businesses, and enterprises
-            seeking senior technical leadership, digital architecture, and custom AI execution.
+            {selectedPackage?.description ||
+              'Confidential intake for venture-backed startups, mid-market businesses, and enterprises seeking senior technical leadership, digital architecture, and custom AI execution.'}
           </p>
         </div>
 

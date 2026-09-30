@@ -154,19 +154,19 @@ export function Button({
 }: ButtonProps) {
   const variantStyles: Record<string, string> = {
     primary:
-      'bg-[#163300] !text-[#DCFF85] hover:bg-[#DCFF85] hover:!text-[#163300] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
-    dark: 'bg-[#163300] !text-[#DCFF85] hover:bg-[#DCFF85] hover:!text-[#163300] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
+      'bg-[#163300] text-[#DCFF85] hover:bg-[#DCFF85] hover:text-[#163300] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
+    dark: 'bg-[#163300] text-[#DCFF85] hover:bg-[#DCFF85] hover:text-[#163300] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
     secondary:
-      'bg-white !text-[#163300] hover:bg-[#163300] hover:!text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
     light:
-      'bg-white !text-[#163300] hover:bg-[#163300] hover:!text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
     glass:
-      'bg-white/90 backdrop-blur-md !text-[#163300] hover:bg-[#163300] hover:!text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-white/90 backdrop-blur-md text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
     'glass-dark':
-      'bg-white/10 backdrop-blur-md !text-white hover:bg-[#DCFF85] hover:!text-[#163300] hover:border-[#DCFF85] border border-white/20 shadow-sm transition-colors duration-300',
-    lime: 'bg-[#9FE870] !text-[#163300] hover:bg-[#163300] hover:!text-[#DCFF85] hover:border-[#163300] border border-[#9FE870] shadow-md shadow-[#9FE870]/20 transition-colors duration-300',
+      'bg-white/10 backdrop-blur-md text-white hover:bg-[#DCFF85] hover:text-[#163300] hover:border-[#DCFF85] border border-white/20 shadow-sm transition-colors duration-300',
+    lime: 'bg-[#9FE870] text-[#163300] hover:bg-white hover:text-[#163300] hover:border-white border border-[#9FE870] shadow-md shadow-[#9FE870]/20 transition-colors duration-300',
     outline:
-      'bg-transparent !text-[#163300] hover:bg-[#163300] hover:!text-[#DCFF85] hover:border-[#163300] border border-[#163300]/30 transition-colors duration-300',
+      'bg-transparent text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/30 transition-colors duration-300',
   };
 
   const currentVariant = variantStyles[variant] || variantStyles.dark;

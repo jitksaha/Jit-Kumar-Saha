@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Send,
@@ -11,10 +11,24 @@ import {
   Clock,
   Sparkles,
   Lock,
+  MessageCircle,
+  Mail,
+  ArrowUpRight,
+  ShieldCheck,
+  Zap,
 } from 'lucide-react';
 import { SearchableSelect } from '../ui/SearchableSelect';
 import { Button } from '../ui/Button';
 import { generateInquiryPdf, getInquiryPdfBase64 } from '../../utils/pdf';
+
+export interface SelectedPackageInfo {
+  title: string;
+  category?: string;
+  price?: string;
+  delivery?: string;
+  description?: string;
+  type?: string;
+}
 
 export interface InquiryFormData {
   name: string;
@@ -30,7 +44,11 @@ export interface InquiryFormData {
   message: string;
 }
 
-export function InquiryWizard() {
+export interface InquiryWizardProps {
+  selectedPackage?: SelectedPackageInfo | null;
+}
+
+export function InquiryWizard({ selectedPackage }: InquiryWizardProps = {}) {
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState<InquiryFormData>({
     name: '',
@@ -45,6 +63,17 @@ export function InquiryWizard() {
     preferredContact: 'Email',
     message: '',
   });
+
+  useEffect(() => {
+    if (selectedPackage) {
+      setFormData((prev) => ({
+        ...prev,
+        purpose: 'Project Inquiry',
+        budget: selectedPackage.price ? `${selectedPackage.price}` : prev.budget,
+        timeline: selectedPackage.delivery ? `${selectedPackage.delivery}` : prev.timeline,
+      }));
+    }
+  }, [selectedPackage]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -256,22 +285,56 @@ export function InquiryWizard() {
   const transitionConfig = { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const };
 
   return (
-    <div className="w-full max-w-6xl mx-auto rounded-2xl border border-[#163300]/15 bg-white p-6 sm:p-8 md:p-10 shadow-xl relative z-10">
+    <div className="w-full max-w-6xl mx-auto rounded-3xl border border-[#163300]/15 bg-white p-6 sm:p-8 md:p-10 shadow-2xl relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         {/* Left Sidebar */}
         <div className="lg:col-span-4 space-y-5 lg:border-r lg:border-[#163300]/10 lg:pr-6">
-          <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase bg-[#DCFF85] text-[#163300] border border-[#9FE870]">
-              <Sparkles size={13} /> DIRECT INQUIRY
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#163300] mt-2.5">
-              Get in Touch
-            </h2>
-            <p className="text-xs sm:text-sm text-[#163300]/75 mt-1 font-medium">
-              Start a project conversation or business opportunity directly into Jit's inbox.
-            </p>
-          </div>
+          {/* Active Package Banner if provided */}
+          {selectedPackage ? (
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#163300] text-white border border-[#163300] shadow-md relative overflow-hidden">
+              <div className="flex flex-wrap items-center justify-between gap-1.5 text-[10px] font-mono uppercase text-[#DCFF85] font-bold mb-1">
+                <span className="px-2 py-0.5 rounded-full bg-white/10 text-[#DCFF85]">
+                  {selectedPackage.category || 'Selected Tier'}
+                </span>
+                {selectedPackage.delivery && (
+                  <span className="text-white/80">⏱ {selectedPackage.delivery}</span>
+                )}
+              </div>
+              <h3 className="text-lg font-bold text-white tracking-tight mt-1.5">
+                {selectedPackage.title}
+              </h3>
+              {selectedPackage.price && (
+                <div className="text-2xl font-black text-[#DCFF85] font-sans mt-0.5">
+                  {selectedPackage.price}
+                </div>
+              )}
+              {selectedPackage.description && (
+                <p className="text-xs text-white/75 mt-1.5 leading-relaxed">
+                  {selectedPackage.description}
+                </p>
+              )}
+              <a
+                href="#pricing-models"
+                className="inline-block text-[11px] font-mono text-[#DCFF85]/90 hover:text-[#DCFF85] underline mt-2.5 transition-colors"
+              >
+                Change package tier ↑
+              </a>
+            </div>
+          ) : (
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase bg-[#DCFF85] text-[#163300] border border-[#9FE870]">
+                <Sparkles size={13} /> DIRECT INQUIRY
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#163300] mt-2.5">
+                Get in Touch
+              </h2>
+              <p className="text-xs sm:text-sm text-[#163300]/75 mt-1 font-medium">
+                Start a project conversation or business opportunity directly into Jit's inbox.
+              </p>
+            </div>
+          )}
 
+          {/* Step Trackers */}
           <div className="space-y-2.5 pt-1">
             <div
               className={`p-3 rounded-xl border transition-all flex items-center gap-3 ${
@@ -348,15 +411,53 @@ export function InquiryWizard() {
             </div>
           </div>
 
-          <div className="bg-[#FAFAF8] rounded-xl p-4 border border-[#163300]/10 space-y-2.5 text-xs text-[#163300]/80">
+          {/* Express Direct Communication Buttons */}
+          <div className="space-y-2 pt-1">
+            <a
+              href={`https://wa.me/8801601111994?text=${encodeURIComponent(
+                `Hi Jit, I'm inquiring about ${selectedPackage?.title || 'Project Scope'} (${selectedPackage?.price || ''}). Let's discuss requirements.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-xl bg-white hover:bg-[#163300] border border-[#163300]/15 hover:border-[#163300] transition-all flex items-center justify-between group cursor-pointer shadow-2xs"
+            >
+              <div className="flex items-center gap-2.5">
+                <MessageCircle size={17} className="text-[#163300] group-hover:text-[#DCFF85] transition-colors" />
+                <div className="text-left">
+                  <div className="text-xs font-bold leading-tight text-[#163300] group-hover:text-[#DCFF85] transition-colors">WhatsApp Direct</div>
+                  <div className="text-[10px] font-mono text-[#163300]/60 group-hover:text-[#DCFF85]/80 transition-colors">+880 1601-111994</div>
+                </div>
+              </div>
+              <ArrowUpRight size={14} className="text-[#163300]/60 group-hover:text-[#DCFF85] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+
+            <a
+              href={`mailto:mail@jitksaha.com?subject=${encodeURIComponent(
+                `Project Inquiry: ${selectedPackage?.title || 'New Project'}`
+              )}&body=${encodeURIComponent(
+                `Hi Jit,\n\nI would like to discuss ${selectedPackage?.title || 'a project'} (${selectedPackage?.price || ''}).\n\nTimeline: ${selectedPackage?.delivery || 'Flexible'}\n\nObjectives:\n- \n\nBest regards,\n`
+              )}`}
+              className="p-3 rounded-xl bg-white hover:bg-[#163300] border border-[#163300]/15 hover:border-[#163300] transition-all flex items-center justify-between group cursor-pointer shadow-2xs"
+            >
+              <div className="flex items-center gap-2.5">
+                <Mail size={17} className="text-[#163300] group-hover:text-[#DCFF85] transition-colors" />
+                <div className="text-left">
+                  <div className="text-xs font-bold leading-tight text-[#163300] group-hover:text-[#DCFF85] transition-colors">Direct Email</div>
+                  <div className="text-[10px] font-mono text-[#163300]/60 group-hover:text-[#DCFF85]/80 transition-colors">mail@jitksaha.com</div>
+                </div>
+              </div>
+              <ArrowUpRight size={14} className="text-[#163300]/60 group-hover:text-[#DCFF85] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
+
+          {/* Guarantees & Response Window */}
+          <div className="bg-[#FAFAF8] rounded-xl p-3.5 border border-[#163300]/10 space-y-2 text-xs text-[#163300]/80">
             <div className="flex items-center gap-2 font-mono font-bold text-[#163300] uppercase text-[11px]">
-              <Clock size={14} className="text-[#163300]" /> Typical Response Window
+              <Clock size={13} className="text-[#163300]" /> Typical Response: &lt; 24h
             </div>
-            <p className="leading-relaxed">
-              Jit responds personally to qualified project inquiries within 24 business hours.
-            </p>
-            <div className="pt-2 border-t border-[#163300]/10 flex items-center gap-2 text-[11px] font-mono text-[#163300]/60">
-              <Lock size={12} /> Confidentiality Assured
+            <div className="pt-1.5 border-t border-[#163300]/10 flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-[#163300]/70">
+              <span className="flex items-center gap-1"><ShieldCheck size={12} className="text-[#163300]" /> Mutual NDA</span>
+              <span>100% IP Transfer</span>
             </div>
           </div>
         </div>

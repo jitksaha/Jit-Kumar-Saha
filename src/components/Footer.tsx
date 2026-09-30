@@ -12,7 +12,11 @@ import { BrandStar } from './ui/BrandStar';
 import { Button, RollingText } from './ui/Button';
 import { CopyButton } from './ui/CopyButton';
 
-export function Footer() {
+interface FooterProps {
+  hideCtaCard?: boolean;
+}
+
+export function Footer({ hideCtaCard = false }: FooterProps = {}) {
   const exploreLinks = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
@@ -21,6 +25,7 @@ export function Footer() {
     { label: 'Experience', to: '/experience' },
     { label: 'Ventures', to: '/venture' },
     { label: 'AI & Code', to: '/ai' },
+    { label: 'Pricing & Models', to: '/pricing' },
     { label: 'Insights', to: '/insights' },
   ];
 
@@ -38,18 +43,21 @@ export function Footer() {
 
   return (
     <footer
-      className="relative bg-[#0c1407] text-white mt-24 sm:mt-28 md:mt-32 pt-0 pb-16"
+      className={`relative bg-[#0c1407] text-white pb-16 ${
+        hideCtaCard ? 'pt-16 mt-0' : 'mt-24 sm:mt-28 md:mt-32 pt-0'
+      }`}
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Call to Action Floating Card (Clean 50% floating overlap with solid crisp contrast) */}
-        <motion.div
-          className="relative -translate-y-1/2 -mb-8 sm:-mb-12 md:-mb-14 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#163300] via-[#1c3e03] to-[#163300] border border-[#DCFF85]/25 p-6 sm:p-8 md:py-9 md:px-10 overflow-hidden shadow-2xl z-20"
-          initial={{ opacity: 0, y: 0 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
+        {!hideCtaCard && (
+          <motion.div
+            className="relative -translate-y-1/2 -mb-8 sm:-mb-12 md:-mb-14 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#163300] via-[#1c3e03] to-[#163300] border border-[#DCFF85]/25 p-6 sm:p-8 md:py-9 md:px-10 overflow-hidden shadow-2xl z-20"
+            initial={{ opacity: 0, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-[#DCFF85]/15 text-[#DCFF85] border border-[#DCFF85]/30 mb-2.5">
@@ -85,6 +93,7 @@ export function Footer() {
             </div>
           </div>
         </motion.div>
+        )}
 
         {/* Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">

@@ -17,6 +17,7 @@ export const navLinks = [
   ['Impact', '/work'],
   ['Ventures', '/venture'],
   ['AI & Code', '/ai'],
+  ['Pricing', '/pricing'],
 ];
 
 export function Header({ variant = 'light', active }: HeaderProps) {

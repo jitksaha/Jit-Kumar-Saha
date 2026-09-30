@@ -17,6 +17,7 @@ import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as VentureRouteImport } from './routes/venture'
 import { Route as WorkRouteRouteImport } from './routes/work/route'
 import { Route as WorkIndexRouteImport } from './routes/work/index'
@@ -62,6 +63,11 @@ const InsightsRoute = InsightsRouteImport.update({
   path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VentureRoute = VentureRouteImport.update({
   id: '/venture',
   path: '/venture',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/experience': typeof ExperienceRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRoute
+  '/pricing': typeof PricingRoute
   '/venture': typeof VentureRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByTo {
   '/experience': typeof ExperienceRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRoute
+  '/pricing': typeof PricingRoute
   '/venture': typeof VentureRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work': typeof WorkIndexRoute
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   '/experience': typeof ExperienceRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRoute
+  '/pricing': typeof PricingRoute
   '/venture': typeof VentureRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/expertise'
     | '/insights'
+    | '/pricing'
     | '/venture'
     | '/work/$slug'
     | '/work/'
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/expertise'
     | '/insights'
+    | '/pricing'
     | '/venture'
     | '/work/$slug'
     | '/work'
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/expertise'
     | '/insights'
+    | '/pricing'
     | '/venture'
     | '/work/$slug'
     | '/work/'
@@ -179,6 +191,7 @@ export interface RootRouteChildren {
   ExperienceRoute: typeof ExperienceRoute
   ExpertiseRoute: typeof ExpertiseRoute
   InsightsRoute: typeof InsightsRoute
+  PricingRoute: typeof PricingRoute
   VentureRoute: typeof VentureRoute
 }
 
@@ -240,6 +253,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/venture': {
       id: '/venture'
       path: '/venture'
@@ -295,6 +315,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExperienceRoute: ExperienceRoute,
   ExpertiseRoute: ExpertiseRoute,
   InsightsRoute: InsightsRoute,
+  PricingRoute: PricingRoute,
   VentureRoute: VentureRoute,
 }
 export const routeTree = rootRouteImport

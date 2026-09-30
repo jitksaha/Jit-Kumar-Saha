@@ -7,9 +7,10 @@ import { easeCustom } from "../../utils/motion";
 interface SubrouteLayoutProps {
   children: React.ReactNode;
   page: string;
+  hideFooterCta?: boolean;
 }
 
-export function SubrouteLayout({ children, page }: SubrouteLayoutProps) {
+export function SubrouteLayout({ children, page, hideFooterCta = false }: SubrouteLayoutProps) {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 120,
@@ -31,7 +32,7 @@ export function SubrouteLayout({ children, page }: SubrouteLayoutProps) {
           {children}
         </motion.main>
       </AnimatePresence>
-      <Footer />
+      <Footer hideCtaCard={hideFooterCta} />
     </div>
   );
 }
