@@ -44,59 +44,59 @@ export function Footer({ hideCtaCard = false }: FooterProps = {}) {
   return (
     <footer
       className={`relative bg-[#0c1407] text-white pb-16 ${
-        hideCtaCard ? 'pt-16 mt-0' : 'mt-24 sm:mt-28 md:mt-32 pt-0'
+        hideCtaCard ? 'pt-16 mt-0' : 'mt-28 sm:mt-32 md:mt-36 pt-0'
       }`}
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Call to Action Floating Card (Clean 50% floating overlap with solid crisp contrast) */}
+        {/* Call to Action Floating Card (50% floating overlap on footer top edge) */}
         {!hideCtaCard && (
           <motion.div
-            className="relative -translate-y-1/2 -mb-8 sm:-mb-12 md:-mb-14 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#163300] via-[#1c3e03] to-[#163300] border border-[#DCFF85]/25 p-6 sm:p-8 md:py-9 md:px-10 overflow-hidden shadow-2xl z-20"
-            initial={{ opacity: 0, y: 0 }}
+            className="relative -translate-y-1/2 mb-2 sm:mb-4 md:mb-6 rounded-2xl md:rounded-3xl bg-gradient-to-r from-[#163300] via-[#1c3e03] to-[#163300] border border-[#DCFF85]/30 p-6 sm:p-8 md:py-10 md:px-12 overflow-hidden shadow-2xl z-20"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-[#DCFF85]/15 text-[#DCFF85] border border-[#DCFF85]/30 mb-2.5">
-                <Sparkles size={12} /> READY FOR THE NEXT MOVE?
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
-                Let’s build products that{' '}
-                <span className="font-serif italic font-normal text-[#DCFF85]">
-                  earn their place.
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold tracking-wider uppercase bg-[#DCFF85]/15 text-[#DCFF85] border border-[#DCFF85]/30 mb-3">
+                  <Sparkles size={12} className="text-[#9FE870]" /> READY FOR THE NEXT MOVE?
                 </span>
-              </h2>
-              <p className="mt-1.5 text-xs sm:text-sm text-white/80 leading-relaxed max-w-xl">
-                2-week clarity diagnostics, hands-on 0→1 builds, or an embedded Head of Product & AI
-                Strategist.
-              </p>
-            </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
+                  Let’s build products that{' '}
+                  <span className="font-serif italic font-normal text-[#DCFF85]">
+                    earn their place.
+                  </span>
+                </h2>
+                <p className="mt-2 text-xs sm:text-sm text-white/80 leading-relaxed max-w-xl">
+                  2-week clarity diagnostics, hands-on 0→1 builds, or an embedded Head of Product & AI
+                  Strategist.
+                </p>
+              </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
-              <Button
-                to="/contact"
-                variant="lime"
-                text="Start a conversation"
-                icon={<ArrowUpRight size={15} />}
-                className="px-6 py-3 text-xs sm:text-sm font-bold btn-shine btn-lime-glow"
-              />
-              <Button
-                href="mailto:mail@jitksaha.com"
-                variant="glass-dark"
-                text="Email directly"
-                icon={<Mail size={14} />}
-                className="px-5 py-3 text-xs sm:text-sm font-semibold btn-shine"
-              />
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                <Button
+                  to="/contact"
+                  variant="lime"
+                  text="Start a conversation"
+                  icon={<ArrowUpRight size={15} />}
+                  className="px-6 py-3.5 text-xs sm:text-sm font-bold shadow-lg shadow-[#9FE870]/20"
+                />
+                <Button
+                  href="mailto:mail@jitksaha.com"
+                  variant="glass-dark"
+                  text="Email directly"
+                  icon={<Mail size={14} />}
+                  className="px-5 py-3.5 text-xs sm:text-sm font-semibold"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
         )}
 
         {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 ${!hideCtaCard ? 'pt-2 md:pt-4' : ''}`}>
           {/* Brand & About */}
           <div className="lg:col-span-2">
             <Link
