@@ -61,14 +61,7 @@ function ContactPage() {
                   variant="dark"
                   text="Send Direct Email"
                   icon={<ArrowUpRight size={16} />}
-                  className="px-6 py-3 text-sm font-semibold"
-                />
-                <ActionLink
-                  href="mailto:mail.jitsaha@gmail.com"
-                  variant="outline"
-                  text="Secondary Email"
-                  icon={<ArrowUpRight size={16} />}
-                  className="px-5 py-3 text-sm font-semibold"
+                  className="px-7 py-3.5 text-sm font-semibold tracking-tight shadow-md hover:shadow-xl shadow-[#163300]/15"
                 />
                 <ActionLink
                   href="https://wa.me/8801601111994"
@@ -77,7 +70,7 @@ function ContactPage() {
                   variant="secondary"
                   text="WhatsApp Direct"
                   icon={<ArrowUpRight size={16} />}
-                  className="px-6 py-3 text-sm font-semibold"
+                  className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs"
                 />
               </div>
             </motion.div>

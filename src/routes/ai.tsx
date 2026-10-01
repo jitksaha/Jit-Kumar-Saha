@@ -292,14 +292,14 @@ function AIPage() {
                   variant="dark"
                   text="Explore AI & Engineering"
                   icon={<ArrowUpRight size={16} />}
-                  className="px-6 py-3 text-sm font-semibold"
+                  className="px-7 py-3.5 text-sm font-semibold tracking-tight shadow-md hover:shadow-xl shadow-[#163300]/15"
                 />
                 <ActionLink
                   to="/contact"
                   variant="secondary"
                   text="Start a Conversation"
                   icon={<ArrowUpRight size={16} />}
-                  className="px-6 py-3 text-sm font-semibold"
+                  className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs"
                 />
               </div>
 

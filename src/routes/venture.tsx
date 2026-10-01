@@ -262,15 +262,15 @@ export function VentureRoute() {
                   href="#dynime"
                   variant="dark"
                   text="Discover Dynime"
-                  icon={ArrowUpRight}
-                  className="px-6 py-3 text-sm font-semibold"
+                  icon={<ArrowUpRight size={16} />}
+                  className="px-7 py-3.5 text-sm font-semibold tracking-tight shadow-md hover:shadow-xl shadow-[#163300]/15"
                 />
                 <ActionLink
                   href="#ventures-grid"
                   variant="secondary"
                   text="What I Build"
-                  icon={ArrowUpRight}
-                  className="px-6 py-3 text-sm font-semibold"
+                  icon={<ArrowUpRight size={16} />}
+                  className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs"
                 />
               </div>
               <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[#163300]/10 max-w-xl">

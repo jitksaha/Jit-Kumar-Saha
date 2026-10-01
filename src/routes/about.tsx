@@ -182,7 +182,7 @@ function AboutPage() {
                     variant="dark"
                     text="Start a Conversation"
                     icon={<ArrowUpRight size={16} />}
-                    className="px-6 py-3.5 text-sm font-semibold shadow-md hover:shadow-lg"
+                    className="px-7 py-3.5 text-sm font-semibold tracking-tight shadow-md hover:shadow-xl shadow-[#163300]/15"
                   />
                 </div>
                 <div className="anime-hero-btn">
@@ -191,7 +191,7 @@ function AboutPage() {
                     variant="secondary"
                     text="View Career History"
                     icon={<ArrowUpRight size={16} />}
-                    className="px-6 py-3.5 text-sm font-semibold shadow-sm hover:shadow-md"
+                    className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs"
                   />
                 </div>
               </div>

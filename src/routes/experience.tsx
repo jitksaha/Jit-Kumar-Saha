@@ -240,8 +240,8 @@ export function ExperienceRoute() {
                     href="#lifecycle"
                     variant="dark"
                     text="Explore Product Lifecycle"
-                    icon={ArrowUpRight}
-                    className="px-6 py-3.5 text-sm font-semibold shadow-md hover:shadow-lg"
+                    icon={<ArrowUpRight size={16} />}
+                    className="px-7 py-3.5 text-sm font-semibold tracking-tight shadow-md hover:shadow-xl shadow-[#163300]/15"
                   />
                 </div>
                 <div className="anime-hero-cta">
@@ -249,8 +249,8 @@ export function ExperienceRoute() {
                     to="/contact"
                     variant="secondary"
                     text="Discuss Opportunities"
-                    icon={ArrowUpRight}
-                    className="px-6 py-3.5 text-sm font-semibold shadow-sm hover:shadow-md"
+                    icon={<ArrowUpRight size={16} />}
+                    className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs"
                   />
                 </div>
               </div>
