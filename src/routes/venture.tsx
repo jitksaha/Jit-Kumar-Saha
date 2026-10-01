@@ -325,7 +325,7 @@ export function VentureRoute() {
 
       {/* Flagship Venture: Dynime */}
       <section className="py-20 bg-white border-y border-[#163300]/10" id="dynime" aria-labelledby="dynime-heading">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
             <div className="lg:col-span-7">
               <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
@@ -361,7 +361,7 @@ export function VentureRoute() {
 
       {/* Venture Spectrum / What I Build Through Ventures */}
       <section className="py-20 bg-[#FAFAF8]" id="ventures-grid" aria-labelledby="what-i-build-ventures">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
               VENTURE SPECTRUM
@@ -407,7 +407,7 @@ export function VentureRoute() {
 
       {/* Autonomous Agent Swarm */}
       <section className="py-20 bg-[#163300] text-white relative overflow-hidden border-b border-[#163300]">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-mono uppercase tracking-widest text-[#DCFF85] block mb-2 font-bold">
               AGENTIC ARCHITECTURE
@@ -462,7 +462,7 @@ export function VentureRoute() {
 
       {/* Active Venture Portfolio */}
       <section className="py-24 bg-[#FAFAF8]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="mb-14">
             <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
               ACTIVE VENTURE PORTFOLIO
@@ -548,7 +548,7 @@ export function VentureRoute() {
 
       {/* What Ventures Teach */}
       <section className="py-20 bg-white border-t border-[#163300]/10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">

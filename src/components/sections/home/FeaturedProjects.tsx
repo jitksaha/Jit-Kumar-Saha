@@ -16,10 +16,11 @@ export function FeaturedProjects() {
 
   return (
     <section
-      className="relative py-28 md:py-36 studio-wrap bg-[#FAFAF8] border-t border-black/5"
+      className="relative py-28 md:py-36 bg-[#FAFAF8] border-t border-black/5"
       id="projects"
     >
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div>
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-mono font-semibold tracking-wider uppercase bg-[#163300]/5 text-[#163300] border border-[#163300]/10 mb-4">
             <Award size={13} className="text-[#9FE870]" /> FEATURED CASE
@@ -205,6 +206,7 @@ export function FeaturedProjects() {
           );
         })}
       </motion.div>
+      </div>
     </section>
   );
 }

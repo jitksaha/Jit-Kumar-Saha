@@ -203,7 +203,7 @@ export function WorkSlugRoute() {
 
       {/* Metrics Section */}
       <section className="py-14 bg-white border-b border-[#163300]/10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-3 gap-6"
             initial="hidden"
@@ -235,7 +235,7 @@ export function WorkSlugRoute() {
 
       {/* Narrative Section: Challenge, Architecture, Outcome */}
       <section className="py-20 bg-[#F3FCED]/60">
-        <div className="max-w-6xl mx-auto px-6 space-y-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-8">
           {/* Challenge */}
           <motion.div
             className="bg-white rounded-3xl p-8 sm:p-12 border border-[#163300]/10 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-start"
@@ -313,7 +313,7 @@ export function WorkSlugRoute() {
 
       {/* Next Case Study */}
       <section className="py-20 bg-white border-t border-[#163300]/10">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/50 block mb-1">
               CONTINUE READING

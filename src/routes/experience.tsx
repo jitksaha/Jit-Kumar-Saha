@@ -301,7 +301,7 @@ export function ExperienceRoute() {
 
       {/* Evolution & Scope */}
       <section className="py-20 bg-white border-y border-[#163300]/10" aria-labelledby="building-across-heading">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
@@ -334,7 +334,7 @@ export function ExperienceRoute() {
 
       {/* Systematic Process / Lifecycle */}
       <section className="py-20 bg-[#FAFAF8]" id="lifecycle" aria-labelledby="lifecycle-heading">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
               SYSTEMATIC PROCESS

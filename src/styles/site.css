@@ -144,6 +144,26 @@
 
 /* Base styles and custom overrides */
 
+.wrap,
+.studio-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .wrap,
+  .studio-wrap {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+
 @keyframes brandMarqueeForward {
   0% {
     transform: translateX(0);

@@ -366,7 +366,7 @@ function AIPage() {
         className="py-14 bg-white border-y border-[#163300]/10"
         aria-labelledby="aeo-ai-heading"
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="bg-[#163300] text-white rounded-3xl p-8 md:p-10 shadow-lg border border-[#163300] flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="max-w-2xl">
               <span className="text-xs font-mono uppercase tracking-widest text-[#DCFF85] font-bold block mb-2">
@@ -403,7 +403,7 @@ function AIPage() {
         id="ai-pillars"
         aria-labelledby="ai-pillars-heading"
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-mono font-semibold tracking-wider uppercase bg-[#163300]/5 text-[#163300] border border-[#163300]/10 mb-4">
               <Sparkles size={13} className="text-[#9FE870]" /> TECHNICAL

@@ -200,7 +200,7 @@ export function WorkIndexRoute() {
 
       {/* Impact Philosophy Section */}
       <section className="py-20 bg-white border-y border-[#163300]/10" id="impact-themes" aria-labelledby="impact-themes-heading">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
             <div className="lg:col-span-12 bg-[#163300] text-white rounded-3xl p-8 md:p-10 shadow-lg border border-[#163300] flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="max-w-3xl">

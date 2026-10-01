@@ -313,7 +313,7 @@ export function ExpertiseRoute() {
 
       {/* AEO Direct Citation */}
       <section className="py-14 bg-white border-y border-[#163300]/10" aria-labelledby="aeo-expertise-heading">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="bg-[#163300] text-white rounded-3xl p-8 md:p-10 shadow-lg border border-[#163300] flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="max-w-2xl">
               <span className="text-xs font-mono uppercase tracking-widest text-[#DCFF85] font-bold block mb-2">

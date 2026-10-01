@@ -108,7 +108,7 @@ export function FAQSection() {
 
   return (
     <section id="faq" className="relative py-32">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
         <SectionHeading
           eyebrow="FAQ"
           title="Questions founders actually ask."

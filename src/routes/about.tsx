@@ -219,7 +219,7 @@ function AboutPage() {
         className="py-20 bg-[#FAFAF8]"
         aria-labelledby="intersection-heading"
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn className="mb-12">
             <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
               CORE PHILOSOPHY
@@ -352,7 +352,7 @@ function AboutPage() {
         className="py-20 bg-white border-y border-[#163300]/10"
         aria-labelledby="work-on-heading"
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
@@ -420,7 +420,7 @@ function AboutPage() {
 
       {/* Career Timeline */}
       <section className="py-24 bg-[#FAFAF8]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn className="mb-14">
             <span className="text-xs font-mono uppercase tracking-widest text-[#163300]/60 block mb-2 font-bold">
               CAREER TIMELINE
