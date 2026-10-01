@@ -83,10 +83,18 @@ RewriteEngine On
 # ----------------------------------------------------------------------
 # Routing for Single Page App (SPA)
 # ----------------------------------------------------------------------
+# If requested file exists in dist, serve directly
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
+RewriteRule ^(.*)$ dist/$1 [L]
+
 # Keep built assets and common files addressable.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
+
+# If dist/index.html exists, serve it (for Hostinger git pull)
+RewriteCond %{DOCUMENT_ROOT}/dist/index.html -f
+RewriteRule ^ dist/index.html [L]
 
 # Let TanStack Router handle client-side routes on shared hosting.
 RewriteRule ^ index.html [L]

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#163300" />
+      <stop offset="100%" stop-color="#0e2200" />
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DCFF85" />
+      <stop offset="100%" stop-color="#9FE870" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#bgGrad)" stroke="url(#starGrad)" stroke-width="4" />
+  
+  <!-- Glow behind mark -->
+  <circle cx="64" cy="64" r="38" fill="#DCFF85" opacity="0.12" filter="url(#glow)" />
+  
+  <!-- Header Eight-Point Asterisk Mark ✳ -->
+  <text 
+    x="64" 
+    y="86" 
+    font-size="82" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-weight="900" 
+    fill="url(#starGrad)" 
+    text-anchor="middle"
+    dominant-baseline="central"
+  >✳</text>
+</svg>
