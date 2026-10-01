@@ -152,7 +152,7 @@ function AboutPage() {
   return (
     <SubrouteLayout page="about">
       {/* Hero Section with Three.js & Anime.js */}
-      <section ref={heroRef} className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-36 md:pb-16 bg-[#FAFAF8]">
+      <section ref={heroRef} className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 bg-[#FAFAF8]">
         {/* Three.js interactive 3D particle canvas */}
         <div className="absolute inset-0 z-0 opacity-45 pointer-events-none">
           <ThreeBackground variant="particles" accentColor={0x9fe870} />
