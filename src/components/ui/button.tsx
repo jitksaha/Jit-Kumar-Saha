@@ -49,7 +49,7 @@ export function RollingText({
               ease: [0.22, 1, 0.36, 1],
               delay: index * staggerDelay,
             }}
-            className="inline-block text-inherit absolute top-full left-0"
+            className="inline-block text-inherit absolute top-full left-0 w-full text-center"
             aria-hidden="true"
           >
             {char === ' ' ? '\u00A0' : char}
@@ -154,12 +154,12 @@ export function Button({
 }: ButtonProps) {
   const variantStyles: Record<string, string> = {
     primary:
-      'bg-[#163300] text-[#DCFF85] hover:bg-[#DCFF85] hover:text-[#163300] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
-    dark: 'bg-[#163300] text-[#DCFF85] hover:bg-[#DCFF85] hover:text-[#163300] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
+      'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
+    dark: 'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
     secondary:
-      'bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-colors duration-300',
     light:
-      'bg-white text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-colors duration-300',
     glass:
       'bg-white/90 backdrop-blur-md text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
     'glass-dark':
