@@ -83,19 +83,23 @@ RewriteEngine On
 # ----------------------------------------------------------------------
 # Routing for Single Page App (SPA)
 # ----------------------------------------------------------------------
-# If requested file exists in dist, serve directly
+# 1. Direct dist/ assets routing (e.g. /assets/*, /customers/*)
 RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
 RewriteRule ^(.*)$ dist/$1 [L]
 
-# Keep built assets and common files addressable.
+# 2. Direct root or index.html -> Serve production dist/index.html
+RewriteCond %{DOCUMENT_ROOT}/dist/index.html -f
+RewriteCond %{REQUEST_URI} ^/(index\.html)?$
+RewriteRule ^.*$ dist/index.html [L]
+
+# 3. Keep physical static files addressable
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# If dist/index.html exists, serve it (for Hostinger git pull)
+# 4. SPA route fallback (for subroutes like /about, /experience)
 RewriteCond %{DOCUMENT_ROOT}/dist/index.html -f
-RewriteRule ^ dist/index.html [L]
+RewriteRule ^.*$ dist/index.html [L]
 
-# Let TanStack Router handle client-side routes on shared hosting.
-RewriteRule ^ index.html [L]
+RewriteRule ^.*$ index.html [L]
 
