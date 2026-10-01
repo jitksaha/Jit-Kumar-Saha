@@ -2,6 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Floating Header Styles */
+.site-header.floating-header {
+  z-index: 90;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  will-change: max-width, width, top, height, padding, box-shadow;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(22, 51, 0, 0.08);
+  border-radius: 999px;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 48px);
+  max-width: 1240px;
+  height: 58px;
+  margin-inline: auto;
+  padding: 8px 24px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 20px rgba(22, 51, 0, 0.05);
+}
+
+.site-header.floating-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(22, 51, 0, 0.12);
+  width: calc(100% - 32px);
+  max-width: 1060px;
+  height: 50px;
+  padding: 6px 16px;
+  top: 14px;
+  box-shadow: 0 14px 36px -10px rgba(22, 51, 0, 0.12), 0 2px 8px rgba(22, 51, 0, 0.04);
+}
+
+.floating-header .site-brand {
+  letter-spacing: normal;
+  color: #163300;
+  white-space: nowrap;
+  z-index: 2;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+}
+
+.floating-header .site-brand-mark {
+  color: #163300;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-header .site-links {
+  align-items: center;
+  gap: 18px;
+  font-size: 13.5px;
+  transition: gap 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+}
+
+.floating-header .site-links a {
+  color: rgba(22, 51, 0, 0.72);
+  font-weight: 500;
+  transition: color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+.floating-header .site-links a:hover,
+.floating-header .site-links a.active {
+  color: #163300;
+  font-weight: 600;
+}
+
+.floating-header .site-header-actions {
+  z-index: 2;
+  flex-shrink: 0;
+  align-items: center;
+  display: flex;
+}
+
+.floating-header .site-menu {
+  color: #163300;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .site-header.floating-header {
+    width: calc(100% - 24px);
+    height: 50px;
+    padding: 7px 12px;
+    top: 12px;
+  }
+  .floating-header .site-links {
+    display: none;
+  }
+  .floating-header .site-links.is-open {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(22, 51, 0, 0.12);
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px;
+    display: flex;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    box-shadow: 0 18px 40px rgba(22, 51, 0, 0.12);
+  }
+  .floating-header .site-links.is-open a {
+    color: #163300;
+    border-bottom: 1px solid rgba(22, 51, 0, 0.06);
+    padding: 10px 12px;
+    font-weight: 500;
+  }
+  .floating-header .site-links.is-open a:hover,
+  .floating-header .site-links.is-open a.active {
+    background: #f3fced;
+    border-radius: 10px;
+  }
+  .floating-header .site-menu {
+    display: grid;
+  }
+}
+
 /* Base styles and custom overrides */
 
 @keyframes brandMarqueeForward {
