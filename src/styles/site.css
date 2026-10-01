@@ -282,6 +282,42 @@
   animation: portraitMarquee 35s linear infinite;
 }
 
+/* Reviews Marquee Animations */
+@keyframes reviewsMarqueeForward {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reviewsMarqueeReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-reviews-forward {
+  display: flex !important;
+  width: max-content !important;
+  flex-wrap: nowrap !important;
+  will-change: transform;
+  animation: reviewsMarqueeForward 45s linear infinite;
+}
+
+.animate-reviews-reverse {
+  display: flex !important;
+  width: max-content !important;
+  flex-wrap: nowrap !important;
+  will-change: transform;
+  animation: reviewsMarqueeReverse 45s linear infinite;
+}
+
+
 /* Custom subtle scrollbar for available times */
 .scrollbar-thin::-webkit-scrollbar {
   width: 4px;

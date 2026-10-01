@@ -15,17 +15,15 @@ function ReviewCard({ review }: { review: Testimonial }) {
     .join('');
 
   return (
-    <article className="flex flex-col justify-between rounded-3xl border border-[#163300]/10 bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(22,51,0,0.03)] hover:shadow-xl hover:border-[#163300]/25 transition-all duration-300 group w-[380px] sm:w-[460px] md:w-[480px] min-h-[290px] select-none flex-shrink-0">
+    <article className="flex flex-col justify-between rounded-3xl border border-[#163300]/10 bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(22,51,0,0.04)] hover:shadow-xl hover:border-[#163300]/30 transition-all duration-300 group w-[380px] sm:w-[460px] md:w-[480px] min-h-[290px] select-none flex-shrink-0">
       <div>
-        <div className="flex items-center justify-between gap-2 mb-3.5 flex-wrap">
-          <div className="flex items-center gap-1 text-[#163300]">
+        <div className="flex items-center justify-between gap-2 mb-4 flex-wrap">
+          <div className="flex items-center gap-1">
             {[...Array(review.rating)].map((_, i) => (
               <Star
                 key={i}
-                size={14}
-                fill="#9FE870"
-                color="#163300"
-                strokeWidth={1}
+                size={15}
+                className="fill-[#9FE870] text-[#163300] stroke-[1.5]"
               />
             ))}
             <span className="ml-1.5 font-mono text-xs font-bold text-[#163300]">
@@ -34,31 +32,31 @@ function ReviewCard({ review }: { review: Testimonial }) {
           </div>
 
           <div className="flex items-center gap-1.5">
-            <span className="font-mono text-[10px] uppercase tracking-wider text-[#163300]/60 bg-[#163300]/5 px-2.5 py-0.5 rounded-full border border-[#163300]/10 font-bold">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-[#163300] bg-[#DCFF85]/50 px-2.5 py-0.5 rounded-full border border-[#9FE870]/40 font-bold">
               {review.badge}
             </span>
             <span className="text-[11px] text-[#163300]/40 font-mono">·</span>
-            <span className="font-mono text-[10px] text-[#163300]/60 font-semibold">
+            <span className="font-mono text-[10px] text-[#163300]/70 font-semibold">
               {review.country}
             </span>
           </div>
         </div>
 
-        <p className="text-sm leading-relaxed text-[#163300]/85 font-medium italic">
+        <p className="text-sm sm:text-[14.5px] leading-relaxed text-[#163300]/85 font-medium italic">
           "{review.quote}"
         </p>
       </div>
 
       <div className="pt-4 border-t border-[#163300]/10 flex items-center justify-between mt-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-[#163300] text-[#DCFF85] flex items-center justify-center font-mono text-xs font-bold shrink-0">
+          <div className="w-9 h-9 rounded-full bg-[#163300] text-[#DCFF85] flex items-center justify-center font-mono text-xs font-bold shrink-0 shadow-xs">
             {initials}
           </div>
           <div>
             <h4 className="text-xs font-bold text-[#163300] leading-tight">
               {review.name}
             </h4>
-            <p className="text-[11px] text-[#163300]/60 font-medium">
+            <p className="text-[11px] text-[#163300]/65 font-medium">
               {review.position}, {review.company}
             </p>
           </div>
@@ -84,7 +82,7 @@ export function ReviewsMarquee() {
 
   return (
     <section
-      className="relative py-28 md:py-36 bg-[#FAFAF8] border-t border-black/5 overflow-hidden"
+      className="relative py-28 md:py-36 bg-[#FAFAF8] border-t border-black/5 overflow-hidden select-none"
       id="reviews"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
@@ -111,17 +109,17 @@ export function ReviewsMarquee() {
         </motion.div>
       </div>
 
-      <div className="relative w-full space-y-6 overflow-hidden group">
+      <div className="relative w-full space-y-6 overflow-hidden">
         <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/90 to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAFAF8] via-[#FAFAF8]/90 to-transparent z-10 pointer-events-none" />
 
-        <div className="flex w-max gap-6 animate-reviews-forward group-hover:[animation-play-state:paused] will-change-transform">
+        <div className="flex flex-nowrap w-max gap-6 animate-reviews-forward hover:[animation-play-state:paused] will-change-transform">
           {row1.map((item, idx) => (
             <ReviewCard key={`row1-${item.company}-${idx}`} review={item} />
           ))}
         </div>
 
-        <div className="flex w-max gap-6 animate-reviews-reverse group-hover:[animation-play-state:paused] will-change-transform">
+        <div className="flex flex-nowrap w-max gap-6 animate-reviews-reverse hover:[animation-play-state:paused] will-change-transform">
           {row2.map((item, idx) => (
             <ReviewCard key={`row2-${item.company}-${idx}`} review={item} />
           ))}
