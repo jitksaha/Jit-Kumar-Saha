@@ -2,115 +2,36 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from '@tanstack/react-router';
 
-interface RollingTextProps {
+export interface RollingTextProps {
   text: string;
   className?: string;
   staggerDelay?: number;
   duration?: number;
 }
 
-export function RollingText({
-  text,
-  className = '',
-  staggerDelay = 0.015,
-  duration = 0.28,
-}: RollingTextProps) {
-  const characters = text.split('');
-  return (
-    <span className={`inline-flex items-center select-none text-inherit ${className}`}>
-      {characters.map((char, index) => (
-        <span
-          key={index}
-          className="relative inline-flex flex-col overflow-hidden h-[1.3em] leading-[1.3em] align-baseline"
-        >
-          <motion.span
-            variants={{
-              initial: { y: '0%' },
-              hover: { y: '-100%' },
-              hovered: { y: '-100%' },
-            }}
-            transition={{
-              duration,
-              ease: [0.22, 1, 0.36, 1],
-              delay: index * staggerDelay,
-            }}
-            className="inline-block text-inherit"
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </motion.span>
-          <motion.span
-            variants={{
-              initial: { y: '0%' },
-              hover: { y: '-100%' },
-              hovered: { y: '-100%' },
-            }}
-            transition={{
-              duration,
-              ease: [0.22, 1, 0.36, 1],
-              delay: index * staggerDelay,
-            }}
-            className="inline-block text-inherit absolute top-full left-0 w-full text-center"
-            aria-hidden="true"
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </motion.span>
-        </span>
-      ))}
-    </span>
-  );
+export function RollingText({ text, className = '' }: RollingTextProps) {
+  return <span className={`inline-block text-inherit select-none ${className}`}>{text}</span>;
 }
 
-interface RollingIconProps {
+export interface RollingIconProps {
   icon: React.ReactNode | React.ElementType;
   size?: number;
   className?: string;
   delay?: number;
 }
 
-export function RollingIcon({
-  icon,
-  size = 15,
-  className = '',
-  delay = 0.06,
-}: RollingIconProps) {
-  const renderedIcon = React.isValidElement(icon)
-    ? icon
-    : typeof icon === 'function' || typeof icon === 'object'
-      ? React.createElement(icon as React.ElementType, {
-          size,
-          className: 'w-full h-full text-inherit',
-        })
-      : icon;
-
-  return (
-    <span
-      className={`relative inline-flex items-center justify-center overflow-hidden h-[1.15em] w-[1.15em] shrink-0 text-inherit ${className}`}
-    >
-      <motion.span
-        className="inline-flex items-center justify-center text-inherit w-full h-full"
-        variants={{
-          initial: { y: '0%', opacity: 1 },
-          hover: { y: '-100%', opacity: 0 },
-          hovered: { y: '-100%', opacity: 0 },
-        }}
-        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1], delay }}
-      >
-        {renderedIcon}
-      </motion.span>
-      <motion.span
-        className="absolute top-full left-0 inline-flex items-center justify-center text-inherit w-full h-full"
-        aria-hidden="true"
-        variants={{
-          initial: { y: '0%', opacity: 0 },
-          hover: { y: '-100%', opacity: 1 },
-          hovered: { y: '-100%', opacity: 1 },
-        }}
-        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1], delay }}
-      >
-        {renderedIcon}
-      </motion.span>
-    </span>
-  );
+export function RollingIcon({ icon, size = 15, className = '' }: RollingIconProps) {
+  if (React.isValidElement(icon)) {
+    return <span className={`inline-flex items-center justify-center shrink-0 text-inherit ${className}`}>{icon}</span>;
+  }
+  if (typeof icon === 'function' || typeof icon === 'object') {
+    return (
+      <span className={`inline-flex items-center justify-center shrink-0 text-inherit ${className}`}>
+        {React.createElement(icon as React.ElementType, { size, className: 'text-inherit' })}
+      </span>
+    );
+  }
+  return <span className={`inline-flex items-center justify-center shrink-0 text-inherit ${className}`}>{icon}</span>;
 }
 
 export interface ButtonProps {
@@ -154,49 +75,50 @@ export function Button({
 }: ButtonProps) {
   const variantStyles: Record<string, string> = {
     primary:
-      'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
-    dark: 'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
+      'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-all duration-200',
+    dark: 'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-all duration-200',
     secondary:
-      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-colors duration-300',
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-all duration-200',
     light:
-      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-colors duration-300',
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-all duration-200',
     glass:
-      'bg-white/90 backdrop-blur-md text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-white/90 backdrop-blur-md text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-all duration-200',
     'glass-dark':
-      'bg-white/10 backdrop-blur-md text-white hover:bg-[#DCFF85] hover:text-[#163300] hover:border-[#DCFF85] border border-white/20 shadow-sm transition-colors duration-300',
-    lime: 'bg-[#9FE870] text-[#163300] hover:bg-white hover:text-[#163300] hover:border-white border border-[#9FE870] shadow-md shadow-[#9FE870]/20 transition-colors duration-300',
+      'bg-white/10 backdrop-blur-md text-white hover:bg-[#DCFF85] hover:text-[#163300] hover:border-[#DCFF85] border border-white/20 shadow-sm transition-all duration-200',
+    lime: 'bg-[#9FE870] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#9FE870] shadow-md shadow-[#9FE870]/20 transition-all duration-200',
     outline:
-      'bg-transparent text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/30 transition-colors duration-300',
+      'bg-transparent text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/30 transition-all duration-200',
   };
 
   const currentVariant = variantStyles[variant] || variantStyles.dark;
 
+  const renderedIcon = icon ? (
+    <span className="inline-flex items-center justify-center shrink-0 text-inherit transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+      {React.isValidElement(icon)
+        ? icon
+        : typeof icon === 'function' || typeof icon === 'object'
+          ? React.createElement(icon as React.ElementType, {
+              size: 15,
+              className: 'text-inherit',
+            })
+          : icon}
+    </span>
+  ) : null;
+
   const content = (
-    <span className="relative z-10 inline-flex items-center justify-center gap-2 text-inherit">
-      {text ? <RollingText text={text} className="text-inherit" /> : children}
-      {icon && (
-        <RollingIcon
-          icon={icon}
-          className="text-inherit"
-          delay={text ? text.length * 0.015 : 0.05}
-        />
-      )}
+    <span className="relative z-10 inline-flex items-center justify-center gap-2 text-inherit leading-none">
+      {text ? <span className="text-inherit">{text}</span> : children}
+      {renderedIcon}
     </span>
   );
 
-  const baseClasses = `group relative inline-flex items-center justify-center overflow-hidden rounded-full font-semibold select-none ${currentVariant} ${className} ${
+  const baseClasses = `group relative inline-flex items-center justify-center rounded-full font-semibold select-none cursor-pointer ${currentVariant} ${className} ${
     disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''
   }`;
 
   const motionProps = {
-    initial: 'initial',
-    whileHover: 'hovered',
-    whileTap: 'tap',
-    variants: {
-      initial: { scale: 1, y: 0 },
-      hovered: { scale: 1.02, y: -1, transition: { duration: 0.18, ease: 'easeOut' as const } },
-      tap: { scale: 0.96, transition: { duration: 0.1, ease: 'easeOut' as const } },
-    },
+    whileHover: { scale: 1.02, y: -1, transition: { duration: 0.18, ease: 'easeOut' as const } },
+    whileTap: { scale: 0.96, transition: { duration: 0.1, ease: 'easeOut' as const } },
   };
 
   if (to) {
@@ -275,7 +197,6 @@ export function ActionLink({
   target,
   rel,
 }: ActionLinkProps) {
-  // If a variant is explicitly requested, render as Button
   if (variant) {
     return (
       <Button
@@ -292,22 +213,29 @@ export function ActionLink({
     );
   }
 
+  const renderedIcon = icon ? (
+    <span className="inline-flex items-center justify-center shrink-0 text-inherit transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+      {React.isValidElement(icon)
+        ? icon
+        : typeof icon === 'function' || typeof icon === 'object'
+          ? React.createElement(icon as React.ElementType, {
+              size: 15,
+              className: 'text-inherit',
+            })
+          : icon}
+    </span>
+  ) : null;
+
   const content = (
-    <span className="inline-flex items-center gap-1.5 text-inherit">
-      <RollingText text={text} />
-      {icon && <RollingIcon icon={icon} delay={text.length * 0.015} />}
+    <span className="inline-flex items-center gap-1.5 text-inherit leading-none">
+      <span className="text-inherit">{text}</span>
+      {renderedIcon}
     </span>
   );
 
   const motionProps = {
-    initial: 'initial',
-    whileHover: 'hovered',
-    whileTap: 'tap',
-    variants: {
-      initial: { scale: 1, y: 0 },
-      hovered: { y: -1, transition: { duration: 0.18, ease: 'easeOut' as const } },
-      tap: { scale: 0.97 },
-    },
+    whileHover: { y: -1, transition: { duration: 0.18, ease: 'easeOut' as const } },
+    whileTap: { scale: 0.97 },
   };
 
   if (to) {
@@ -316,7 +244,7 @@ export function ActionLink({
       <MotionLink
         to={to}
         onClick={onClick}
-        className={`inline-flex items-center text-inherit ${className}`}
+        className={`group inline-flex items-center text-inherit cursor-pointer ${className}`}
         {...motionProps}
       >
         {content}
@@ -330,7 +258,7 @@ export function ActionLink({
       target={target}
       rel={rel}
       onClick={onClick}
-      className={`inline-flex items-center text-inherit ${className}`}
+      className={`group inline-flex items-center text-inherit cursor-pointer ${className}`}
       {...motionProps}
     >
       {content}
