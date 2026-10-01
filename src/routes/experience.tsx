@@ -216,7 +216,7 @@ export function ExperienceRoute() {
   return (
     <SubrouteLayout page="experience">
       {/* Hero Section with Three.js & Anime.js */}
-      <section ref={heroRef} className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 bg-[#FAFAF8]">
+      <section ref={heroRef} className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-36 md:pb-16 bg-[#FAFAF8]">
         {/* Three.js interactive 3D particle canvas */}
         <div className="absolute inset-0 z-0 opacity-45 pointer-events-none">
           <ThreeBackground variant="particles" accentColor={0x9fe870} />
@@ -254,28 +254,28 @@ export function ExperienceRoute() {
                   />
                 </div>
               </div>
-              <div className="anime-hero-stats grid grid-cols-3 gap-3 pt-6 border-t border-[#163300]/10 max-w-xl">
+              <div className="anime-hero-stats grid grid-cols-3 gap-3.5 sm:gap-6 pt-6 border-t border-[#163300]/10 max-w-2xl">
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     7+ Yrs
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Operating Cadence
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     Full Lifecycle
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Opportunity to Growth
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     100%
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Shipped & Maintained
                   </span>
                 </div>

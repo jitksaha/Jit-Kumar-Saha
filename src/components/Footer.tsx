@@ -24,7 +24,7 @@ export function Footer({ hideCtaCard = false }: FooterProps = {}) {
     { label: 'Capabilities', to: '/expertise' },
     { label: 'Experience', to: '/experience' },
     { label: 'Ventures', to: '/venture' },
-    { label: 'AI & Code', to: '/ai' },
+    { label: 'AI & Agentic AI', to: '/ai' },
     { label: 'Pricing & Models', to: '/pricing' },
     { label: 'Insights', to: '/insights' },
   ];

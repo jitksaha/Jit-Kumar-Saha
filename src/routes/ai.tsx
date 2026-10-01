@@ -261,7 +261,7 @@ function AIPage() {
   return (
     <SubrouteLayout page="ai">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 bg-[#FAFAF8]">
+      <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-36 md:pb-16 bg-[#FAFAF8]">
         <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
           <ThreeBackground variant="orb" accentColor={0x9fe870} />
         </div>
@@ -274,11 +274,10 @@ function AIPage() {
               transition={{ duration: 0.7, ease: easeCustom }}
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#163300] text-[#DCFF85] text-xs font-mono uppercase tracking-widest mb-6 border border-[#DCFF85]/30 shadow-sm">
-                <Sparkles size={13} className="text-[#9FE870]" /> SOFTWARE ·
-                SAAS · APPLIED AI
+                <Sparkles size={13} className="text-[#9FE870]" /> APPLIED AGENTIC AI & SOFTWARE
               </div>
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-bold tracking-tight text-[#163300] leading-[1.08] mb-6">
-                AI, Software & Product Development
+                AI & Agentic AI Systems
               </h1>
               <p className="text-base sm:text-lg text-[#163300]/80 leading-relaxed max-w-2xl mb-8 font-medium">
                 Technology is the foundation through which ideas become
@@ -303,28 +302,28 @@ function AIPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[#163300]/10 max-w-xl">
+              <div className="grid grid-cols-3 gap-3.5 sm:gap-6 pt-6 border-t border-[#163300]/10 max-w-2xl">
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     AI & SaaS
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Product Architecture
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     Automation
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Workflow Systems
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     Engineering
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Reliable Execution
                   </span>
                 </div>

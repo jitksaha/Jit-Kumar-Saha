@@ -235,7 +235,7 @@ export function VentureRoute() {
   return (
     <SubrouteLayout page="venture">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 bg-[#FAFAF8]">
+      <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-36 md:pb-16 bg-[#FAFAF8]">
         <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
           <ThreeBackground variant="torus" accentColor={10479728} />
         </div>
@@ -273,28 +273,28 @@ export function VentureRoute() {
                   className="px-6 py-3.5 text-sm font-semibold tracking-tight shadow-xs"
                 />
               </div>
-              <div className="grid grid-cols-3 gap-3 pt-6 border-t border-[#163300]/10 max-w-xl">
+              <div className="grid grid-cols-3 gap-3.5 sm:gap-6 pt-6 border-t border-[#163300]/10 max-w-2xl">
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     Dynime
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Flagship Venture
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     SaaS & AI
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Core Tech Stack
                   </span>
                 </div>
                 <div>
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#163300] block tracking-tight">
+                  <span className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-[#163300] block tracking-tight whitespace-nowrap">
                     Global
                   </span>
-                  <span className="text-xs text-[#163300]/60 font-medium">
+                  <span className="text-[11px] sm:text-xs text-[#163300]/60 font-medium whitespace-nowrap block mt-0.5">
                     Modern Businesses
                   </span>
                 </div>

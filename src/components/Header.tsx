@@ -16,7 +16,7 @@ export const navLinks = [
   ['Expertise', '/expertise'],
   ['Impact', '/work'],
   ['Ventures', '/venture'],
-  ['AI & Code', '/ai'],
+  ['AI & Agentic AI', '/ai'],
   ['Pricing', '/pricing'],
 ];
 
@@ -159,7 +159,7 @@ export function Header({ variant = 'light', active }: HeaderProps) {
         {navLinks.map(([label, path]) => {
           const isActive =
             active === label.toLowerCase() ||
-            (label === 'AI & Code' && active === 'ai') ||
+            (label === 'AI & Agentic AI' && (active === 'ai' || active === 'ai & code' || active === 'ai & agentic ai')) ||
             (routerState?.location?.pathname === path);
 
           return (

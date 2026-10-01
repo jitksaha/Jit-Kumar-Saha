@@ -41,21 +41,21 @@ export function ExecutivePortraitCard({
 }: ExecutivePortraitCardProps) {
   return (
     <motion.div
-      className={`relative group rounded-3xl overflow-hidden bg-white/90 backdrop-blur-md border border-[#163300]/15 shadow-lg transition-all duration-500 hover:shadow-xl hover:border-[#163300]/30 max-w-md mx-auto ${className}`}
+      className={`relative group rounded-3xl overflow-hidden bg-white/95 backdrop-blur-md border border-[#163300]/15 shadow-xl transition-all duration-500 hover:shadow-2xl hover:border-[#163300]/30 max-w-md mx-auto w-full ${className}`}
       variants={itemVariants}
       whileHover={{ y: -3 }}
       transition={{ duration: 0.35, ease: easeCustom }}
     >
       <div className="absolute -top-16 -right-16 w-48 h-48 bg-[#DCFF85]/40 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
 
-      <div className={`relative w-full ${aspectRatio} max-h-[250px] sm:max-h-[275px] overflow-hidden bg-[#163300]/5`}>
+      <div className="relative w-full h-[270px] sm:h-[300px] md:h-[315px] overflow-hidden bg-[#163300]/5">
         <img
           src={image}
           alt="Jit Kumar Saha — Founder, Product Leader and AI Strategist"
-          className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className="w-full h-full object-cover object-[center_10%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#163300]/90 via-[#163300]/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#163300]/95 via-[#163300]/30 to-transparent pointer-events-none" />
 
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[#163300] text-[10px] sm:text-[11px] font-mono font-bold shadow-sm border border-white/50">

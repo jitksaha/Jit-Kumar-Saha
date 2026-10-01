@@ -233,7 +233,7 @@ export function ExpertiseRoute() {
   return (
     <SubrouteLayout page="expertise">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24 bg-[#FAFAF8]">
+      <section className="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 md:pt-36 md:pb-16 bg-[#FAFAF8]">
         <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
           <ThreeBackground variant="orb" accentColor={10479728} />
         </div>
