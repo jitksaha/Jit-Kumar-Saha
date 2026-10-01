@@ -21,11 +21,11 @@ export function RollingText({
       {characters.map((char, index) => (
         <span
           key={index}
-          className="relative inline-flex flex-col overflow-hidden h-[1.3em] leading-[1.3em] align-baseline"
+          className="relative inline-flex flex-col overflow-hidden h-[1.3em] leading-[1.3em] align-baseline text-inherit"
         >
           <span
             style={{
-              transition: `transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1)`,
+              transition: `transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease`,
               transitionDelay: `${index * staggerDelay}s`,
             }}
             className="inline-block text-inherit transform group-hover:-translate-y-full"
@@ -34,7 +34,7 @@ export function RollingText({
           </span>
           <span
             style={{
-              transition: `transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1)`,
+              transition: `transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease`,
               transitionDelay: `${index * staggerDelay}s`,
             }}
             className="inline-block text-inherit absolute top-full left-0 w-full text-center transform group-hover:-translate-y-full"
@@ -76,7 +76,7 @@ export function RollingIcon({
     >
       <span
         style={{
-          transition: 'transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease',
+          transition: 'transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease, color 0.25s ease',
           transitionDelay: `${delay}s`,
         }}
         className="inline-flex items-center justify-center text-inherit w-full h-full transform group-hover:-translate-y-full group-hover:opacity-0"
@@ -85,7 +85,7 @@ export function RollingIcon({
       </span>
       <span
         style={{
-          transition: 'transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease',
+          transition: 'transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease, color 0.25s ease',
           transitionDelay: `${delay}s`,
         }}
         className="absolute top-full left-0 inline-flex items-center justify-center text-inherit w-full h-full transform group-hover:-translate-y-full group-hover:opacity-100 opacity-0"
@@ -109,10 +109,12 @@ export interface ButtonProps {
     | 'primary'
     | 'dark'
     | 'secondary'
+    | 'lime'
+    | 'tertiary'
     | 'light'
+    | 'neutral'
     | 'glass'
     | 'glass-dark'
-    | 'lime'
     | 'outline';
   target?: string;
   rel?: string;
@@ -136,21 +138,35 @@ export function Button({
   disabled,
   ariaLabel,
 }: ButtonProps) {
+  // 3 Primary Color Combinations with inverted high-contrast hover states
   const variantStyles: Record<string, string> = {
+    // 1. Primary Button (Dark Forest Green background with Lime text, inverts to Lime on hover)
     primary:
-      'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
-    dark: 'bg-[#163300] text-[#DCFF85] hover:bg-[#214702] hover:text-[#DCFF85] border border-[#DCFF85]/30 shadow-md shadow-[#163300]/15 transition-colors duration-300',
+      'bg-[#163300] text-[#DCFF85] hover:bg-[#9FE870] hover:text-[#163300] border border-[#163300] hover:border-[#9FE870] shadow-md shadow-[#163300]/15 transition-all duration-300',
+    dark:
+      'bg-[#163300] text-[#DCFF85] hover:bg-[#9FE870] hover:text-[#163300] border border-[#163300] hover:border-[#9FE870] shadow-md shadow-[#163300]/15 transition-all duration-300',
+
+    // 2. Secondary / Lime Button (Bright Lime background with Dark Green text, inverts to Dark Green on hover)
     secondary:
-      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-colors duration-300',
+      'bg-[#9FE870] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#9FE870] hover:border-[#163300] shadow-md shadow-[#9FE870]/20 transition-all duration-300',
+    lime:
+      'bg-[#9FE870] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#9FE870] hover:border-[#163300] shadow-md shadow-[#9FE870]/20 transition-all duration-300',
+
+    // 3. Third / Neutral / Tertiary Button (Soft Neutral Grey background with Dark Green text, inverts to Dark Green on hover)
+    tertiary:
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#DCE0D5] hover:border-[#163300] shadow-xs transition-all duration-300',
     light:
-      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#DCE0D5] shadow-xs transition-colors duration-300',
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#DCE0D5] hover:border-[#163300] shadow-xs transition-all duration-300',
+    neutral:
+      'bg-[#F0F2ED] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#DCE0D5] hover:border-[#163300] shadow-xs transition-all duration-300',
+
+    // Glass & Outline styles
     glass:
-      'bg-white/90 backdrop-blur-md text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/20 shadow-sm transition-colors duration-300',
+      'bg-white/90 backdrop-blur-md text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#163300]/20 hover:border-[#163300] shadow-sm transition-all duration-300',
     'glass-dark':
-      'bg-white/10 backdrop-blur-md text-white hover:bg-[#DCFF85] hover:text-[#163300] hover:border-[#DCFF85] border border-white/20 shadow-sm transition-colors duration-300',
-    lime: 'bg-[#9FE870] text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#9FE870] shadow-md shadow-[#9FE870]/20 transition-colors duration-300',
+      'bg-white/10 backdrop-blur-md text-white hover:bg-[#DCFF85] hover:text-[#163300] border border-white/20 hover:border-[#DCFF85] shadow-sm transition-all duration-300',
     outline:
-      'bg-transparent text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] hover:border-[#163300] border border-[#163300]/30 transition-colors duration-300',
+      'bg-transparent text-[#163300] hover:bg-[#163300] hover:text-[#DCFF85] border border-[#163300]/30 hover:border-[#163300] transition-all duration-300',
   };
 
   const currentVariant = variantStyles[variant] || variantStyles.dark;
@@ -232,10 +248,12 @@ export interface ActionLinkProps {
     | 'primary'
     | 'dark'
     | 'secondary'
+    | 'lime'
+    | 'tertiary'
     | 'light'
+    | 'neutral'
     | 'glass'
     | 'glass-dark'
-    | 'lime'
     | 'outline';
   onClick?: (event: React.MouseEvent) => void;
   target?: string;
