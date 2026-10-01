@@ -22,18 +22,27 @@ export function ThreeBackground({
     const width = container.clientWidth || 400;
     const height = container.clientHeight || 300;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 1000);
-    camera.position.z = 40;
+    let renderer: THREE.WebGLRenderer | null = null;
+    let scene: THREE.Scene | null = null;
+    let camera: THREE.PerspectiveCamera | null = null;
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-      powerPreference: "high-performance",
-    });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+    try {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 1000);
+      camera.position.z = 40;
+
+      renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        powerPreference: "high-performance",
+      });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+    } catch (err) {
+      console.warn("WebGL ThreeBackground skipped:", err);
+      return;
+    }
 
     const disposables: {
       geometry?: THREE.BufferGeometry;
@@ -216,10 +225,10 @@ export function ThreeBackground({
       if (animId) cancelAnimationFrame(animId);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onResize);
-      if (container.contains(renderer.domElement)) {
+      if (renderer && container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
-      renderer.dispose();
+      renderer?.dispose();
       disposables.forEach(({ geometry, material }) => {
         geometry?.dispose();
         if (Array.isArray(material)) {
