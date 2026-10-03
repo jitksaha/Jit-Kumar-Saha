@@ -4,6 +4,8 @@ import {
   ArrowUpRight,
   Mail,
   Linkedin,
+  Facebook,
+  Instagram,
   Phone,
   Sparkles,
   ArrowUp,
@@ -11,6 +13,12 @@ import {
 import { BrandStar } from './ui/BrandStar';
 import { Button, RollingText } from './ui/Button';
 import { CopyButton } from './ui/CopyButton';
+
+const XIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface FooterProps {
   hideCtaCard?: boolean;
@@ -112,9 +120,9 @@ export function Footer({ hideCtaCard = false }: FooterProps = {}) {
               Product Leader, Web Developer, and AI Strategist helping ambitious founders turn rough
               ideas into resilient products and automated growth engines.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
               <motion.a
-                href="https://www.linkedin.com/in/jitksha"
+                href="https://www.linkedin.com/in/jitksahabd/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 transition-colors"
@@ -122,6 +130,36 @@ export function Footer({ hideCtaCard = false }: FooterProps = {}) {
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin size={18} />
+              </motion.a>
+              <motion.a
+                href="https://x.com/jitksahabd"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 transition-colors"
+                whileHover={{ scale: 1.1, y: -2 }}
+                aria-label="X (formerly Twitter)"
+              >
+                <XIcon size={16} />
+              </motion.a>
+              <motion.a
+                href="https://www.facebook.com/jitksahabd/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 transition-colors"
+                whileHover={{ scale: 1.1, y: -2 }}
+                aria-label="Facebook Profile"
+              >
+                <Facebook size={18} />
+              </motion.a>
+              <motion.a
+                href="https://www.instagram.com/jitksahabd/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 transition-colors"
+                whileHover={{ scale: 1.1, y: -2 }}
+                aria-label="Instagram Profile"
+              >
+                <Instagram size={18} />
               </motion.a>
               <motion.a
                 href="https://wa.me/8801601111994"

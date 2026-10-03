@@ -82,11 +82,11 @@ export const Route = createFileRoute('/expertise')({
       },
       {
         name: 'twitter:site',
-        content: '@jitksaha',
+        content: '@jitksahabd',
       },
       {
         name: 'twitter:creator',
-        content: '@jitksaha',
+        content: '@jitksahabd',
       },
       {
         name: 'twitter:title',

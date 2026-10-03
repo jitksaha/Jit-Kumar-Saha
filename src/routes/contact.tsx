@@ -5,6 +5,8 @@ import {
   ArrowUpRight,
   Mail,
   Linkedin,
+  Facebook,
+  Instagram,
   MessageCircle,
   MapPin,
   Clock,
@@ -18,6 +20,12 @@ import { CopyButton } from "../components/ui/CopyButton";
 import { InquiryWizard } from "../components/forms/InquiryWizard";
 import { ActionLink, RollingIcon } from "../components/ui/Button";
 import { easeCustom, itemVariants, containerVariants } from "../utils/motion";
+
+const XIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 function ContactPage() {
   return (
@@ -169,7 +177,7 @@ function ContactPage() {
               variants={itemVariants}
             >
               <motion.a
-                href="https://www.linkedin.com/in/jitksha"
+                href="https://www.linkedin.com/in/jitksahabd/"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-white rounded-3xl p-8 border border-[#163300]/10 hover:border-[#163300]/30 hover:shadow-md transition-all flex flex-col justify-between group flex-1"
@@ -227,6 +235,42 @@ function ContactPage() {
                   <RollingIcon icon={ArrowUpRight} size={15} />
                 </div>
               </motion.a>
+
+              {/* Additional Social Channels */}
+              <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#163300]/10 flex items-center justify-between gap-4">
+                <span className="text-xs font-mono font-semibold text-[#163300]/70">
+                  CONNECT ON SOCIAL
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://x.com/jitksahabd"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-9 h-9 rounded-xl bg-[#163300]/5 hover:bg-[#163300] text-[#163300] hover:text-[#DCFF85] flex items-center justify-center transition-all"
+                    aria-label="X (Twitter)"
+                  >
+                    <XIcon size={14} />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/jitksahabd/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-9 h-9 rounded-xl bg-[#163300]/5 hover:bg-[#163300] text-[#163300] hover:text-[#DCFF85] flex items-center justify-center transition-all"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={16} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/jitksahabd/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-9 h-9 rounded-xl bg-[#163300]/5 hover:bg-[#163300] text-[#163300] hover:text-[#DCFF85] flex items-center justify-center transition-all"
+                    aria-label="Instagram"
+                  >
+                    <Instagram size={16} />
+                  </a>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 

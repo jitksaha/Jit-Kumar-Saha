@@ -67,11 +67,11 @@ export const Route = createFileRoute('/insights')({
       },
       {
         name: 'twitter:site',
-        content: '@jitksaha',
+        content: '@jitksahabd',
       },
       {
         name: 'twitter:creator',
-        content: '@jitksaha',
+        content: '@jitksahabd',
       },
       {
         name: 'twitter:title',

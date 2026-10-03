@@ -161,11 +161,11 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       },
       {
         name: 'twitter:site',
-        content: '@jitksaha',
+        content: '@jitksahabd',
       },
       {
         name: 'twitter:creator',
-        content: '@jitksaha',
+        content: '@jitksahabd',
       },
       {
         name: 'twitter:title',
@@ -216,9 +216,12 @@ export const Route = createRootRouteWithContext<RouterContext>()({
               url: 'https://jitksaha.com',
               image: 'https://jitksaha.com/assets/portraits/jitksaha_hero.png',
               sameAs: [
-                'https://www.linkedin.com/in/jitksaha',
+                'https://www.linkedin.com/in/jitksahabd/',
+                'https://x.com/jitksahabd',
+                'https://www.facebook.com/jitksahabd/',
+                'https://www.facebook.com/jitksaha',
+                'https://www.instagram.com/jitksahabd/',
                 'https://github.com/jitksaha',
-                'https://twitter.com/jitksaha',
               ],
               worksFor: {
                 '@type': 'Organization',

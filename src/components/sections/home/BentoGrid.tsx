@@ -618,7 +618,7 @@ export function BentoGrid() {
           </div>
 
           <div className="flex items-center justify-between text-[11px] font-mono text-white/70 pt-3 border-t border-white/10">
-            <span>@jitksaha</span>
+            <span>@jitksahabd</span>
             <span className="text-[#DCFF85] font-bold">Verified Architect</span>
           </div>
         </motion.div>
