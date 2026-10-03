@@ -193,11 +193,17 @@ export function Button({
     whileTap: { scale: 0.96, transition: { duration: 0.1, ease: 'easeOut' as const } },
   };
 
-  if (to) {
+  const isExternal =
+    (to && (to.startsWith('http://') || to.startsWith('https://') || to.startsWith('mailto:') || to.startsWith('tel:') || to.startsWith('#'))) ||
+    Boolean(href);
+  const resolvedHref = href || (isExternal && to ? to : undefined);
+  const resolvedTo = !isExternal ? to : undefined;
+
+  if (resolvedTo) {
     const MotionLink = motion.create(Link);
     return (
       <MotionLink
-        to={to}
+        to={resolvedTo}
         onClick={onClick}
         className={baseClasses}
         aria-label={ariaLabel || text}
@@ -208,10 +214,10 @@ export function Button({
     );
   }
 
-  if (href) {
+  if (resolvedHref) {
     return (
       <motion.a
-        href={href}
+        href={resolvedHref}
         target={target}
         rel={rel}
         onClick={onClick}
@@ -299,11 +305,17 @@ export function ActionLink({
     whileTap: { scale: 0.97 },
   };
 
-  if (to) {
+  const isExternal =
+    (to && (to.startsWith('http://') || to.startsWith('https://') || to.startsWith('mailto:') || to.startsWith('tel:') || to.startsWith('#'))) ||
+    Boolean(href);
+  const resolvedHref = href || (isExternal && to ? to : undefined);
+  const resolvedTo = !isExternal ? to : undefined;
+
+  if (resolvedTo) {
     const MotionLink = motion.create(Link);
     return (
       <MotionLink
-        to={to}
+        to={resolvedTo}
         onClick={onClick}
         className={`group inline-flex items-center text-inherit cursor-pointer ${className}`}
         {...motionProps}
@@ -315,7 +327,7 @@ export function ActionLink({
 
   return (
     <motion.a
-      href={href}
+      href={resolvedHref}
       target={target}
       rel={rel}
       onClick={onClick}

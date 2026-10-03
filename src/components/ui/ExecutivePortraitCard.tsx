@@ -19,6 +19,7 @@ export interface ExecutivePortraitCardProps {
   quote?: string;
   ctaText?: string;
   ctaTo?: string;
+  ctaHref?: string;
   className?: string;
   aspectRatio?: string;
   size?: "normal" | "large";
@@ -36,6 +37,7 @@ export function ExecutivePortraitCard({
   quote,
   ctaText,
   ctaTo = "/contact",
+  ctaHref,
   className = "",
   aspectRatio = "aspect-[16/10]",
 }: ExecutivePortraitCardProps) {
@@ -109,7 +111,8 @@ export function ExecutivePortraitCard({
         {ctaText && (
           <div className="pt-1">
             <ActionLink
-              to={ctaTo}
+              to={ctaHref ? undefined : ctaTo}
+              href={ctaHref || (ctaTo?.startsWith('mailto:') || ctaTo?.startsWith('http') ? ctaTo : undefined)}
               variant="dark"
               text={ctaText}
               icon={<ArrowUpRight size={13} />}

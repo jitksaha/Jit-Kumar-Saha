@@ -107,7 +107,7 @@ function ContactPage() {
                   { label: "Availability", value: "Q1/Q2 2026" },
                 ]}
                 ctaText="Send Direct Email"
-                ctaTo="mailto:mail@jitksaha.com"
+                ctaHref="mailto:mail@jitksaha.com"
               />
             </motion.div>
           </div>
