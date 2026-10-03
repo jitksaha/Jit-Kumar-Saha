@@ -83,10 +83,21 @@ RewriteEngine On
 # ----------------------------------------------------------------------
 # Routing for Single Page App (SPA)
 # ----------------------------------------------------------------------
+
+# 1. If the requested file or directory exists inside dist/, serve it from dist/
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -d
+RewriteRule ^(.*)$ dist/$1 [L]
+
+# 2. If the file exists directly in root (and is not index.html), serve it
+RewriteCond %{REQUEST_URI} !^/index\.html$
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Let TanStack Router handle client-side routes on shared hosting.
+# 3. For all SPA routes, fallback to dist/index.html if available, else index.html
+RewriteCond %{DOCUMENT_ROOT}/dist/index.html -f
+RewriteRule ^ dist/index.html [L]
+
 RewriteRule ^ index.html [L]
 
