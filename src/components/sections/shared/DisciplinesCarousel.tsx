@@ -25,9 +25,9 @@ export function DisciplinesCarousel() {
   const repeatedItems = [...portraitItems, ...portraitItems, ...portraitItems];
 
   return (
-    <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden py-12 sm:py-20 my-2 select-none">
-      <div className="absolute top-0 bottom-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/60 to-transparent z-20 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-[#FAFAF8] via-[#FAFAF8]/60 to-transparent z-20 pointer-events-none" />
+    <div className="relative w-full overflow-hidden py-4 sm:py-8 select-none">
+      <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-28 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/80 to-transparent z-20 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-28 bg-gradient-to-l from-[#FAFAF8] via-[#FAFAF8]/80 to-transparent z-20 pointer-events-none" />
 
       <div
         className="w-full py-10 sm:py-14 overflow-hidden"

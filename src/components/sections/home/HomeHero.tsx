@@ -110,16 +110,17 @@ export function HomeHero() {
       <HeroRail terms={rightTerms} right />
 
       <motion.div
-        className="intro-center flex flex-col items-center justify-center text-center mx-auto w-full"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
+        className="intro-center flex flex-col items-center justify-center text-center mx-auto w-full relative z-10"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.span
           className="inline-flex items-center self-center w-fit max-w-max gap-2 pl-1.5 pr-3.5 py-1 rounded-full bg-[#163300]/[0.05] border border-[#163300]/10 text-xs font-mono font-medium text-[#163300]/80 shadow-2xs mb-5 select-none shrink-0 mx-auto"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
         >
           <img
             src={assetUrls.hero}
@@ -139,14 +140,18 @@ export function HomeHero() {
         <motion.h1
           id="intro-heading"
           className="text-4xl sm:text-6xl md:text-7xl font-sans font-bold tracking-tight text-[#163300] leading-[1.08] mb-4"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
           Jit Kumar Saha
         </motion.h1>
 
         <motion.h2
           className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#163300]/80 mb-4 max-w-2xl text-center"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           Entrepreneur building businesses, products and technology for the
           digital economy.
@@ -154,7 +159,9 @@ export function HomeHero() {
 
         <motion.p
           className="intro-description max-w-2xl text-center text-sm sm:text-base text-[#163300]/75 leading-relaxed mb-8"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
           Jit Kumar Saha is an entrepreneur, product builder and technology
           founder focused on building digital products, SaaS platforms and
@@ -166,7 +173,9 @@ export function HomeHero() {
         {/* Redesigned Action Buttons */}
         <motion.div
           className="flex flex-wrap items-center justify-center gap-3.5 mb-10 max-w-2xl w-full px-2"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
         >
           <Button
             text="Discuss a Project"
@@ -187,7 +196,9 @@ export function HomeHero() {
         {/* 2-Row Brand Logo Slider with wide breathing room */}
         <motion.div
           className="w-full max-w-4xl xl:max-w-5xl px-2 sm:px-4"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
           <BrandSlider />
         </motion.div>

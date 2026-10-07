@@ -29,10 +29,10 @@ function FadeIn({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.72, delay, ease: easeCustom }}
+      viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: 0.6, delay, ease: easeCustom }}
     >
       {children}
     </motion.div>
@@ -44,18 +44,18 @@ function HomePage() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   return (
-    <div className="studio-page" id="top">
+    <div className="studio-page overflow-x-hidden w-full" id="top">
       <motion.div className="studio-progress" style={{ scaleX }} />
       <Header />
       <HomeHero />
 
       {/* Black ribbon bar */}
       <motion.div
-        className="w-full bg-[#171717] text-white py-4 px-6 border-y border-white/10"
-        initial={{ opacity: 0, y: 20 }}
+        className="w-full bg-[#171717] text-white py-4 px-6 border-y border-white/10 relative z-10"
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: easeCustom }}
+        transition={{ duration: 0.5, ease: easeCustom }}
       >
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs font-mono uppercase tracking-widest text-white/70">
           <span className="text-[#c7ff37] font-semibold flex items-center gap-2">
@@ -76,10 +76,10 @@ function HomePage() {
         </div>
       </motion.div>
 
-      <main>
+      <main className="w-full overflow-x-hidden">
         {/* WHAT I BUILD Section with Carousel */}
         <section
-          className="relative py-24 md:py-32 overflow-hidden"
+          className="relative py-20 md:py-28 overflow-hidden w-full"
           aria-labelledby="what-i-build-heading"
         >
           <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -115,7 +115,7 @@ function HomePage() {
               </p>
             </FadeIn>
           </div>
-          <FadeIn delay={0.1}>
+          <FadeIn delay={0.1} className="w-full">
             <DisciplinesCarousel />
           </FadeIn>
         </section>
