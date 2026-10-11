@@ -46,8 +46,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'DM Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['DM Sans', 'Inter', 'sans-serif'],
+        dynex: ['"Dynex Sans"', 'sans-serif'],
+        sans: ['"Dynex Sans"', 'sans-serif'],
+        heading: ['"Dynex Sans"', 'sans-serif'],
         serif: ['Instrument Serif', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
